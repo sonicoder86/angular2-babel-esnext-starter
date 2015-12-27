@@ -7,12 +7,22 @@ let webpack = require('webpack');
 let nodemon = require('gulp-nodemon');
 let runSequence = require('run-sequence');
 let del = require('del');
+let miniLr = require('mini-lr');
 
 let webPackConfig = require('./webpack.config');
 
 let sourceFolder = 'client';
 let source = 'client/**/*.html';
 let destinationFolder = 'build';
+let liveReload = miniLr();
+
+function notifyChanged(files) {
+  liveReload.changed({
+    body: {
+      files: files
+    }
+  });
+}
 
 gulp.task('server-start', function () {
   return nodemon({
@@ -26,9 +36,18 @@ gulp.task('server-start', function () {
   });
 });
 
+gulp.task('livereload', function() {
+  liveReload.listen(35729);
+});
+
 gulp.task('client-copy', function() {
+  let clientWatch = watch(source, {base: sourceFolder, verbose: true});
+  clientWatch.on('change', function(fileName) {
+    notifyChanged([fileName]);
+  });
+
   gulp.src(source, {base: sourceFolder})
-    .pipe(watch(source, {base: sourceFolder, verbose: true}))
+    .pipe(clientWatch)
     .pipe(gulp.dest(destinationFolder));
 });
 
@@ -41,12 +60,25 @@ gulp.task('client-build', function(callback) {
       throw new util.PluginError("webpack:error", err);
     }
 
+    let statistics = stats.toJson({
+      children: false,
+      source: false,
+      modules: false,
+      chunkModules: false
+    });
+
+    let elapsedTime = Math.round(statistics.time / 10) / 100;
+
     if (firstRun) {
       callback();
       firstRun = false;
     }
     else {
-      util.log('webpack:build');
+      util.log(`webpack:build ${elapsedTime} s`);
+
+      notifyChanged(
+        statistics.assets.map((file) => file.name)
+      );
     }
   });
 });
@@ -58,7 +90,7 @@ gulp.task('clean', function() {
 gulp.task('start', function(callback) {
   runSequence(
     'clean',
-    ['client-build', 'client-copy'],
+    ['client-build', 'client-copy', 'livereload'],
     'server-start',
     callback
   )
