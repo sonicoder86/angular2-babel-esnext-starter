@@ -12,7 +12,7 @@ let miniLr = require('mini-lr');
 let webPackConfig = require('./webpack.config');
 
 let sourceFolder = 'client';
-let source = 'client/**/*.html';
+let source = ['client/**/*.{html,css}', '!**/app/**'];
 let destinationFolder = 'build';
 let liveReload = miniLr();
 
