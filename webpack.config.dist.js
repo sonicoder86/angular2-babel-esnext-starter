@@ -2,7 +2,12 @@
 let webpack = require('webpack');
 let config = require('./webpack.config');
 
-config.devtool = 'cheap-module-eval-source-map';
 config.plugins = [
-  new webpack.optimize.UglifyJsPlugin({minimize: true})
+  new webpack.optimize.UglifyJsPlugin({
+    minimize: true,
+    mangle: false,
+    comments: false
+  })
 ];
+
+module.exports = config;

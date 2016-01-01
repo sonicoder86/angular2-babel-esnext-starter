@@ -26,8 +26,10 @@ gulp.task('server-start', function () {
 gulp.task('livereload', liveReloadTask());
 
 gulp.task('client-copy', clientCopyTask(false, liveReloadTask.notifyChanged));
+gulp.task('client-copy-dist', clientCopyTask(true));
 
 gulp.task('client-build', clientBuildTask(false, liveReloadTask.notifyChanged));
+gulp.task('client-build-dist', clientBuildTask(true));
 
 gulp.task('clean', function() {
   return del([destinationFolder]);

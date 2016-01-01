@@ -3,12 +3,11 @@ let gulp = require('gulp');
 let webpack = require('webpack');
 let util = require('gulp-util');
 let config = require('./config').client;
-let webPackConfig = require('../webpack.config');
-let webPackConfigDist = require('../webpack.config.dist');
 
 module.exports = function(singleRun, callback) {
   return function(cb) {
-    let webpackBuild = webpack(webPackConfig);
+    let webpackConfig = singleRun ? require('../webpack.config.dist') : require('../webpack.config');
+    let webpackBuild = webpack(webpackConfig);
     let firstRun = true;
 
     let callbackOnBuild = function(err, stats) {
