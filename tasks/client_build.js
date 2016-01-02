@@ -6,7 +6,7 @@ let config = require('./config').client;
 
 module.exports = function(singleRun, callback) {
   return function(cb) {
-    let webpackConfig = singleRun ? require('../webpack.config.dist') : require('../webpack.config');
+    let webpackConfig = singleRun ? require('./config/webpack.dist') : require('./config/webpack');
     let webpackBuild = webpack(webpackConfig);
     let firstRun = true;
 

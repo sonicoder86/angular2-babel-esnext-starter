@@ -3,7 +3,7 @@
   "version": "1.0.0",
   "main": "server/index.js",
   "scripts": {
-    "start": "gulp start",
+    "start": "node server/index.js",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {
@@ -43,6 +43,7 @@
     "es6-promise": "^3.0.2",
     "es6-shim": "^0.33.13",
     "gulp": "^3.9.0",
+    "gulp-delete-lines": "0.0.7",
     "gulp-nodemon": "^2.0.4",
     "gulp-util": "^3.0.7",
     "gulp-watch": "^4.3.5",

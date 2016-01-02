@@ -1,6 +1,7 @@
 'use strict';
 let gulp = require('gulp');
 let watch = require('gulp-watch');
+let deleteLines = require('gulp-delete-lines');
 let config = require('./config').client;
 
 module.exports = function(singleRun, callback) {
@@ -17,6 +18,13 @@ module.exports = function(singleRun, callback) {
       }
 
       gulpStream.pipe(clientWatch);
+    }
+    else {
+      gulpStream.pipe(deleteLines({
+        'filters': [
+          /livereload/i
+        ]
+      }));
     }
 
     return gulpStream.pipe(gulp.dest(config.destination));

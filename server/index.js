@@ -1,13 +1,11 @@
 'use strict';
-
 let koa = require('koa');
 let staticServe = require('koa-static');
-let path = require('path');
+let config = require('./config');
 
-let port = 9000;
 let app = koa();
 
-app.use(staticServe(path.resolve(__dirname + '/../build')));
+app.use(staticServe(config.staticPath));
 
-app.listen(port);
-console.log(`Listening on port ${port}`);
+app.listen(config.port);
+console.log(`Listening on port ${config.port}`);

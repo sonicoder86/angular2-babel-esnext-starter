@@ -1,6 +1,6 @@
 'use strict';
 let webpack = require('webpack');
-let config = require('./webpack.config');
+let config = require('./webpack');
 
 config.plugins = [
   new webpack.optimize.UglifyJsPlugin({
