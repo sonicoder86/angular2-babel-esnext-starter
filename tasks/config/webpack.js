@@ -14,7 +14,7 @@ module.exports = {
     loaders: [
       {
         test: /\.js$/,
-        loader: 'babel-loader',
+        loader: 'babel',
         exclude: /node_modules/,
         query: {
           presets: ['es2015'],
@@ -25,6 +25,10 @@ module.exports = {
             'transform-flow-strip-types'
           ]
         }
+      },
+      {
+        test: /\.html$/,
+        loader: "html?minimize=false"
       }
     ]
   },

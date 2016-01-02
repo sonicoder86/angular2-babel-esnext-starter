@@ -1,9 +1,9 @@
 'use strict';
-
 import {Component} from 'angular2/core';
+import appTemplate from './app.component.html';
 
 @Component({
   selector: 'my-app',
-  template: '<h1>My First Angular 2 App</h1>'
+  template: appTemplate
 })
 export class AppComponent { }
