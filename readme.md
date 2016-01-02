@@ -7,6 +7,8 @@ The example is based on the official [5 Min Quickstart](https://angular.io/docs/
 - No Typescript included.
 - Bundles JavaScript files into one file with Webpack.
 - Automates bundling with Gulp.
+- Automatically rebundles and refreshes on changes.
+- Easy deployment.
 
 ### Quick Start
 
@@ -40,4 +42,4 @@ Check out the [deployed version](https://angular2-es6-starter.herokuapp.com/).
 
 ### Projects
 
-- [TodoMVC](https://github.com/blacksonic/angular2-es6-todomvc) TodoMVC application built with Angular 2.
+- [TodoMVC](https://github.com/blacksonic/angular2-es6-todomvc): TodoMVC application built with Angular 2.
