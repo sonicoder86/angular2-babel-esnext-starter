@@ -8,9 +8,13 @@ The example is based on the official [5 Min Quickstart](https://angular.io/docs/
 - Bundles JavaScript files into one file with Webpack.
 - Automates bundling with Gulp.
 - Automatically rebundles and refreshes on changes.
-- Easy deployment.
+- Testing with Jasmine.
+- Deployment included.
 
 ### Quick Start
+
+It bundles the application (JS files), copies the static files and starts the webserver with Nodemon.
+On server side changes restarts the server, on client side changes rebundles JS files and refreshes the page with Livereload.
 
 ```bash
 
@@ -24,7 +28,29 @@ gulp serve
 
 Open it in your browser [http://localhost:9000](http://localhost:9000) and let the fun begin!
 
+### Testing
+
+Runs tests with Karma and Jasmine against the Angular 2 application.
+
+```bash
+
+gulp test
+
+```
+
+Because of the bundling of Webpack it takes multiple seconds which is not ideal for every file change.
+On your local machine you can run it continously.
+
+```bash
+
+gulp test-dev
+
+```
+
 ### Deployment (to Heroku)
+
+It bundles the application (JS files) and copies static files and server files to ```dist``` directory along with ```package.json```.
+Then it can be commited to the desired location (for example Heroku).
 
 ```bash
 
