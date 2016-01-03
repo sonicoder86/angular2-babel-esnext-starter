@@ -7,6 +7,9 @@ config.plugins = [
     minimize: true,
     mangle: false,
     comments: false
+  }),
+  new webpack.DefinePlugin({
+    ENVIRONMENT: JSON.stringify('production')
   })
 ];
 

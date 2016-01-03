@@ -1,5 +1,6 @@
 'use strict';
 let path = require('path');
+let webpack = require('webpack');
 let config = require('./index').client;
 
 module.exports = {
@@ -37,6 +38,12 @@ module.exports = {
     root: __dirname,
     extensions: ['','.js','.json']
   },
+
+  plugins: [
+    new webpack.DefinePlugin({
+      ENVIRONMENT: JSON.stringify('development')
+    })
+  ],
 
   devtool: 'source-map'
 };
