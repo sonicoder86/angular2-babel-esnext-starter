@@ -5,7 +5,8 @@ let config = require('./index').client;
 
 module.exports = {
   entry: {
-    boot: './client/boot.js'
+    boot: './client/boot.js',
+    vendor: './client/vendor.js'
   },
   output: {
     path: path.resolve(__dirname, '../../', config.destination),
@@ -42,7 +43,10 @@ module.exports = {
   plugins: [
     new webpack.DefinePlugin({
       ENVIRONMENT: JSON.stringify('development')
-    })
+    }),
+    new webpack.optimize.CommonsChunkPlugin(
+      'vendor', 'vendor.js', Infinity
+    )
   ],
 
   devtool: 'source-map'
