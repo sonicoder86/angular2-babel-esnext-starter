@@ -40,6 +40,7 @@ gulp test
 
 Because of the bundling of Webpack it takes multiple seconds which is not ideal for every file change.
 On your local machine you can run it continously.
+The test files can be found in the ```client/app``` folder next to the source files with ```*.spec.js``` extensions.
 
 ```bash
 
