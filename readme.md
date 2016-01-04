@@ -1,6 +1,6 @@
 # Angular 2 ES6 Starter [![Dependency Status](https://david-dm.org/blacksonic/angular2-es6-starter.svg)](https://david-dm.org/blacksonic/angular2-es6-starter)
 
-A skeleton Angular 2 ES6 application built with Babel, Webpack, Gulp.
+A skeleton Angular 2 application built in ES6 with Babel, Webpack, Gulp.
 The example is based on the official [5 Min Quickstart](https://angular.io/docs/ts/latest/quickstart.html) tutorial.
 
 - Uses Babel to support class/parameter decorators and parameter type annotations.

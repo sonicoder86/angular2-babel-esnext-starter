@@ -21,7 +21,7 @@
     "webpack",
     "gulp"
   ],
-  "description": "A skeleton Angular2 ES6 application built with Babel, Webpack, Gulp",
+  "description": "A skeleton Angular 2 application built in ES6 with Babel, Webpack, Gulp.",
   "engines": {
     "node": "4.2.4"
   },
