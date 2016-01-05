@@ -1,4 +1,6 @@
-# Angular 2 ES6 Starter [![Dependency Status](https://david-dm.org/blacksonic/angular2-es6-starter.svg)](https://david-dm.org/blacksonic/angular2-es6-starter)
+# Angular 2 ES6 Starter 
+[![Dependency Status](https://david-dm.org/blacksonic/angular2-es6-starter.svg)](https://david-dm.org/blacksonic/angular2-es6-starter)
+[![devDependency Status](https://david-dm.org/blacksonic/angular2-es6-starter/dev-status.svg)](https://david-dm.org/blacksonic/angular2-es6-starter#info=devDependencies)
 
 A skeleton Angular 2 application built in ES6 with Babel, Webpack, Gulp.
 The example is based on the official [5 Min Quickstart](https://angular.io/docs/ts/latest/quickstart.html) tutorial.
