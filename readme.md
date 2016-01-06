@@ -3,7 +3,7 @@
 [![devDependency Status](https://david-dm.org/blacksonic/angular2-es6-starter/dev-status.svg)](https://david-dm.org/blacksonic/angular2-es6-starter#info=devDependencies)
 [![Build Status](https://travis-ci.org/blacksonic/angular2-es6-starter.svg?branch=master)](https://travis-ci.org/blacksonic/angular2-es6-starter)
 
-A skeleton Angular 2 application built in ES6 with Babel, Webpack, Gulp.
+A skeleton Angular 2 application built in ES6 with Babel, Webpack, Gulp. A more detailed application [(TodoMVC) can be found here](https://github.com/blacksonic/angular2-es6-todomvc).
 The example is based on the official [5 Min Quickstart](https://angular.io/docs/ts/latest/quickstart.html) tutorial.
 
 - Uses Babel to support class/parameter decorators and parameter type annotations.
@@ -69,7 +69,3 @@ git push -f git@heroku.com:angular2-es6-starter.git master
 ```
 
 Check out the [deployed version](https://angular2-es6-starter.herokuapp.com/).
-
-### Projects
-
-- [TodoMVC](https://github.com/blacksonic/angular2-es6-todomvc): TodoMVC application built with Angular 2.

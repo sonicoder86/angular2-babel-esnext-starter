@@ -6,12 +6,13 @@ let clientCopyTask = require('./tasks/client_copy');
 let clientBuildTask = require('./tasks/client_build');
 let clientTestTask = require('./tasks/client_test');
 let liveReloadTask = require('./tasks/livereload');
-let serverStartTask = require('./tasks/server_start');
+let serverTasks = require('./tasks/server_start');
 let serverCopyTask = require('./tasks/server_copy');
 let generalCopyTask = require('./tasks/general_copy');
 let cleanTask = require('./tasks/clean');
 
-gulp.task('server-start', serverStartTask());
+gulp.task('server-start', serverTasks.start());
+gulp.task('server-stop', serverTasks.stop());
 gulp.task('server-copy-dist', serverCopyTask());
 
 gulp.task('general-copy-dist', generalCopyTask());
@@ -55,5 +56,15 @@ gulp.task('dist', function(done) {
     'clean',
     ['client-build-dist', 'client-copy-dist', 'server-copy-dist', 'general-copy-dist'],
     done
-  )
+  );
+});
+
+gulp.task('test-e2e', function(done) {
+  runSequence(
+    //'clean',
+    //['client-build-dist', 'client-copy-dist'],
+    'server-start',
+    'server-stop',
+    done
+  );
 });
