@@ -11,7 +11,8 @@ The example is based on the official [5 Min Quickstart](https://angular.io/docs/
 - Bundles JavaScript files into one file with Webpack.
 - Automates bundling with Gulp.
 - Automatically rebundles and refreshes on changes.
-- Testing with Jasmine.
+- Unit testing with Jasmine.
+- End-To-End testing with Protractor.
 - Deployment included.
 
 ### Quick Start

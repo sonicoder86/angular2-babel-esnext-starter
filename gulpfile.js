@@ -10,6 +10,7 @@ let serverStartTasks = require('./tasks/server_start');
 let serverCopyTask = require('./tasks/server_copy');
 let generalCopyTask = require('./tasks/general_copy');
 let cleanTask = require('./tasks/clean');
+let protractorTask = require('./tasks/protractor');
 
 gulp.task('server-start', serverStartTasks());
 gulp.task('server-copy-dist', serverCopyTask());
@@ -49,6 +50,8 @@ gulp.task('test-dev', function(done) {
     done
   )
 });
+
+gulp.task('test-e2e', protractorTask());
 
 gulp.task('dist', function(done) {
   runSequence(

@@ -3,8 +3,10 @@
   "version": "1.0.0",
   "main": "server/index.js",
   "scripts": {
+    "postinstall": "webdriver-manager update",
     "start": "node server/index.js",
-    "test": "gulp test"
+    "test": "gulp test",
+    "webdriver-update": "webdriver-manager update"
   },
   "repository": {
     "type": "git",
@@ -45,6 +47,7 @@
     "gulp": "3.9.0",
     "gulp-delete-lines": "0.0.7",
     "gulp-nodemon": "2.0.6",
+    "gulp-protractor": "2.1.0",
     "gulp-util": "3.0.7",
     "gulp-watch": "4.3.5",
     "html-loader": "0.4.0",
@@ -57,6 +60,7 @@
     "mini-lr": "0.1.8",
     "phantomjs": "1.9.19",
     "phantomjs-polyfill": "0.0.1",
+    "protractor": "3.0.0",
     "reflect-metadata": "0.1.2",
     "run-sequence": "1.1.5",
     "rxjs": "5.0.0-beta.0",
