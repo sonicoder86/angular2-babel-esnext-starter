@@ -29,18 +29,17 @@
   },
   "dependencies": {
     "koa": "1.1.2",
-    "koa-static": "1.5.2"
+    "koa-static": "2.0.0"
   },
   "devDependencies": {
-    "angular2": "2.0.0-beta.0",
-    "babel-core": "6.3.26",
-    "babel-loader": "6.2.0",
+    "angular2": "2.0.0-beta.1",
+    "babel-core": "6.4.0",
+    "babel-loader": "6.2.1",
     "babel-plugin-angular2-annotations": "5.0.0",
-    "babel-plugin-transform-class-properties": "6.3.13",
+    "babel-plugin-transform-class-properties": "6.4.0",
     "babel-plugin-transform-decorators-legacy": "1.3.4",
-    "babel-plugin-transform-flow-strip-types": "6.3.15",
+    "babel-plugin-transform-flow-strip-types": "6.4.0",
     "babel-preset-es2015": "6.3.13",
-    "babylon": "6.3.26",
     "del": "2.2.0",
     "es6-promise": "3.0.2",
     "es6-shim": "0.33.13",
@@ -64,7 +63,7 @@
     "reflect-metadata": "0.1.2",
     "run-sequence": "1.1.5",
     "rxjs": "5.0.0-beta.0",
-    "webpack": "1.12.9",
+    "webpack": "1.12.10",
     "zone.js": "0.5.10"
   }
 }
