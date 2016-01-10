@@ -3,7 +3,6 @@
   "version": "1.0.0",
   "main": "server/index.js",
   "scripts": {
-    "postinstall": "webdriver-manager update",
     "start": "node server/index.js",
     "test": "gulp test",
     "webdriver-update": "webdriver-manager update"
