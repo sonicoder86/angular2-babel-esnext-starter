@@ -2,7 +2,7 @@
 
 module.exports = {
   client: {
-    source: ['client/**/*.{html,css}', '!**/app/**', 'node_modules/bootstrap/dist/css/bootstrap.css'],
+    source: ['client/**/*.{html,css,ico}', '!**/app/**'],
     destination: 'dist/client'
   },
   server: {

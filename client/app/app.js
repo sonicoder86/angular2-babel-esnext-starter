@@ -5,6 +5,8 @@ import {HelloComponent} from './components/hello';
 import {AboutComponent} from './components/about';
 import helloTemplate from './components/hello.html';
 
+import './footer.css';
+
 @Component({
   selector: 'my-app',
   directives: [ROUTER_DIRECTIVES],
