@@ -28,6 +28,7 @@
   },
   "dependencies": {
     "koa": "1.1.2",
+    "koa-router": "^5.3.0",
     "koa-static": "2.0.0"
   },
   "devDependencies": {
@@ -61,6 +62,7 @@
     "karma-webpack": "1.7.0",
     "material-design-lite": "^1.0.6",
     "mini-lr": "0.1.8",
+    "node-uuid": "^1.4.7",
     "phantomjs": "1.9.19",
     "phantomjs-polyfill": "0.0.1",
     "protractor": "3.0.0",

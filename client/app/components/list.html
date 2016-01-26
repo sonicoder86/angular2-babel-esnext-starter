@@ -1,0 +1,12 @@
+<div class="row">
+    <div class="col-sm-12">
+        <h1>Posts <a [routerLink]="['/New']" class="btn btn-primary pull-right">New post</a></h1>
+
+        <div class="list-group">
+            <a *ngFor="#post of getPosts()" href="#" class="list-group-item">
+                <h4 class="list-group-item-heading">{{ post.name }}</h4>
+                <p class="list-group-item-text">{{ post.description }}</p>
+            </a>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,22 @@
+<div class="row">
+    <div class="col-sm-12">
+        <h1>New post</h1>
+
+        {{diagnostic}}
+        <form>
+            <div class="form-group">
+                <label for="post-name">Name</label>
+                <input type="text" [(ngModel)]="post.name" class="form-control" required id="post-name">
+            </div>
+            <div class="form-group">
+                <label for="post-url">Url</label>
+                <input type="text" [(ngModel)]="post.url" class="form-control" required id="post-url">
+            </div>
+            <div class="form-group">
+                <label for="post-description">Description</label>
+                <textarea [(ngModel)]="post.description" class="form-control" id="post-description" rows="5"></textarea>
+            </div>
+            <button type="submit" class="btn btn-primary">Save</button>
+        </form>
+    </div>
+</div>
