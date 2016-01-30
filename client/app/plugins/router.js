@@ -1,5 +1,5 @@
 'use strict';
-import {ElementRef, DynamicComponentLoader} from 'angular2/core';
+import {ElementRef, DynamicComponentLoader, AttributeMetadata} from 'angular2/core';
 import {Router, RouterOutlet} from 'angular2/router';
 
 export class LoggedInRouterOutlet extends RouterOutlet {
@@ -7,10 +7,14 @@ export class LoggedInRouterOutlet extends RouterOutlet {
     '', 'login', 'signup', 'about'
   ];
 
-  constructor(_elementRef: ElementRef, _loader: DynamicComponentLoader, _parentRouter: Router, name: string) {
-    super(_elementRef, _loader, _parentRouter, name);
+  static get parameters() {
+    return [[ElementRef], [DynamicComponentLoader], [Router], [new AttributeMetadata('name'), String]];
+  }
 
-    this.parentRouter = _parentRouter;
+  constructor(elementRef, componentLoader, parentRouter, name) {
+    super(elementRef, componentLoader, parentRouter, name);
+
+    this.parentRouter = parentRouter;
   }
 
   activate(instruction) {

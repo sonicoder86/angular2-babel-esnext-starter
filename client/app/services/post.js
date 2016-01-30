@@ -7,7 +7,11 @@ import * as uuid from 'node-uuid';
 export class PostService {
   posts = [];
 
-  constructor(http: Http) {
+  static get parameters() {
+    return [[Http]];
+  }
+
+  constructor(http) {
     this.http = http;
 
     this.addPost({

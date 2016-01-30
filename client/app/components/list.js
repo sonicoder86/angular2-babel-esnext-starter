@@ -10,7 +10,11 @@ import {PostService} from '../services/post';
   directives: [ROUTER_DIRECTIVES]
 })
 export class ListComponent {
-  constructor(postService: PostService) {
+  static get parameters() {
+    return [[PostService]];
+  }
+
+  constructor(postService) {
     this._postService = postService;
     this._postService.refreshPosts();
   }

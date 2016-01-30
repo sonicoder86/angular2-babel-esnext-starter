@@ -17,11 +17,16 @@ export class NewComponent {
     description: ''
   };
 
-  constructor(postService: PostService) {
+  static get parameters() {
+    return [[PostService]];
+  }
+
+  constructor(postService) {
     this._postService = postService;
   }
 
   onSubmit() {
+    console.log(this.post);
     this.submitted = true;
   }
 

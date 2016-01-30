@@ -3,20 +3,27 @@
         <h1>New post</h1>
 
         {{diagnostic}}
-        <form>
+
+        <form (ngSubmit)="onSubmit()" #postForm="ngForm">
             <div class="form-group">
                 <label for="post-name">Name</label>
-                <input type="text" [(ngModel)]="post.name" class="form-control" required id="post-name">
+                <input type="text" [(ngModel)]="post.name" ngControl="post_name" #post_name="ngForm" class="form-control" required id="post-name">
+                <div [hidden]="post_name.valid" class="alert alert-danger">
+                    Name is required
+                </div>
             </div>
             <div class="form-group">
                 <label for="post-url">Url</label>
-                <input type="text" [(ngModel)]="post.url" class="form-control" required id="post-url">
+                <input type="text" [(ngModel)]="post.url" ngControl="post_url" #post_url="ngForm" class="form-control" required id="post-url">
+                <div [hidden]="post_url.valid" class="alert alert-danger">
+                    Url is required
+                </div>
             </div>
             <div class="form-group">
                 <label for="post-description">Description</label>
-                <textarea [(ngModel)]="post.description" class="form-control" id="post-description" rows="5"></textarea>
+                <textarea [(ngModel)]="post.description" ngControl="post_description" class="form-control" id="post-description" rows="5"></textarea>
             </div>
-            <button type="submit" class="btn btn-primary">Save</button>
+            <button type="submit" [disabled]="!postForm.form.valid" class="btn btn-primary">Save</button>
         </form>
     </div>
 </div>

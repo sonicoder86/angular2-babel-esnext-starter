@@ -7,6 +7,7 @@ import {AboutComponent} from './components/about';
 import {LoggedInRouterOutlet} from './plugins/router';
 
 import './footer.css';
+import './forms.css';
 
 @Component({
   selector: 'my-app',
