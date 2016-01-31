@@ -1,6 +1,7 @@
 'use strict';
 import {Injectable} from 'angular2/core';
 import {Http} from 'angular2/http';
+import {BehaviorSubject} from 'rxjs';
 import * as uuid from 'node-uuid';
 
 @Injectable()
@@ -12,27 +13,21 @@ export class PostService {
   }
 
   constructor(http) {
-    this.http = http;
-
-    this.addPost({
-      name: 'Angular',
-      website: 'https://angular.io/',
-      description: 'Angular is a development platform for building mobile and desktop web applications.'
-    });
-    this.addPost({
-      name: 'RxJs',
-      website: 'http://reactivex.io/',
-      description: 'Reactive Extensions (Rx) is a library for composing asynchronous and event-based programs using observable sequences and LINQ-style query operators.'
-    });
-    this.addPost({
-      name: 'Babel',
-      website: 'https://babeljs.io/',
-      description: 'Babel is a compiler for writing next generation JavaScript.'
-    });
+    this._http = http;
+    this.remotePosts = new BehaviorSubject([]);
   }
 
   refreshPosts() {
-    console.log(this.http.get('/posts'));
+    this._http.get('/posts')
+      .map(res => res.json())
+      .subscribe(
+        (posts) => {
+          this.remotePosts.next(posts);
+        },
+        (error) => {
+          console.error(error);
+        }
+      );
   }
 
   addPost(post) {
