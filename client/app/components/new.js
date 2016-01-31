@@ -1,34 +1,34 @@
 'use strict';
 import {Component} from 'angular2/core';
-import {NgForm} from 'angular2/common';
+import {FORM_DIRECTIVES, FormBuilder, Validators} from 'angular2/common';
+import {Router} from 'angular2/router';
 import newTemplate from './new.html';
 import {PostService} from '../services/post';
+import {validatorFactory} from '../plugins/validator';
 
 @Component({
   selector: 'index',
-  template: newTemplate
+  template: newTemplate,
+  directives: [FORM_DIRECTIVES]
 })
 export class NewComponent {
-  submitted = false;
-
-  post = {
-    name: '',
-    url: '',
-    description: ''
-  };
-
   static get parameters() {
-    return [[PostService]];
+    return [[PostService], [FormBuilder], [Router]];
   }
 
-  constructor(postService) {
+  constructor(postService, builder, router) {
     this._postService = postService;
+    this._router = router;
+
+    this.postForm = builder.group({
+      name: ['', Validators.required],
+      website: ['', Validators.compose([Validators.required, validatorFactory('url')])],
+      description: ['']
+    });
   }
 
-  onSubmit() {
-    console.log(this.post);
-    this.submitted = true;
+  onSubmit(post) {
+    this._postService.addPost(post);
+    this._router.navigate(['List']);
   }
-
-  get diagnostic() { return JSON.stringify(this.post); }
 }

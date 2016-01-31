@@ -7,19 +7,19 @@ router.get('/posts', function*() {
     {
       _id: uuid.v4(),
       name: 'Angular',
-      url: 'https://angular.io/',
+      website: 'https://angular.io/',
       description: 'Angular is a development platform for building mobile and desktop web applications.'
     },
     {
       _id: uuid.v4(),
       name: 'RxJs',
-      url: 'http://reactivex.io/',
+      website: 'http://reactivex.io/',
       description: 'Reactive Extensions (Rx) is a library for composing asynchronous and event-based programs using observable sequences and LINQ-style query operators.'
     },
     {
       _id: uuid.v4(),
       name: 'Babel',
-      url: 'https://babeljs.io/',
+      website: 'https://babeljs.io/',
       description: 'Babel is a compiler for writing next generation JavaScript.'
     }
   ];

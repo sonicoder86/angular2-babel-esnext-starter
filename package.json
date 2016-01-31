@@ -68,6 +68,7 @@
     "rxjs": "5.0.0-beta.0",
     "style-loader": "0.13.0",
     "url-loader": "0.5.7",
+    "validate.js": "0.9.0",
     "webpack": "1.12.10",
     "zone.js": "0.5.10"
   }

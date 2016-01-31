@@ -7,7 +7,6 @@ import {AboutComponent} from './components/about';
 import {LoggedInRouterOutlet} from './plugins/router';
 
 import './footer.css';
-import './forms.css';
 
 @Component({
   selector: 'my-app',
@@ -15,7 +14,7 @@ import './forms.css';
   template: appTemplate
 })
 @RouteConfig([
-  { path: '/', component: ListComponent, as: 'List' },
+  { path: '/', component: ListComponent, as: 'List', useAsDefault: true },
   { path: '/new', component: NewComponent, as: 'New' },
   { path: '/about', component: AboutComponent, as: 'About' }
 ])
