@@ -1,13 +1,10 @@
 'use strict';
 import {Injectable} from 'angular2/core';
-import {Http} from 'angular2/http';
+import {Http, Headers} from 'angular2/http';
 import {BehaviorSubject} from 'rxjs';
-import * as uuid from 'node-uuid';
 
 @Injectable()
 export class PostService {
-  posts = [];
-
   static get parameters() {
     return [[Http]];
   }
@@ -31,11 +28,11 @@ export class PostService {
   }
 
   addPost(post) {
-    this.posts.push({
-      _id: uuid.v4(),
-      name: post.name,
-      website: post.url,
-      description: post.description
-    });
+    let headers = new Headers();
+    headers.append('Content-Type', 'application/json');
+
+    return this._http
+      .post('/post', JSON.stringify(post), {headers: headers})
+      .map(res => res.json());
   }
 }

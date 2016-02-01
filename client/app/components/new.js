@@ -28,7 +28,13 @@ export class NewComponent {
   }
 
   onSubmit(post) {
-    this._postService.addPost(post);
-    this._router.navigate(['List']);
+    this._postService.addPost(post).subscribe(
+      () => {
+        this._router.navigate(['List']);
+      },
+      (error) => {
+        console.error(error)
+      }
+    );
   }
 }

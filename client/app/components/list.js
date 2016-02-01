@@ -24,10 +24,6 @@ export class ListComponent {
     this._postService.refreshPosts();
   }
 
-  getPosts() {
-    return this._postService.posts;
-  }
-
   getRemotePosts() {
     return this._postService.remotePosts;
   }
