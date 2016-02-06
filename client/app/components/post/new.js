@@ -2,13 +2,13 @@
 import {Component} from 'angular2/core';
 import {FORM_DIRECTIVES, FormBuilder, Validators} from 'angular2/common';
 import {Router} from 'angular2/router';
-import newTemplate from './new.html';
-import {PostService} from '../services/post';
-import {validatorFactory} from '../plugins/validator';
+import template from './new.html';
+import {PostService} from '../../services/post';
+import {validatorFactory} from '../../plugins/validator';
 
 @Component({
   selector: 'index',
-  template: newTemplate,
+  template: template,
   directives: [FORM_DIRECTIVES]
 })
 export class NewComponent {

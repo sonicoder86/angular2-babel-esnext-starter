@@ -18,7 +18,7 @@ module.exports = {
       {
         test: /\.js$/,
         loader: 'babel',
-        exclude: /node_modules/,
+        exclude: /(node_modules)/,
         query: {
           presets: ['es2015'],
           plugins: [
@@ -31,7 +31,7 @@ module.exports = {
       },
       {
         test: /\.html$/,
-        loader: 'html?minimize=false'
+        loader: 'raw?minimize=false'
       },
       {
         test: /\.css$/,
@@ -71,5 +71,5 @@ module.exports = {
     new ExtractTextPlugin("[name].css")
   ],
 
-  devtool: 'source-map'
+  devtool: 'eval'
 };

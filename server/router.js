@@ -1,6 +1,8 @@
 'use strict';
 let router = require('koa-router')();
 let uuid = require('node-uuid');
+let jwt = require('jsonwebtoken');
+let config = require('./config');
 
 let posts = [
   {
@@ -34,6 +36,20 @@ router.post('/post', function*() {
   ));
 
   this.body = {success: true};
+});
+
+router.post('/login', function*() {
+  let email = this.request.body.email;
+  let password = this.request.body.password;
+
+  let result = {success: false};
+
+  if (email == 'admin@gmail.com' && password == 'angular2') {
+    result.success = true;
+    result.auth_token = jwt.sign({ email: email }, config.jwt_secret);
+  }
+
+  this.body = result;
 });
 
 module.exports = router;

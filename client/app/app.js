@@ -1,22 +1,16 @@
 import {Component} from 'angular2/core';
-import {RouteConfig, RouterOutlet, RouterLink} from 'angular2/router';
-import appTemplate from './app.html';
-import {ListComponent} from './components/list';
-import {NewComponent} from './components/new';
-import {AboutComponent} from './components/about';
+import {RouteConfig} from 'angular2/router';
+import template from './app.html';
+import {MenuComponent} from './components/menu';
 import {LoggedInRouterOutlet} from './plugins/router';
+import {router} from './router';
 
 import './footer.css';
 
 @Component({
   selector: 'my-app',
-  directives: [LoggedInRouterOutlet, RouterLink],
-  template: appTemplate
+  directives: [LoggedInRouterOutlet, MenuComponent],
+  template: template
 })
-@RouteConfig([
-  { path: '/', component: ListComponent, as: 'List', useAsDefault: true },
-  { path: '/new', component: NewComponent, as: 'New' },
-  { path: '/about', component: AboutComponent, as: 'About' }
-])
-export class AppComponent {
-}
+@RouteConfig(router.config)
+export class AppComponent { }

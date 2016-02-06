@@ -5,13 +5,14 @@ import {BehaviorSubject} from 'rxjs';
 
 @Injectable()
 export class PostService {
+  remotePosts = new BehaviorSubject([]);
+
   static get parameters() {
     return [[Http]];
   }
 
   constructor(http) {
     this._http = http;
-    this.remotePosts = new BehaviorSubject([]);
   }
 
   refreshPosts() {

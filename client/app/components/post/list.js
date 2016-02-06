@@ -1,13 +1,13 @@
 'use strict';
 import {Component, ChangeDetectionStrategy, Input} from 'angular2/core';
 import {ROUTER_DIRECTIVES} from 'angular2/router';
-import indexTemplate from './list.html';
-import {PostService} from '../services/post';
+import template from './list.html';
+import {PostService} from '../../services/post';
 import {ListItemComponent} from './list_item';
 
 @Component({
   selector: 'index',
-  template: indexTemplate,
+  template: template,
   directives: [ROUTER_DIRECTIVES, ListItemComponent],
   changeDetection: ChangeDetectionStrategy.Detached
 })

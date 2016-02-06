@@ -1,10 +1,10 @@
 'use strict';
 import {Component} from 'angular2/core';
-import helloTemplate from './hello.html';
+import template from './hello.html';
 
 @Component({
 	selector: 'hello',
-	template: helloTemplate
+	template: template
 })
 export class HelloComponent {
 }

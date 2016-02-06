@@ -4,6 +4,7 @@ import 'reflect-metadata';
 import 'zone.js/lib/browser/zone-microtask';
 import 'rxjs/Rx';
 import 'validate.js';
+import 'localStorage';
 
 import 'angular2/core';
 import 'angular2/common';

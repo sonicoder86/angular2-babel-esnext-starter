@@ -3,6 +3,7 @@ let webpack = require('webpack');
 let ExtractTextPlugin = require("extract-text-webpack-plugin");
 let config = require('./webpack');
 
+config.devtool = 'source-map';
 config.plugins = [
   new webpack.optimize.CommonsChunkPlugin(
     'vendor', 'vendor.js'

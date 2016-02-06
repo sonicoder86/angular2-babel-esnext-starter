@@ -6,5 +6,6 @@ let localStaticPath = environment == 'production' ? '../client' : '../dist/clien
 module.exports = {
   env: environment,
   port: process.env.PORT || 9000,
-  staticPath: path.resolve(__dirname, localStaticPath)
+  staticPath: path.resolve(__dirname, localStaticPath),
+  jwt_secret: process.env.JWT_SECRET || 'angular2-secret'
 };
