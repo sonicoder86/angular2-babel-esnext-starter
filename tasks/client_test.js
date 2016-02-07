@@ -1,6 +1,5 @@
 'use strict';
 let path = require('path');
-let KarmaServer = require('karma').Server;
 let configPath = path.resolve(__dirname, './config/karma.js');
 
 module.exports = function(singleRun) {

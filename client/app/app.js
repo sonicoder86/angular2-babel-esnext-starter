@@ -5,8 +5,6 @@ import {MenuComponent} from './components/menu';
 import {LoggedInRouterOutlet} from './plugins/router';
 import {router} from './router';
 
-import './footer.css';
-
 @Component({
   selector: 'my-app',
   directives: [LoggedInRouterOutlet, MenuComponent],

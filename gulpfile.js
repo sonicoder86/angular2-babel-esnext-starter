@@ -5,6 +5,7 @@ let runSequence = require('run-sequence');
 let clientCopyTask = require('./tasks/client_copy');
 let clientBuildTask = require('./tasks/client_build');
 let clientTestTask = require('./tasks/client_test');
+let stylesheetTask = require('./tasks/stylesheet');
 let liveReloadTask = require('./tasks/livereload');
 let serverStartTasks = require('./tasks/server_start');
 let serverCopyTask = require('./tasks/server_copy');
@@ -25,13 +26,15 @@ gulp.task('client-build', clientBuildTask(false, liveReloadTask.notifyChanged));
 gulp.task('client-build-dist', clientBuildTask(true));
 gulp.task('client-test', clientTestTask(true));
 gulp.task('client-test-dev', clientTestTask(false));
+gulp.task('client-stylesheet', stylesheetTask(false));
+gulp.task('client-stylesheet-dist', stylesheetTask(true));
 
 gulp.task('clean', cleanTask());
 
 gulp.task('serve', function(done) {
   runSequence(
     'clean',
-    ['client-build', 'client-copy', 'livereload'],
+    ['client-build', 'client-copy', 'client-stylesheet', 'livereload'],
     'server-start',
     done
   )
@@ -56,7 +59,7 @@ gulp.task('test-e2e', protractorTask());
 gulp.task('dist', function(done) {
   runSequence(
     'clean',
-    ['client-build-dist', 'client-copy-dist', 'server-copy-dist', 'general-copy-dist'],
+    ['client-build-dist', 'client-copy-dist', 'client-stylesheet-dist', 'server-copy-dist', 'general-copy-dist'],
     done
   );
 });

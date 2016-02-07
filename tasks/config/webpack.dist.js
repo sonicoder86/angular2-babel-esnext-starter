@@ -1,6 +1,5 @@
 'use strict';
 let webpack = require('webpack');
-let ExtractTextPlugin = require("extract-text-webpack-plugin");
 let config = require('./webpack');
 
 config.devtool = 'source-map';
@@ -15,8 +14,7 @@ config.plugins = [
     minimize: true,
     mangle: false,
     comments: false
-  }),
-  new ExtractTextPlugin("[name].css")
+  })
 ];
 
 module.exports = config;
