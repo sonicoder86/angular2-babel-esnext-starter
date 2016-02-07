@@ -30,6 +30,7 @@
     "jsonwebtoken": "5.5.4",
     "koa": "1.1.2",
     "koa-bodyparser": "2.0.1",
+    "koa-jwt": "^1.1.2",
     "koa-router": "5.3.0",
     "koa-static": "2.0.0",
     "node-uuid": "1.4.7"

@@ -3,6 +3,7 @@ let router = require('koa-router')();
 let uuid = require('node-uuid');
 let jwt = require('jsonwebtoken');
 let config = require('./config');
+let jwtMiddleware = require('koa-jwt')({ secret: config.jwt_secret });
 
 let posts = [
   {
@@ -29,7 +30,7 @@ router.get('/posts', function*() {
   this.body = posts;
 });
 
-router.post('/post', function*() {
+router.post('/post', jwtMiddleware, function*() {
   posts.unshift(Object.assign(
     { _id: uuid.v4() },
     this.request.body

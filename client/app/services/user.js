@@ -1,8 +1,9 @@
 'use strict';
 import {Injectable} from 'angular2/core';
-import {Http, Headers} from 'angular2/http';
-import localStorage from 'localStorage';
+import {Http} from 'angular2/http';
 import {BehaviorSubject} from 'rxjs';
+import {storage} from '../plugins/storage';
+import {request} from '../plugins/request';
 
 @Injectable()
 export class UserService {
@@ -21,15 +22,12 @@ export class UserService {
   }
 
   login(credentials) {
-    let headers = new Headers();
-    headers.append('Content-Type', 'application/json');
-
     return this._http
-      .post('/login', JSON.stringify(credentials), {headers: headers})
+      .post('/login', JSON.stringify(credentials), {headers: request.getJsonHeaders()})
       .map(res => res.json())
       .map((res) => {
         if (res.success) {
-          localStorage.setItem('auth_token', res.token);
+          storage.setAuthToken(res.auth_token);
           this._loggedIn.next(true);
         }
 
@@ -38,7 +36,7 @@ export class UserService {
   }
 
   logout() {
-    localStorage.removeItem('auth_token');
+    storage.removeAuthToken();
     this._loggedIn.next(false);
   }
 
@@ -51,6 +49,6 @@ export class UserService {
   }
 
   _getLogInState() {
-    return !!localStorage.getItem('auth_token');
+    return !!storage.getAuthToken();
   }
 }

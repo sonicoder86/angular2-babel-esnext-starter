@@ -1,7 +1,8 @@
 'use strict';
 import {Injectable} from 'angular2/core';
-import {Http, Headers} from 'angular2/http';
+import {Http} from 'angular2/http';
 import {BehaviorSubject} from 'rxjs';
+import {request} from '../plugins/request';
 
 @Injectable()
 export class PostService {
@@ -29,11 +30,8 @@ export class PostService {
   }
 
   addPost(post) {
-    let headers = new Headers();
-    headers.append('Content-Type', 'application/json');
-
     return this._http
-      .post('/post', JSON.stringify(post), {headers: headers})
+      .post('/post', JSON.stringify(post), {headers: request.getAuthHeaders()})
       .map(res => res.json());
   }
 }
