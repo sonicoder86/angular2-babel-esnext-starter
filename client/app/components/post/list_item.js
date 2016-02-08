@@ -9,9 +9,9 @@ import {ShortDescriptionPipe} from '../../pipes/short_description';
   template: template,
   changeDetection: ChangeDetectionStrategy.OnPush,
   directives: [ROUTER_DIRECTIVES],
-  pipes: [ShortDescriptionPipe]
+  pipes: [ShortDescriptionPipe],
+  inputs: ['post']
 })
 export class ListItemComponent {
-  @Input()
   post;
 }
