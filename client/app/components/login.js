@@ -7,7 +7,7 @@ import {UserService} from '../services/user';
 import {validatorFactory} from '../plugins/validator';
 
 @Component({
-  selector: 'index',
+  selector: 'login',
   template: template,
   directives: [FORM_DIRECTIVES]
 })

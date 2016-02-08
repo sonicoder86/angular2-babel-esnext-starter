@@ -7,7 +7,7 @@ import {PostService} from '../../services/post';
 import {validatorFactory} from '../../plugins/validator';
 
 @Component({
-  selector: 'index',
+  selector: 'new',
   template: template,
   directives: [FORM_DIRECTIVES]
 })

@@ -6,7 +6,7 @@ import {PostService} from '../../services/post';
 import {ListItemComponent} from './list_item';
 
 @Component({
-  selector: 'index',
+  selector: 'list',
   template: template,
   directives: [ROUTER_DIRECTIVES, ListItemComponent],
   changeDetection: ChangeDetectionStrategy.Detached
