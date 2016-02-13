@@ -2,6 +2,6 @@
     <div class="col-sm-12">
         <h1>Edit post</h1>
 
-
+        <post-form [post]="post | async" (saved)="onSave($event)"></post-form>
     </div>
 </div>

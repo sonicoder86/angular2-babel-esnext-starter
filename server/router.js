@@ -30,10 +30,39 @@ router.get('/posts', function*() {
   this.body = posts;
 });
 
+router.get('/post/:id', function*() {
+  let foundPost = posts.find((post) => {
+    return post._id = this.params.id;
+  });
+
+  if (foundPost) {
+    this.body = foundPost;
+  }
+  else {
+    this.throw(404);
+  }
+});
+
+router.post('/post/:id', function*() {
+  let foundPost = posts.find((post) => {
+    return post._id = this.params.id;
+  });
+
+  if (foundPost) {
+    Object.assign(foundPost, this.request.body);
+    this.body = foundPost;
+  }
+  else {
+    this.throw(404);
+  }
+});
+
+
 router.post('/post', jwtMiddleware, function*() {
   posts.unshift(Object.assign(
-    { _id: uuid.v4() },
-    this.request.body
+    { },
+    this.request.body,
+    { _id: uuid.v4() }
   ));
 
   this.body = {success: true};

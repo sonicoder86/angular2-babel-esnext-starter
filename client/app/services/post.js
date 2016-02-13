@@ -34,4 +34,15 @@ export class PostService {
       .post('/post', JSON.stringify(post), {headers: request.getAuthHeaders()})
       .map(res => res.json());
   }
+
+  getPost(id) {
+    return this._http.get(`/post/${id}`)
+      .map(res => res.json());
+  }
+
+  updatePost(post) {
+    return this._http
+      .post(`/post/${post._id}`, JSON.stringify(post), {headers: request.getAuthHeaders()})
+      .map(res => res.json());
+  }
 }
