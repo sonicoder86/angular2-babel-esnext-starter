@@ -1,9 +1,8 @@
-'use strict';
-import {Component} from 'angular2/core';
-import {RouteParams, Router} from 'angular2/router';
+import { Component } from 'angular2/core';
+import { RouteParams, Router } from 'angular2/router';
 import template from './edit.html';
-import {PostService} from '../../services/post';
-import {FormComponent} from './form';
+import { PostService } from '../../services/post';
+import { FormComponent } from './form';
 
 @Component({
   selector: 'edit',

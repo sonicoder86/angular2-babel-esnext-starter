@@ -1,8 +1,7 @@
-'use strict';
-import {Injectable} from 'angular2/core';
-import {Http} from 'angular2/http';
-import {BehaviorSubject} from 'rxjs';
-import {request} from '../plugins/request';
+import { Injectable } from 'angular2/core';
+import { Http } from 'angular2/http';
+import { BehaviorSubject } from 'rxjs';
+import { request } from '../plugins/request';
 
 @Injectable()
 export class PostService {
@@ -31,7 +30,7 @@ export class PostService {
 
   addPost(post) {
     return this._http
-      .post('/post', JSON.stringify(post), {headers: request.getAuthHeaders()})
+      .post('/post', JSON.stringify(post), { headers: request.getAuthHeaders() })
       .map(res => res.json());
   }
 
@@ -42,7 +41,7 @@ export class PostService {
 
   updatePost(post) {
     return this._http
-      .post(`/post/${post._id}`, JSON.stringify(post), {headers: request.getAuthHeaders()})
+      .post(`/post/${post._id}`, JSON.stringify(post), { headers: request.getAuthHeaders() })
       .map(res => res.json());
   }
 }

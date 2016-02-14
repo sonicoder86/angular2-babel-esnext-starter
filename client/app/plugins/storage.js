@@ -1,16 +1,17 @@
-'use strict';
 import localStorage from 'localStorage';
 
-export const storage = {
-  getAuthToken: function() {
+class Storage {
+  getAuthToken() {
     return localStorage.getItem('auth_token');
-  },
+  }
 
-  setAuthToken: function(token) {
+  setAuthToken(token) {
     localStorage.setItem('auth_token', token);
-  },
+  }
 
-  removeAuthToken: function() {
+  removeAuthToken() {
     localStorage.removeItem('auth_token');
   }
-};
+}
+
+export const storage = new Storage();

@@ -1,5 +1,5 @@
-<div class="list-group-item">
-    <a [routerLink]="['/Edit', { id: post._id }]" class="btn btn-default pull-right">Edit</a>
+<div class="list-group-item post-item">
+    <a [routerLink]="['/Edit', { id: post._id }]" *ngIf="getLoggedIn() | async" class="btn btn-default pull-right">Edit</a>
     <a href="{{ post.website }}" target="_blank">
         <h4 class="list-group-item-heading">{{ post.name }}</h4>
     </a>

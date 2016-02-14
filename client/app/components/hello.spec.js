@@ -1,8 +1,7 @@
-'use strict';
-import {HelloComponent} from './hello';
-import {TestComponentBuilder} from 'angular2/testing';
+import { HelloComponent } from './hello';
+import { TestComponentBuilder } from 'angular2/testing';
 
-describe('AppCoponent', function() {
+describe('AppComponent', () => {
   it('renders app', injectAsync([TestComponentBuilder], (builder) => {
     return builder.createAsync(HelloComponent)
       .then((fixture) => {

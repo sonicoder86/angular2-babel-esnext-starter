@@ -24,22 +24,23 @@
   ],
   "description": "A skeleton Angular 2 application built in ES6 with Babel, Webpack, Gulp.",
   "engines": {
-    "node": "4.2.4"
+    "node": "4.3.0"
   },
   "dependencies": {
     "jsonwebtoken": "5.5.4",
     "koa": "1.1.2",
     "koa-bodyparser": "2.0.1",
-    "koa-jwt": "^1.1.2",
-    "koa-router": "5.3.0",
+    "koa-jwt": "1.1.2",
+    "koa-router": "5.4.0",
     "koa-static": "2.0.0",
     "node-uuid": "1.4.7"
   },
   "devDependencies": {
-    "angular2": "2.0.0-beta.3",
-    "babel-core": "6.5.1",
+    "angular2": "2.0.0-beta.6",
+    "babel-core": "6.5.2",
+    "babel-eslint": "4.1.8",
     "babel-loader": "6.2.2",
-    "babel-plugin-transform-class-properties": "6.5.0",
+    "babel-plugin-transform-class-properties": "6.5.2",
     "babel-plugin-transform-decorators-legacy": "1.3.4",
     "babel-preset-es2015": "6.5.0",
     "bootstrap": "3.3.6",
@@ -47,8 +48,9 @@
     "es6-promise": "3.0.2",
     "es6-shim": "0.33.13",
     "gulp": "3.9.1",
-    "gulp-cssnano": "2.1.0",
+    "gulp-cssnano": "2.1.1",
     "gulp-delete-lines": "0.0.7",
+    "gulp-eslint": "2.0.0",
     "gulp-less": "3.0.5",
     "gulp-nodemon": "2.0.6",
     "gulp-protractor": "2.1.0",
@@ -69,9 +71,8 @@
     "reflect-metadata": "0.1.2",
     "run-sequence": "1.1.5",
     "rxjs": "5.0.0-beta.0",
-    "tsd": "^0.6.5",
     "validate.js": "0.9.0",
     "webpack": "1.12.13",
-    "zone.js": "0.5.11"
+    "zone.js": "0.5.14"
   }
 }

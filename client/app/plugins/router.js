@@ -1,7 +1,6 @@
-'use strict';
-import {ElementRef, DynamicComponentLoader, AttributeMetadata} from 'angular2/core';
-import {Router, RouterOutlet} from 'angular2/router';
-import {UserService} from '../services/user';
+import { ElementRef, DynamicComponentLoader, AttributeMetadata } from 'angular2/core';
+import { Router, RouterOutlet } from 'angular2/router';
+import { UserService } from '../services/user';
 
 export class LoggedInRouterOutlet extends RouterOutlet {
   publicRoutes = [

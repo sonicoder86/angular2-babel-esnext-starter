@@ -1,8 +1,7 @@
-'use strict';
-import {Component, ChangeDetectionStrategy} from 'angular2/core';
-import {ROUTER_DIRECTIVES, Router} from 'angular2/router';
+import { Component, ChangeDetectionStrategy } from 'angular2/core';
+import { ROUTER_DIRECTIVES, Router } from 'angular2/router';
 import template from './menu.html';
-import {UserService} from '../services/user';
+import { UserService } from '../services/user';
 
 @Component({
   selector: 'top-menu',

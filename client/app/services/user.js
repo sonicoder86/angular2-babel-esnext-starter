@@ -1,9 +1,8 @@
-'use strict';
-import {Injectable} from 'angular2/core';
-import {Http} from 'angular2/http';
-import {BehaviorSubject} from 'rxjs';
-import {storage} from '../plugins/storage';
-import {request} from '../plugins/request';
+import { Injectable } from 'angular2/core';
+import { Http } from 'angular2/http';
+import { BehaviorSubject } from 'rxjs';
+import { storage } from '../plugins/storage';
+import { request } from '../plugins/request';
 
 @Injectable()
 export class UserService {
@@ -23,7 +22,7 @@ export class UserService {
 
   login(credentials) {
     return this._http
-      .post('/login', JSON.stringify(credentials), {headers: request.getJsonHeaders()})
+      .post('/login', JSON.stringify(credentials), { headers: request.getJsonHeaders() })
       .map(res => res.json())
       .map((res) => {
         if (res.success) {

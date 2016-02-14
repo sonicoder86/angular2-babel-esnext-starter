@@ -1,9 +1,8 @@
-'use strict';
-import {Component} from 'angular2/core';
-import {Router} from 'angular2/router';
+import { Component } from 'angular2/core';
+import { Router } from 'angular2/router';
 import template from './new.html';
-import {PostService} from '../../services/post';
-import {FormComponent} from './form';
+import { PostService } from '../../services/post';
+import { FormComponent } from './form';
 
 @Component({
   selector: 'new',
@@ -26,7 +25,7 @@ export class NewComponent {
         this._router.navigate(['List']);
       },
       (error) => {
-        console.error(error)
+        console.error(error);
       }
     );
   }

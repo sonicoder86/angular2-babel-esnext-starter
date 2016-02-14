@@ -1,9 +1,8 @@
-'use strict';
-import {Component, ChangeDetectionStrategy, Input} from 'angular2/core';
-import {ROUTER_DIRECTIVES} from 'angular2/router';
+import { Component, ChangeDetectionStrategy } from 'angular2/core';
+import { ROUTER_DIRECTIVES } from 'angular2/router';
 import template from './list.html';
-import {PostService} from '../../services/post';
-import {ListItemComponent} from './list_item';
+import { PostService } from '../../services/post';
+import { ListItemComponent } from './list_item';
 
 @Component({
   selector: 'list',

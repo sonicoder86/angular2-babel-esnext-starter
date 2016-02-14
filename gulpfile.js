@@ -12,6 +12,7 @@ let serverCopyTask = require('./tasks/server_copy');
 let generalCopyTask = require('./tasks/general_copy');
 let cleanTask = require('./tasks/clean');
 let protractorTask = require('./tasks/protractor');
+let eslintTask = require('./tasks/eslint');
 
 gulp.task('server-start', serverStartTasks());
 gulp.task('server-copy-dist', serverCopyTask());
@@ -28,6 +29,7 @@ gulp.task('client-test', clientTestTask(true));
 gulp.task('client-test-dev', clientTestTask(false));
 gulp.task('client-stylesheet', stylesheetTask(false));
 gulp.task('client-stylesheet-dist', stylesheetTask(true));
+gulp.task('client-style', eslintTask());
 
 gulp.task('clean', cleanTask());
 

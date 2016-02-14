@@ -1,16 +1,17 @@
-'use strict';
-import {Pipe} from 'angular2/core';
+import { Pipe } from 'angular2/core';
 
 @Pipe({
   name: 'short_description'
 })
 export class ShortDescriptionPipe {
-  transform(value, args) {
+  transform(value) {
+    let transformedValue;
     if (value && value.length > 100) {
-      return value.substring(0, 100) + '...';
+      transformedValue = `${value.substring(0, 100)}...`;
+    } else {
+      transformedValue = value;
     }
-    else {
-      return value;
-    }
+
+    return transformedValue;
   }
 }

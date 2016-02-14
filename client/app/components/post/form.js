@@ -1,8 +1,7 @@
-'use strict';
-import {Component, EventEmitter} from 'angular2/core';
-import {FORM_DIRECTIVES, FormBuilder, Validators} from 'angular2/common';
+import { Component, EventEmitter } from 'angular2/core';
+import { FormBuilder, Validators } from 'angular2/common';
 import template from './form.html';
-import {validatorFactory} from '../../plugins/validator';
+import { validatorFactory } from '../../plugins/validator';
 
 @Component({
   selector: 'post-form',

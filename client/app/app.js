@@ -1,9 +1,9 @@
-import {Component} from 'angular2/core';
-import {RouteConfig} from 'angular2/router';
+import { Component } from 'angular2/core';
+import { RouteConfig } from 'angular2/router';
 import template from './app.html';
-import {MenuComponent} from './components/menu';
-import {LoggedInRouterOutlet} from './plugins/router';
-import {router} from './router';
+import { MenuComponent } from './components/menu';
+import { LoggedInRouterOutlet } from './plugins/router';
+import { router } from './router';
 
 @Component({
   selector: 'my-app',
