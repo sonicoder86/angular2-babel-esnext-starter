@@ -3,17 +3,41 @@
 [![devDependency Status](https://david-dm.org/blacksonic/angular2-es6-starter/dev-status.svg)](https://david-dm.org/blacksonic/angular2-es6-starter#info=devDependencies)
 [![Build Status](https://travis-ci.org/blacksonic/angular2-es6-starter.svg?branch=master)](https://travis-ci.org/blacksonic/angular2-es6-starter)
 
-A skeleton Angular 2 application built in ES6 with Babel, Webpack, Gulp. A more detailed application [(TodoMVC) can be found here](https://github.com/blacksonic/angular2-es6-todomvc).
-The example is based on the official [5 Min Quickstart](https://angular.io/docs/ts/latest/quickstart.html) tutorial.
+This repo stands as a starting point for those who try Angular 2 in Javascript.
+It aims to use only standard compliant features while showing techniques how easy development can be also without Typescript.
+It shows a basic CRUD application with authentication, similar to Javascript news site [jslive.com](https://jslive.com).
+You can see the list of links, add and edit them after you signed in.
 
-- Uses Babel to support class/parameter decorators and parameter type annotations.
+- Uses Babel to support class/parameter decorators.
 - No Typescript included.
-- Bundles JavaScript files into one file with Webpack.
-- Automates bundling with Gulp.
+- Bundles JavaScript files with Webpack.
+- Automates tasks with Gulp.
 - Automatically rebundles and refreshes on changes.
-- Unit testing with Jasmine.
-- End-To-End testing with Protractor.
-- Deployment included.
+- Unit testing with Karma and Jasmine.
+- E2E testing with Protractor.
+- Includes deployment.
+- Linting with ESlint based on Airbnb's styleguide.
+
+### Motivation
+
+There are plenty of resources for starter packs and documentations on how to write your Angular 2 application in Typescript.
+The official documentation is only complete for Typescript and the parts which are also in Javascript are so few and in ES5 syntax which is little bit clunky compared to ES6.
+The examples in starter packs for Javascript are so minimal, that you can hardly make a complex application without knowing the Javascript equivalents of Typescript solutions.
+This is why i decided to make a starter pack to show that equivalent easy and viable solutions exist in Javascript. I have collected and put these solutions into this repo.
+
+### Concepts covered
+
+- Creating components with directives
+- Communication between child and parent components
+- Dependency injection for services
+- Change detection strategies
+- Using custom pipes in templates
+- Handling HTTP calls
+- Using observables
+- Routing
+- Adding authentication to routing
+- Form handling
+- Using custom validators in forms
 
 ### Quick Start
 
