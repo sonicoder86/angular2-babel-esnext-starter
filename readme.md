@@ -1,4 +1,5 @@
 # Angular 2 ES6 Starter 
+[![npm version](https://badge.fury.io/js/angular2.svg)](http://badge.fury.io/js/angular2)
 [![Dependency Status](https://david-dm.org/blacksonic/angular2-es6-starter.svg)](https://david-dm.org/blacksonic/angular2-es6-starter)
 [![devDependency Status](https://david-dm.org/blacksonic/angular2-es6-starter/dev-status.svg)](https://david-dm.org/blacksonic/angular2-es6-starter#info=devDependencies)
 [![Build Status](https://travis-ci.org/blacksonic/angular2-es6-starter.svg?branch=master)](https://travis-ci.org/blacksonic/angular2-es6-starter)
