@@ -30,7 +30,8 @@ module.exports = {
         test: /\.html$/,
         loader: 'raw?minimize=false'
       }
-    ]
+    ],
+    noParse: [ /.+zone\.js\/dist\/.+/, /.+angular2\/bundles\/.+/ ]
   },
 
   resolve: {
