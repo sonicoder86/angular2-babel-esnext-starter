@@ -1,7 +1,10 @@
-import { ElementRef, DynamicComponentLoader, AttributeMetadata } from 'angular2/core';
+import { ElementRef, DynamicComponentLoader, AttributeMetadata, Directive } from 'angular2/core';
 import { Router, RouterOutlet } from 'angular2/router';
 import { UserService } from '../services/user';
 
+@Directive({
+  selector: 'router-outlet'
+})
 export class LoggedInRouterOutlet extends RouterOutlet {
   publicRoutes = [
     '', 'login', 'signup', 'about'
@@ -19,11 +22,14 @@ export class LoggedInRouterOutlet extends RouterOutlet {
   }
 
   activate(instruction) {
-    let currentUrl = this.parentRouter._currentInstruction.urlPath;
-    if (this.publicRoutes.indexOf(currentUrl) === -1 && !this.userService.isLoggedIn()) {
-      this.parentRouter.navigate(['Login']);
+    if (this._canActivate(instruction.urlPath)) {
+      return super.activate(instruction);
     }
 
-    return super.activate(instruction);
+    this.parentRouter.navigate(['Login']);
+  }
+
+  _canActivate(url) {
+    return this.publicRoutes.indexOf(url) !== -1 || this.userService.isLoggedIn();
   }
 }

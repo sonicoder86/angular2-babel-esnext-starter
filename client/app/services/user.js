@@ -4,6 +4,10 @@ import { BehaviorSubject } from 'rxjs';
 import { storage } from '../plugins/storage';
 import { request } from '../plugins/request';
 
+export function isLoggedIn() {
+  return !!storage.getAuthToken();
+}
+
 @Injectable()
 export class UserService {
   _loggedIn = new BehaviorSubject(false);
@@ -15,7 +19,7 @@ export class UserService {
   constructor(http) {
     this._http = http;
 
-    if (this._getLogInState()) {
+    if (isLoggedIn()) {
       this._loggedIn.next(true);
     }
   }
@@ -45,9 +49,5 @@ export class UserService {
 
   getLoggedIn() {
     return this._loggedIn;
-  }
-
-  _getLogInState() {
-    return !!storage.getAuthToken();
   }
 }
