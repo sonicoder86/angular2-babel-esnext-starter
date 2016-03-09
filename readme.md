@@ -45,6 +45,8 @@ This is why i decided to make a starter pack to show that equivalent easy and vi
 It bundles the application (JS files), copies the static files and starts the webserver with Nodemon.
 On server side changes restarts the server, on client side changes rebundles JS files and refreshes the page with Livereload.
 
+Note: The application needs at least 4+ version of Node installed.
+
 ```bash
 
 git clone https://github.com/blacksonic/angular2-es6-starter.git
