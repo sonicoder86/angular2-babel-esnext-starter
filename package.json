@@ -28,7 +28,7 @@
   },
   "dependencies": {
     "jsonwebtoken": "5.7.0",
-    "koa": "1.1.2",
+    "koa": "1.2.0",
     "koa-bodyparser": "2.0.1",
     "koa-jwt": "1.1.2",
     "koa-router": "5.4.0",
@@ -36,8 +36,8 @@
     "node-uuid": "1.4.7"
   },
   "devDependencies": {
-    "angular2": "2.0.0-beta.8",
-    "babel-core": "6.6.4",
+    "angular2": "2.0.0-beta.9",
+    "babel-core": "6.7.0",
     "babel-eslint": "5.0.0",
     "babel-loader": "6.2.4",
     "babel-plugin-transform-class-properties": "6.6.0",
