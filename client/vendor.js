@@ -1,6 +1,4 @@
-import 'es6-shim';
-import 'reflect-metadata';
-import 'zone.js/dist/zone-microtask';
+import './shim';
 import 'rxjs/Rx';
 import 'validate.js';
 import 'localStorage';

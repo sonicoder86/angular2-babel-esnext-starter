@@ -1,7 +1,5 @@
 import 'phantomjs-polyfill';
-import 'es6-shim';
-import 'reflect-metadata';
-import 'zone.js/dist/zone-microtask';
+import './shim';
 import 'zone.js/dist/jasmine-patch';
 
 import { TEST_BROWSER_PLATFORM_PROVIDERS, TEST_BROWSER_APPLICATION_PROVIDERS } from 'angular2/platform/testing/browser';
