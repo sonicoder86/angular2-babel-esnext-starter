@@ -32,7 +32,7 @@ router.get('/posts', function*() {
 
 router.get('/post/:id', function*() {
   let foundPost = posts.find((post) => {
-    return post._id = this.params.id;
+    return post._id == this.params.id;
   });
 
   if (foundPost) {

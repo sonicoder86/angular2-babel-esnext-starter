@@ -16,7 +16,9 @@ import {
   expect,
   inject,
   injectAsync,
-  it
+  it,
+  fakeAsync,
+  tick
 } from 'angular2/testing';
 
 global.expect = expect;
@@ -27,6 +29,8 @@ global.it = it;
 global.beforeEach = beforeEach;
 global.beforeEachProviders = beforeEachProviders;
 global.afterEach = afterEach;
+global.fakeAsync = fakeAsync;
+global.tick = tick;
 
 let testContext = require.context('./app', true, /\.spec\.js/);
 testContext.keys().forEach(testContext);
