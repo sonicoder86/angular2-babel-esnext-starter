@@ -16,9 +16,10 @@ export class PostService {
   }
 
   refreshPosts() {
-    this._http.get('/posts')
-      .map(res => res.json())
-      .subscribe(
+    let postsResponse = this._http.get('/posts')
+      .map(res => res.json());
+
+    postsResponse.subscribe(
         (posts) => {
           this.remotePosts.next(posts);
         },
@@ -26,6 +27,8 @@ export class PostService {
           console.error(error);
         }
       );
+
+    return postsResponse;
   }
 
   addPost(post) {
