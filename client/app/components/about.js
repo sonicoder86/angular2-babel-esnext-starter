@@ -3,7 +3,8 @@ import template from './about.html';
 
 @Component({
   selector: 'about',
-  template: template
+  template: template,
+  styleUrls: ['css/about.css']
 })
 export class AboutComponent {
 }
