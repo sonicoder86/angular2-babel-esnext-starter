@@ -10,7 +10,13 @@ module.exports = function(singleRun) {
       configFile: configPath,
       singleRun: singleRun,
       autoWatch: !singleRun
-    }, done);
+    }, function(result) {
+      if (result > 0) {
+        return done(new Error(`Karma exited with status code ${result}`));
+      }
+
+      done();
+    });
     server.start();
   }
 };
