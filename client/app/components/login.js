@@ -1,5 +1,6 @@
 import { Component } from 'angular2/core';
 import { FORM_DIRECTIVES, FormBuilder, Validators } from 'angular2/common';
+import { TranslatePipe } from 'ng2-translate/ng2-translate';
 import { Router } from 'angular2/router';
 import template from './login.html';
 import { UserService } from '../services/user';
@@ -8,7 +9,8 @@ import { validatorFactory } from '../plugins/validator';
 @Component({
   selector: 'login',
   template: template,
-  directives: [FORM_DIRECTIVES]
+  directives: [FORM_DIRECTIVES],
+  pipes: [TranslatePipe]
 })
 export class LoginComponent {
   static get parameters() {

@@ -3,7 +3,7 @@
         <h1>Login</h1>
 
         <form (ngSubmit)="onSubmit(loginForm.value)" [ngFormModel]="loginForm">
-            <p>(Email: admin@gmail.com, password: angular2)</p>
+            <p>{{ 'login_suggest' | translate:{email: 'admin@gmail.com', password: 'angular2'} }}</p>
 
             <div class="form-group">
                 <label for="login-email">Email</label>

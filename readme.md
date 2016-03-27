@@ -39,6 +39,7 @@ This is why i decided to make a starter pack to show that equivalent easy and vi
 - Adding authentication to routing
 - Form handling
 - Using custom validators in forms
+- Internationalization
 
 ### Quick Start
 
