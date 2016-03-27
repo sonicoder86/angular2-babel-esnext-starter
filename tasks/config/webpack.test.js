@@ -7,6 +7,6 @@ config.plugins = [
     ENVIRONMENT: JSON.stringify('test')
   })
 ];
-config.devtool = 'inline-eval';
+config.devtool = 'inline-cheap-source-map';
 
 module.exports = config;
