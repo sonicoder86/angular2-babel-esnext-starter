@@ -1,7 +1,7 @@
 import { Component, EventEmitter } from 'angular2/core';
 import { FormBuilder, Validators } from 'angular2/common';
 import template from './form.html';
-import { validatorFactory } from '../../plugins/validator';
+import { validatorFactory } from '../../validator';
 
 @Component({
   selector: 'post-form',

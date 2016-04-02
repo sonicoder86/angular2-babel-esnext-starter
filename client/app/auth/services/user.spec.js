@@ -1,5 +1,5 @@
 import { UserService } from './user';
-import { FakeBackend, FAKE_BACKEND_PROVIDERS } from '../plugins/fake_backend';
+import { FakeBackend, FAKE_BACKEND_PROVIDERS } from '../../helpers/fake_backend';
 import { Injector } from 'angular2/core';
 
 describe('UserService', () => {

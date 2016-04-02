@@ -2,7 +2,7 @@ import { Component } from 'angular2/core';
 import { Router } from 'angular2/router';
 import template from './new.html';
 import { PostService } from '../../services/post';
-import { FormComponent } from './form';
+import { FormComponent } from './../form/form';
 
 @Component({
   selector: 'new',

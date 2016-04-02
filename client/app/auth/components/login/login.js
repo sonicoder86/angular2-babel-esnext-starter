@@ -3,8 +3,8 @@ import { FORM_DIRECTIVES, FormBuilder, Validators } from 'angular2/common';
 import { TranslatePipe } from 'ng2-translate/ng2-translate';
 import { Router } from 'angular2/router';
 import template from './login.html';
-import { UserService } from '../services/user';
-import { validatorFactory } from '../plugins/validator';
+import { UserService } from '../../services/user';
+import { validatorFactory } from '../../../posts/validator';
 
 @Component({
   selector: 'login',

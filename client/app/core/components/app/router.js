@@ -1,8 +1,8 @@
-import { ListComponent } from './components/post/list';
-import { NewComponent } from './components/post/new';
-import { EditComponent } from './components/post/edit';
-import { AboutComponent } from './components/about';
-import { LoginComponent } from './components/login';
+import { ListComponent } from '../../../posts/components/list/list';
+import { NewComponent } from '../../../posts/components/new/new';
+import { EditComponent } from '../../../posts/components/edit/edit';
+import { AboutComponent } from '../about/about';
+import { LoginComponent } from '../../../auth/components/login/login';
 
 export const router = {
   config: [

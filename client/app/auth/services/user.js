@@ -1,8 +1,8 @@
 import { Injectable } from 'angular2/core';
 import { Http } from 'angular2/http';
 import { BehaviorSubject } from 'rxjs';
-import { storage } from '../plugins/storage';
-import { request } from '../plugins/request';
+import { storage } from '../helpers/storage';
+import { request } from '../helpers/request';
 
 export function isLoggedIn() {
   return !!storage.getAuthToken();

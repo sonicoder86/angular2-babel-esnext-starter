@@ -3,11 +3,11 @@ import 'rxjs/Rx';
 import { bootstrap } from 'angular2/platform/browser';
 import { enableProdMode, provide } from 'angular2/core';
 import { TRANSLATE_PROVIDERS } from 'ng2-translate/ng2-translate';
-import { AppComponent } from './app/app';
+import { AppComponent } from './app/core/components/app/app';
 import { ROUTER_PROVIDERS, LocationStrategy, HashLocationStrategy } from 'angular2/router';
 import { HTTP_PROVIDERS } from 'angular2/http';
-import { PostService } from './app/services/post';
-import { UserService } from './app/services/user';
+import { PostService } from './app/posts/services/post';
+import { UserService } from './app/auth/services/user';
 
 if (ENVIRONMENT === 'production') {
   enableProdMode();
