@@ -45,6 +45,7 @@ gulp.task('serve', function(done) {
 gulp.task('test', function(done) {
   runSequence(
     'client-test',
+    'client-style',
     done
   )
 });

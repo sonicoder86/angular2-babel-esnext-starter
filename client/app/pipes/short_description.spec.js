@@ -8,8 +8,20 @@ let expectedShortenedText =
   'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut laboret...';
 let shortDescription = 'Lorem ipsum.';
 
+@Component({
+  selector: 'test',
+  pipes: [ShortDescriptionPipe],
+  template: `
+    <div id="post-description">{{ actualDescription | short_description }}</div>
+  `
+})
+class TestComponent {
+  actualDescription = longDescription;
+}
+
 describe('ShortDescriptionPipe', () => {
-  let pipe, builder;
+  let pipe;
+  let builder;
 
   beforeEachProviders(() => [ShortDescriptionPipe, TestComponentBuilder]);
 
@@ -41,14 +53,3 @@ describe('ShortDescriptionPipe', () => {
     });
   });
 });
-
-@Component({
-  selector: 'test',
-  pipes: [ShortDescriptionPipe],
-  template: `
-    <div id="post-description">{{ actualDescription | short_description }}</div>
-  `
-})
-class TestComponent {
-  actualDescription = longDescription;
-}

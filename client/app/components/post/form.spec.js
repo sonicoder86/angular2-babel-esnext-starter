@@ -4,10 +4,33 @@ import { Injector, Component, EventEmitter } from 'angular2/core';
 import { TestComponentBuilder } from 'angular2/testing';
 
 let examplePost = {
+  _id: undefined,
   name: 'Sonic',
   website: 'http://www.sonic.com',
   description: 'Short bio'
 };
+
+@Component({
+  selector: 'test',
+  directives: [FormComponent],
+  template: `
+    <div>
+      <post-form [post]="actualPost" (saved)="onSave($event)"></post-form>
+    </div>
+  `
+})
+class TestComponent {
+  actualPost = examplePost;
+
+  constructor() {
+    this.saveFinished = new EventEmitter();
+  }
+
+  onSave(post) {
+    this.saveCall = post;
+    this.saveFinished.emit();
+  }
+}
 
 describe('FormComponent', () => {
   let builder;
@@ -83,7 +106,6 @@ describe('FormComponent', () => {
         fixture.detectChanges();
 
         component.saved.subscribe((value) => {
-          delete value._id;
           expect(value).toEqual(examplePost);
           done();
         });
@@ -125,25 +147,3 @@ describe('FormComponent', () => {
     });
   });
 });
-
-@Component({
-  selector: 'test',
-  directives: [FormComponent],
-  template: `
-    <div>
-      <post-form [post]="actualPost" (saved)="onSave($event)"></post-form>
-    </div>
-  `
-})
-class TestComponent {
-  actualPost = examplePost;
-
-  constructor() {
-    this.saveFinished = new EventEmitter();
-  }
-
-  onSave(post) {
-    this.saveCall = post;
-    this.saveFinished.emit();
-  }
-}

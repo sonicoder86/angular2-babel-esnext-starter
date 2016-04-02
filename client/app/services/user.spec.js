@@ -1,10 +1,10 @@
 import { UserService } from './user';
 import { FakeBackend, FAKE_BACKEND_PROVIDERS } from '../plugins/fake_backend';
 import { Injector } from 'angular2/core';
-import { request } from '../plugins/request';
 
 describe('UserService', () => {
-  let service, backend;
+  let service;
+  let backend;
 
   beforeEachProviders(() => [
     UserService,

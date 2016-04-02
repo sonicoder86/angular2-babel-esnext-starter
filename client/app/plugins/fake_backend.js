@@ -20,8 +20,11 @@ export class BackendExpectation {
     }
 
     if (this.options.hasOwnProperty('headers')) {
-      for (let header in headers) {
-        expect(connection.request.headers.get(header)).toEqual(headers[header], `Request header missmatch for ${header}.`);
+      for (let header in this.options.headers) {
+        if (this.options.headers.hasOwnProperty(header)) {
+          expect(connection.request.headers.get(header))
+            .toEqual(this.options.headers[header], `Request header missmatch for ${header}.`);
+        }
       }
     }
 
@@ -56,9 +59,11 @@ export class FakeBackend extends MockBackend {
 
   flush() {
     for (let order in this._pendingConnections) {
-      this._expectations[order].verify(
-        this._pendingConnections[order]
-      );
+      if (this._pendingConnections.hasOwnProperty(order)) {
+        this._expectations[order].verify(
+          this._pendingConnections[order]
+        );
+      }
     }
   }
 }

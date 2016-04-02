@@ -6,7 +6,8 @@ import { Http, BaseRequestOptions, Response, ResponseOptions } from 'angular2/ht
 import { request } from '../plugins/request';
 
 describe('PostService', () => {
-  let service, backend;
+  let service;
+  let backend;
   let singlePost = { _id: 'asdgre', name: 'Angular', website: 'http://angular.io' };
   let postsResponse = [singlePost];
 
@@ -14,13 +15,16 @@ describe('PostService', () => {
     backend.connections.subscribe(connection => {
       expect(connection.request.url).toEqual(url);
       expect(connection.request.method).toEqual(method);
+
       if (body) {
         expect(connection.request.text()).toEqual(body);
       }
-      if (headers) {
 
+      if (headers) {
         for (let header in headers) {
-          expect(connection.request.headers.get(header)).toEqual(headers[header]);
+          if (headers.hasOwnProperty(header)) {
+            expect(connection.request.headers.get(header)).toEqual(headers[header]);
+          }
         }
       }
 
@@ -35,8 +39,8 @@ describe('PostService', () => {
     MockBackend,
     BaseRequestOptions,
     provide(Http, {
-      useFactory: (backend, defaultOptions) => {
-        return new Http(backend, defaultOptions);
+      useFactory: (backendInstance, defaultOptions) => {
+        return new Http(backendInstance, defaultOptions);
       },
       deps: [MockBackend, BaseRequestOptions]
     })
@@ -51,7 +55,7 @@ describe('PostService', () => {
     let headers = request.getJsonHeaders();
     headers.append('Authorization', 'Bearer secretToken');
 
-    spyOn(request, "getAuthHeaders").and.returnValue(headers);
+    spyOn(request, 'getAuthHeaders').and.returnValue(headers);
   });
 
   it('should refresh remote posts', (done) => {
@@ -86,8 +90,8 @@ describe('PostService', () => {
   });
 
   it('should add post', (done) => {
-    returnsResponse(singlePost, RequestMethod.Post, `/post`, JSON.stringify(singlePost), {
-      'Content-Type': 'application/json', 'Authorization': 'Bearer secretToken'
+    returnsResponse(singlePost, RequestMethod.Post, '/post', JSON.stringify(singlePost), {
+      'Content-Type': 'application/json', Authorization: 'Bearer secretToken'
     });
 
     service.addPost(singlePost).subscribe((post) => {
@@ -99,7 +103,7 @@ describe('PostService', () => {
 
   it('should update post', (done) => {
     returnsResponse(singlePost, RequestMethod.Post, `/post/${singlePost._id}`, JSON.stringify(singlePost), {
-      'Content-Type': 'application/json', 'Authorization': 'Bearer secretToken'
+      'Content-Type': 'application/json', Authorization: 'Bearer secretToken'
     });
 
     service.updatePost(singlePost).subscribe((post) => {
