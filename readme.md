@@ -25,6 +25,7 @@ You can see the list of links, add and edit them after you signed in.
 There are plenty of resources for starter packs and documentations on how to write your Angular 2 application in Typescript.
 The official documentation is only complete for Typescript and the parts which are also in Javascript are so few and in ES5 syntax which is little bit verbose compared to ES6.
 This is why i decided to make a starter pack to show that equivalent easy and viable solutions exist in Javascript.
+
 It does not want to be by any means an against Typescript repository,
 just a choice for people, who like the loosely typed nature of Javascript or just feel overwhelmed by having to learn both Angular 2 and Typescript when trying out the new framework.
 By adding Flow types and using decorators wherever you can, it will be really easy to switch to Typescript by adding type definitions to the project (if you want to).
