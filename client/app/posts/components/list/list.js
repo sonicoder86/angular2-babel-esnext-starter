@@ -11,11 +11,7 @@ import { ListItemComponent } from './../list_item/list_item';
   changeDetection: ChangeDetectionStrategy.Detached
 })
 export class ListComponent {
-  static get parameters() {
-    return [[PostService]];
-  }
-
-  constructor(postService) {
+  constructor(postService: PostService) {
     this._postService = postService;
   }
 

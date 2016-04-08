@@ -10,11 +10,7 @@ import { FormComponent } from './../form/form';
   directives: [FormComponent]
 })
 export class EditComponent {
-  static get parameters() {
-    return [[PostService], [RouteParams], [Router]];
-  }
-
-  constructor(postService, params, router) {
+  constructor(postService: PostService, params: RouteParams, router: Router) {
     this._postService = postService;
     this._params = params;
     this._router = router;

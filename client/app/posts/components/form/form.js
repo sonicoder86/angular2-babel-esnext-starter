@@ -1,24 +1,20 @@
-import { Component, EventEmitter } from 'angular2/core';
+import { Component, EventEmitter, Input, Output } from 'angular2/core';
 import { FormBuilder, Validators } from 'angular2/common';
 import template from './form.html';
 import { validatorFactory } from '../../validator';
 
 @Component({
   selector: 'post-form',
-  template: template,
-  inputs: ['post'],
-  outputs: ['saved']
+  template: template
 })
 export class FormComponent {
+  @Input()
   post;
 
+  @Output()
   saved = new EventEmitter();
 
-  static get parameters() {
-    return [[FormBuilder]];
-  }
-
-  constructor(builder) {
+  constructor(builder: FormBuilder) {
     this.postForm = builder.group({
       _id: [''],
       name: ['', Validators.required],

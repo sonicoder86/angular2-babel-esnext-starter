@@ -7,11 +7,7 @@ import { request } from '../../auth/helpers/request';
 export class PostService {
   remotePosts = new BehaviorSubject([]);
 
-  static get parameters() {
-    return [[Http]];
-  }
-
-  constructor(http) {
+  constructor(http: Http) {
     this._http = http;
   }
 

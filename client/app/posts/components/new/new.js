@@ -10,11 +10,7 @@ import { FormComponent } from './../form/form';
   directives: [FormComponent]
 })
 export class NewComponent {
-  static get parameters() {
-    return [[PostService], [Router]];
-  }
-
-  constructor(postService, router) {
+  constructor(postService: PostService, router: Router) {
     this._postService = postService;
     this._router = router;
   }
