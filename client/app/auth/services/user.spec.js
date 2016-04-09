@@ -78,15 +78,10 @@ describe('UserService', () => {
     });
   });
 
-  it('should log out user', (done) => {
-    subject.getLoggedIn()
-      .filter((loggedIn) => !loggedIn)
-      .subscribe((loggedIn) => {
-        expect(loggedIn).toBeFalsy();
-        expect(storage.removeAuthToken).toHaveBeenCalled();
-        done();
-      });
-
+  it('should log out user', () => {
     subject.logout();
+
+    expect(storage.removeAuthToken).toHaveBeenCalled();
+    expect(subject.isLoggedIn()).toBeFalsy();
   });
 });
