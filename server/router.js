@@ -26,14 +26,18 @@ let posts = [
   }
 ];
 
+function findPost(id) {
+  return posts.find((post) => {
+    return post._id == id;
+  });
+}
+
 router.get('/posts', function*() {
   this.body = posts;
 });
 
 router.get('/post/:id', function*() {
-  let foundPost = posts.find((post) => {
-    return post._id == this.params.id;
-  });
+  let foundPost = findPost(this.params.id);
 
   if (foundPost) {
     this.body = foundPost;
@@ -44,9 +48,7 @@ router.get('/post/:id', function*() {
 });
 
 router.post('/post/:id', function*() {
-  let foundPost = posts.find((post) => {
-    return post._id = this.params.id;
-  });
+  let foundPost = findPost(this.params.id);
 
   if (foundPost) {
     Object.assign(foundPost, this.request.body);
