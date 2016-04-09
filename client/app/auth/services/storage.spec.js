@@ -1,7 +1,7 @@
 import localStorage from 'localStorage';
 import { StorageService } from './storage';
 
-describe('request', () => {
+describe('StorageService', () => {
   let subject;
 
   beforeEach(() => {

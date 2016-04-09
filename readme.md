@@ -86,6 +86,8 @@ gulp test-dev
 
 ```
 
+To get a good overview of testing possibilities within Angular 2 [read this article](https://medium.com/google-developer-experts/angular-2-unit-testing-with-jasmine-defe20421584).
+
 ### ES6 workarounds
 
 ##### Dependency Injection

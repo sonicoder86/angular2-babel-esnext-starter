@@ -2,7 +2,7 @@
     <div class="col-sm-12">
         <h1>Login</h1>
 
-        <form (ngSubmit)="onSubmit(loginForm.value)" [ngFormModel]="loginForm">
+        <form (ngSubmit)="onSubmit(loginForm.value)" [ngFormModel]="loginForm" class="login-form">
             <p>{{ 'login_suggest' | translate:{email: 'admin@gmail.com', password: 'angular2'} }}</p>
 
             <div class="form-group">

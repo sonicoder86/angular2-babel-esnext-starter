@@ -1,7 +1,7 @@
 import { RequestService } from './request';
 import { StorageService } from './storage';
 
-describe('request', () => {
+describe('RequestService', () => {
   let subject;
 
   beforeEachProviders(() => [
