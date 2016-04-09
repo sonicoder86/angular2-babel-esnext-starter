@@ -1,7 +1,7 @@
 import { Injectable } from 'angular2/core';
 import { Http } from 'angular2/http';
 import { BehaviorSubject } from 'rxjs';
-import { request } from '../../auth/helpers/request';
+import { request } from '../../auth/services/request';
 
 @Injectable()
 export class PostService {

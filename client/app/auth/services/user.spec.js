@@ -1,31 +1,92 @@
+import { Injector } from 'angular2/core';
 import { UserService } from './user';
 import { FakeBackend, FAKE_BACKEND_PROVIDERS } from '../../helpers/fake_backend';
-import { Injector } from 'angular2/core';
+import { StorageService } from './storage';
+import { RequestService } from './request';
 
 describe('UserService', () => {
-  let service;
+  let subject;
   let backend;
+  let storage;
+  let credentials = { email: 'user@gmail.com', password: 'super_secret' };
+  function successfulHttpLogin() {
+    backend.expectPOST('/login', JSON.stringify(credentials))
+      .respond(200, JSON.stringify({ success: true, auth_token: 'secret_token' }));
+  }
 
   beforeEachProviders(() => [
     UserService,
+    StorageService,
+    RequestService,
     FAKE_BACKEND_PROVIDERS
   ]);
 
   beforeEach(inject([Injector], (injector) => {
-    service = injector.get(UserService);
+    subject = injector.get(UserService);
+    storage = injector.get(StorageService);
     backend = injector.get(FakeBackend);
   }));
 
-  it('should log in user', (done) => {
-    let credentials = { email: 'user@gmail.com', password: 'super_secret' };
-    backend.expectPOST('/login', JSON.stringify(credentials))
-      .respond(200, JSON.stringify({ success: true }));
+  beforeEach(() => {
+    spyOn(storage, 'setAuthToken');
+    spyOn(storage, 'removeAuthToken');
+  });
 
-    service.login(credentials).subscribe((result) => {
+  it('should log in user when request was successful', (done) => {
+    successfulHttpLogin();
+
+    subject.login(credentials).subscribe((result) => {
       expect(result).toBeTruthy();
+      expect(storage.setAuthToken).toHaveBeenCalledWith('secret_token');
       done();
     });
 
     backend.flush();
+  });
+
+  it('should not log in user when request was unsuccessful', (done) => {
+    backend.expectPOST('/login', JSON.stringify(credentials))
+      .respond(200, JSON.stringify({ success: false }));
+
+    subject.login(credentials).subscribe((result) => {
+      expect(result).toBeFalsy();
+      expect(storage.setAuthToken.calls.count()).toEqual(0);
+      done();
+    });
+
+    backend.flush();
+  });
+
+  it('should return current login state', () => {
+    successfulHttpLogin();
+
+    subject.login(credentials).subscribe(() => { });
+    backend.flush();
+
+    expect(subject.isLoggedIn()).toBeTruthy();
+  });
+
+  it('should notify current login state', (done) => {
+    successfulHttpLogin();
+
+    subject.login(credentials).subscribe(() => { });
+    backend.flush();
+
+    subject.getLoggedIn().subscribe((loggedIn) => {
+      expect(loggedIn).toBeTruthy();
+      done();
+    });
+  });
+
+  it('should log out user', (done) => {
+    subject.getLoggedIn()
+      .filter((loggedIn) => !loggedIn)
+      .subscribe((loggedIn) => {
+        expect(loggedIn).toBeFalsy();
+        expect(storage.removeAuthToken).toHaveBeenCalled();
+        done();
+      });
+
+    subject.logout();
   });
 });

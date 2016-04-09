@@ -4,7 +4,7 @@ import { TranslateService, TranslatePipe } from 'ng2-translate/ng2-translate';
 import template from './app.html';
 import { translation } from '../../../i18n/en';
 import { MenuComponent } from '../menu/menu';
-import { LoggedInRouterOutlet } from '../../../auth/directives/routeroutlet';
+import { LoggedInRouterOutlet } from '../../../auth/directives/router_outlet';
 import { router } from './router';
 
 @Component({

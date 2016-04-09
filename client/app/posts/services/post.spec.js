@@ -3,7 +3,7 @@ import { MockBackend } from 'angular2/http/testing';
 import { RequestMethod } from 'angular2/http';
 import { provide, Injector } from 'angular2/core';
 import { Http, BaseRequestOptions, Response, ResponseOptions } from 'angular2/http';
-import { request } from '../../auth/helpers/request';
+import { request } from '../../auth/services/request';
 
 describe('PostService', () => {
   let service;

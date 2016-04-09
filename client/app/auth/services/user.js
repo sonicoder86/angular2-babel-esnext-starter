@@ -1,36 +1,34 @@
 import { Injectable } from 'angular2/core';
 import { Http } from 'angular2/http';
 import { BehaviorSubject } from 'rxjs';
-import { storage } from '../helpers/storage';
-import { request } from '../helpers/request';
-
-export function isLoggedIn() {
-  return !!storage.getAuthToken();
-}
+import { StorageService } from './storage';
+import { RequestService } from './request';
 
 @Injectable()
 export class UserService {
   _loggedIn = new BehaviorSubject(false);
 
   static get parameters() {
-    return [[Http]];
+    return [[Http], [StorageService], [RequestService]];
   }
 
-  constructor(http) {
+  constructor(http, storage, request) {
     this._http = http;
+    this._storage = storage;
+    this._request = request;
 
-    if (isLoggedIn()) {
+    if (!!this._storage.getAuthToken()) {
       this._loggedIn.next(true);
     }
   }
 
   login(credentials) {
     return this._http
-      .post('/login', JSON.stringify(credentials), { headers: request.getJsonHeaders() })
+      .post('/login', JSON.stringify(credentials), { headers: this._request.getJsonHeaders() })
       .map(res => res.json())
       .map((res) => {
         if (res.success) {
-          storage.setAuthToken(res.auth_token);
+          this._storage.setAuthToken(res.auth_token);
           this._loggedIn.next(true);
         }
 
@@ -39,7 +37,7 @@ export class UserService {
   }
 
   logout() {
-    storage.removeAuthToken();
+    this._storage.removeAuthToken();
     this._loggedIn.next(false);
   }
 
