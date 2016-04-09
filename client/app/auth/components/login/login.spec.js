@@ -13,9 +13,7 @@ class RouterMock {
   navigate() {}
 }
 class UserServiceMock {
-  login(val) {
-    console.log(val)
-  }
+  login() {}
 }
 
 function stubLoginMethod(result) {
