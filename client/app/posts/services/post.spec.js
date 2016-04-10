@@ -1,9 +1,9 @@
 import { PostService } from './post';
 import { MockBackend } from 'angular2/http/testing';
-import { RequestMethod } from 'angular2/http';
+import { RequestMethod, Headers } from 'angular2/http';
 import { provide, Injector } from 'angular2/core';
 import { Http, BaseRequestOptions, Response, ResponseOptions } from 'angular2/http';
-import { request } from '../../auth/services/request';
+import { AUTH_PROVIDERS, RequestService } from '../../auth';
 
 describe('PostService', () => {
   let service;
@@ -38,6 +38,7 @@ describe('PostService', () => {
     PostService,
     MockBackend,
     BaseRequestOptions,
+    AUTH_PROVIDERS,
     provide(Http, {
       useFactory: (backendInstance, defaultOptions) => {
         return new Http(backendInstance, defaultOptions);
@@ -52,10 +53,11 @@ describe('PostService', () => {
   }));
 
   beforeEach(() => {
-    let headers = request.getJsonHeaders();
+    let headers = new Headers();
+    headers.append('Content-Type', 'application/json');
     headers.append('Authorization', 'Bearer secretToken');
 
-    spyOn(request, 'getAuthHeaders').and.returnValue(headers);
+    spyOn(RequestService.prototype, 'getAuthHeaders').and.returnValue(headers);
   });
 
   it('should refresh remote posts', (done) => {
@@ -96,7 +98,7 @@ describe('PostService', () => {
 
     service.addPost(singlePost).subscribe((post) => {
       expect(post).toEqual(singlePost);
-      expect(request.getAuthHeaders).toHaveBeenCalled();
+      expect(RequestService.prototype.getAuthHeaders).toHaveBeenCalled();
       done();
     });
   });
@@ -108,7 +110,7 @@ describe('PostService', () => {
 
     service.updatePost(singlePost).subscribe((post) => {
       expect(post).toEqual(singlePost);
-      expect(request.getAuthHeaders).toHaveBeenCalled();
+      expect(RequestService.prototype.getAuthHeaders).toHaveBeenCalled();
       done();
     });
   });

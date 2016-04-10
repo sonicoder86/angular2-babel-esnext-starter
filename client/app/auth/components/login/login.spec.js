@@ -1,20 +1,12 @@
 import { TestComponentBuilder } from 'angular2/testing';
 import { FormBuilder } from 'angular2/common';
-import { Router } from 'angular2/router';
-import { provide } from 'angular2/core';
 import { BrowserDomAdapter } from 'angular2/platform/browser';
 import { TRANSLATE_PROVIDERS } from 'ng2-translate/ng2-translate';
 import { HTTP_PROVIDERS } from 'angular2/http';
 import { Observable } from 'rxjs';
 import { LoginComponent } from './login';
-import { UserService } from '../../services/user';
-
-class RouterMock {
-  navigate() {}
-}
-class UserServiceMock {
-  login() {}
-}
+import { CORE_TESTING_PROVIDERS, RouterMock } from '../../../core/testing';
+import { AUTH_TESTING_PROVIDERS, UserServiceMock } from '../../testing';
 
 function stubLoginMethod(result) {
   let loginResult = Observable.of(result);
@@ -34,8 +26,8 @@ describe('LoginComponent', () => {
     BrowserDomAdapter,
     TRANSLATE_PROVIDERS,
     HTTP_PROVIDERS,
-    provide(UserService, { useClass: UserServiceMock }),
-    provide(Router, { useClass: RouterMock })
+    AUTH_TESTING_PROVIDERS,
+    CORE_TESTING_PROVIDERS
   ]);
 
   beforeEach(injectAsync([TestComponentBuilder, BrowserDomAdapter], (componentBuilder, _dom_) => {

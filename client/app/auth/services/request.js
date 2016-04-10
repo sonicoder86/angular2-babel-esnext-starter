@@ -27,5 +27,3 @@ export class RequestService {
     return headers;
   }
 }
-
-export const request = new RequestService();

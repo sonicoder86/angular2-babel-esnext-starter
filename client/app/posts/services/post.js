@@ -1,14 +1,15 @@
 import { Injectable } from 'angular2/core';
 import { Http } from 'angular2/http';
 import { BehaviorSubject } from 'rxjs';
-import { request } from '../../auth/services/request';
+import { RequestService } from '../../auth/services/request';
 
 @Injectable()
 export class PostService {
   remotePosts = new BehaviorSubject([]);
 
-  constructor(http: Http) {
+  constructor(http: Http, request: RequestService) {
     this._http = http;
+    this._request = request;
   }
 
   refreshPosts() {
@@ -29,7 +30,7 @@ export class PostService {
 
   addPost(post) {
     return this._http
-      .post('/post', JSON.stringify(post), { headers: request.getAuthHeaders() })
+      .post('/post', JSON.stringify(post), { headers: this._request.getAuthHeaders() })
       .map(res => res.json());
   }
 
@@ -40,7 +41,7 @@ export class PostService {
 
   updatePost(post) {
     return this._http
-      .post(`/post/${post._id}`, JSON.stringify(post), { headers: request.getAuthHeaders() })
+      .post(`/post/${post._id}`, JSON.stringify(post), { headers: this._request.getAuthHeaders() })
       .map(res => res.json());
   }
 }

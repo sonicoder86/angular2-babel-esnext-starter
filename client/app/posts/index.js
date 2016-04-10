@@ -1,3 +1,8 @@
 import { PostService } from './services/post';
 
-export const POSTS_PROVIDERS = [PostService];
+const POSTS_PROVIDERS = [PostService];
+
+export {
+  PostService,
+  POSTS_PROVIDERS
+};
