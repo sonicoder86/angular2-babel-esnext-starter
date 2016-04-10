@@ -24,7 +24,7 @@
   ],
   "description": "A skeleton Angular 2 application built in ES6 with Babel, Webpack, Gulp.",
   "engines": {
-    "node": "4.3.0"
+    "node": "4.4.2"
   },
   "dependencies": {
     "jsonwebtoken": "5.7.0",
