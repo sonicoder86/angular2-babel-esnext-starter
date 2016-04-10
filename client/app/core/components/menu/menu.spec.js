@@ -25,8 +25,6 @@ describe('MenuComponent', () => {
   }));
 
   it('should display page title', (done) => {
-    spyOn(UserServiceMock.prototype, 'getLoggedIn').and.returnValue(Observable.of(true));
-
     builder.createAsync(MenuComponent).then((fixture) => {
       fixture.detectChanges();
       let header = fixture.nativeElement.querySelector('.navbar-brand');
@@ -48,6 +46,36 @@ describe('MenuComponent', () => {
       expect(UserServiceMock.prototype.logout).toHaveBeenCalled();
       expect(RouterMock.prototype.navigate).toHaveBeenCalledWith(['List']);
       expect(result).toBeFalsy();
+      done();
+    }).catch(e => done.fail(e));
+  });
+
+  it('should show logout button and logout clicking on it', (done) => {
+    spyOn(UserServiceMock.prototype, 'logout');
+    spyOn(RouterMock.prototype, 'navigate');
+
+    builder.createAsync(MenuComponent).then((fixture) => {
+      fixture.detectChanges();
+      let menuItems = fixture.nativeElement.querySelectorAll('li > a');
+
+      expect(menuItems[2].textContent).toEqual(enTranslation.menu_logout);
+
+      menuItems[2].click();
+
+      expect(UserServiceMock.prototype.logout).toHaveBeenCalled();
+      expect(RouterMock.prototype.navigate).toHaveBeenCalledWith(['List']);
+      done();
+    }).catch(e => done.fail(e));
+  });
+
+  it('should show login button when logged out', (done) => {
+    spyOn(UserServiceMock.prototype, 'getLoggedIn').and.returnValue(Observable.of(false));
+
+    builder.createAsync(MenuComponent).then((fixture) => {
+      fixture.detectChanges();
+      let menuItems = fixture.nativeElement.querySelectorAll('li > a');
+
+      expect(menuItems[2].textContent).toEqual(enTranslation.menu_login);
       done();
     }).catch(e => done.fail(e));
   });
