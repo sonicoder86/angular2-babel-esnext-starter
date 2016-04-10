@@ -1,11 +1,12 @@
 'use strict';
+let path = require('path');
 
 module.exports = function(config) {
   let webpackConfig = require('./webpack.test');
 
   config.set({
     // base path that will be used to resolve all patterns (eg. files, exclude)
-    basePath: '',
+    basePath: path.resolve(__dirname, '../../'),
 
     // frameworks to use
     // available frameworks: https://npmjs.org/browse/keyword/karma-adapter
@@ -13,8 +14,13 @@ module.exports = function(config) {
 
     // list of files / patterns to load in the browser
     files: [
-      {pattern: '../../client/setup.spec.js'}
+      { pattern: 'client/setup.spec.js' },
+      { pattern: 'client/css/*.css', included: false, served: true }
     ],
+
+    proxies: {
+      '/css/': '/base/client/css/'
+    },
 
     // list of files to exclude
     exclude: [
@@ -23,7 +29,7 @@ module.exports = function(config) {
     // preprocess matching files before serving them to the browser
     // available preprocessors: https://npmjs.org/browse/keyword/karma-preprocessor
     preprocessors: {
-      '../../client/setup.spec.js': ['webpack', 'sourcemap']
+      'client/setup.spec.js': ['webpack', 'sourcemap']
     },
 
     // test results reporter to use
