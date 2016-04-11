@@ -9,8 +9,8 @@ It shows techniques how easy development can be also without Typescript.
 It is a basic CRUD application with authentication, similar to the news site [jslive.com](https://jslive.com).
 You can see the list of links, add and edit them after you signed in.
 
+- Pure Javascript implementation.
 - Uses [Babel](https://babeljs.io/) to support class/parameter decorators.
-- No [Typescript](https://www.typescriptlang.org/) included.
 - Bundles files with [Webpack](https://webpack.github.io/).
 - Automates tasks with [Gulp](http://gulpjs.com/).
 - Automatically rebundles and refreshes the browser on changes.
