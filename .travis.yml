@@ -1,3 +1,5 @@
 language: node_js
 node_js:
   - "4.4.2"
+after_success:
+  - 'cat coverage/lcov.info | ./node_modules/.bin/codeclimate-test-reporter'

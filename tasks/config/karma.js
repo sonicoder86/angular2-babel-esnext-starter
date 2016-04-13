@@ -1,8 +1,13 @@
 'use strict';
 let path = require('path');
+let coverageEnabled = process.env.COVERAGE_ENABLED === 'true';
 
 module.exports = function(config) {
   let webpackConfig = require('./webpack.test');
+  let reporters = ['dots'];
+  if (coverageEnabled) {
+    reporters.push('coverage');
+  }
 
   config.set({
     // base path that will be used to resolve all patterns (eg. files, exclude)
@@ -35,7 +40,13 @@ module.exports = function(config) {
     // test results reporter to use
     // possible values: 'dots', 'progress'
     // available reporters: https://npmjs.org/browse/keyword/karma-reporter
-    reporters: ['dots'],
+    reporters: reporters,
+
+    coverageReporter: {
+      type: 'lcov',
+      dir: 'coverage',
+      subdir: '.'
+    },
 
     webpack: webpackConfig,
 

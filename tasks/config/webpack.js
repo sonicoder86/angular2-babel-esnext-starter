@@ -2,6 +2,17 @@
 let path = require('path');
 let webpack = require('webpack');
 let config = require('./index').client;
+let coverageEnabled = process.env.COVERAGE_ENABLED === 'true';
+let babelPlugins = [
+  'angular2-annotations',
+  'transform-decorators-legacy',
+  'transform-class-properties',
+  'transform-flow-strip-types'
+];
+
+if (coverageEnabled) {
+  babelPlugins.push('__coverage__');
+}
 
 module.exports = {
   entry: {
@@ -20,12 +31,7 @@ module.exports = {
         exclude: /(node_modules)/,
         query: {
           presets: ['es2015'],
-          plugins: [
-            'angular2-annotations',
-            'transform-decorators-legacy',
-            'transform-class-properties',
-            'transform-flow-strip-types'
-          ]
+          plugins: babelPlugins
         }
       },
       {
