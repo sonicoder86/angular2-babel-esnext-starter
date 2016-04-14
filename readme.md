@@ -3,6 +3,8 @@
 [![Dependency Status](https://david-dm.org/blacksonic/angular2-es6-starter.svg)](https://david-dm.org/blacksonic/angular2-es6-starter)
 [![devDependency Status](https://david-dm.org/blacksonic/angular2-es6-starter/dev-status.svg)](https://david-dm.org/blacksonic/angular2-es6-starter#info=devDependencies)
 [![Build Status](https://travis-ci.org/blacksonic/angular2-es6-starter.svg?branch=master)](https://travis-ci.org/blacksonic/angular2-es6-starter)
+[![Code Climate](https://codeclimate.com/github/blacksonic/angular2-es6-starter/badges/gpa.svg)](https://codeclimate.com/github/blacksonic/angular2-es6-starter)
+[![Code Coverage](https://codeclimate.com/github/blacksonic/angular2-es6-starter/badges/coverage.svg)](https://codeclimate.com/github/blacksonic/angular2-es6-starter)
 
 This repo stands as a starting point for those who try [Angular 2](https://angular.io/) in Javascript.
 It shows techniques how easy development can be also without Typescript.
@@ -15,6 +17,7 @@ You can see the list of links, add and edit them after you signed in.
 - Automates tasks with [Gulp](http://gulpjs.com/).
 - Automatically rebundles and refreshes the browser on changes.
 - Unit testing with [Karma](https://karma-runner.github.io/0.13/index.html) and [Jasmine](http://jasmine.github.io/).
+- Code coverage for original ES6 code.
 - E2E testing with [Protractor](https://angular.github.io/protractor/#/).
 - Includes deployment to [Heroku](https://heroku.com/).
 - Linting with [ESlint](http://eslint.org/) based on [Airbnb's styleguide](https://github.com/airbnb/javascript).
