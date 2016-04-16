@@ -1,6 +1,6 @@
 import { Injectable } from 'angular2/core';
 import { Http } from 'angular2/http';
-import { BehaviorSubject } from 'rxjs';
+import { BehaviorSubject } from 'rxjs/subject/BehaviorSubject';
 import { StorageService } from './storage';
 import { RequestService } from './request';
 

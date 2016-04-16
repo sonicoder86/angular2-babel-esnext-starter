@@ -1,5 +1,5 @@
 import { provide } from 'angular2/core';
-import { Observable } from 'rxjs';
+import { Observable } from 'rxjs/Observable';
 import { UserService } from './services/user';
 
 class UserServiceMock {

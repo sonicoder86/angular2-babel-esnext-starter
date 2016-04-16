@@ -3,7 +3,7 @@ import { FormBuilder } from 'angular2/common';
 import { BrowserDomAdapter } from 'angular2/platform/browser';
 import { TRANSLATE_PROVIDERS } from 'ng2-translate/ng2-translate';
 import { HTTP_PROVIDERS } from 'angular2/http';
-import { Observable } from 'rxjs';
+import { Observable } from 'rxjs/Observable';
 import { LoginComponent } from './login';
 import { CORE_TESTING_PROVIDERS, RouterMock } from '../../../core/testing';
 import { AUTH_TESTING_PROVIDERS, UserServiceMock } from '../../testing';

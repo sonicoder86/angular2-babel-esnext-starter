@@ -1,5 +1,5 @@
 import './shim';
-import 'rxjs/Rx';
+import 'rxjs/add/operator/map';
 import 'validate.js';
 import 'localStorage';
 

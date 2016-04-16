@@ -1,5 +1,5 @@
 import './shim';
-import 'rxjs/Rx';
+import 'rxjs/add/operator/map';
 import { bootstrap } from 'angular2/platform/browser';
 import { enableProdMode, provide } from 'angular2/core';
 import { TRANSLATE_PROVIDERS } from 'ng2-translate/ng2-translate';
