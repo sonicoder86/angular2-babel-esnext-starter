@@ -3,12 +3,13 @@ import { ROUTER_DIRECTIVES } from 'angular2/router';
 import template from './list_item.html';
 import { ShortDescriptionPipe } from '../../pipes/short_description';
 import { UserService } from '../../../auth';
+import { ClickCounter } from '../../directives/click_counter';
 
 @Component({
   selector: 'list-item',
   template: template,
   changeDetection: ChangeDetectionStrategy.OnPush,
-  directives: [ROUTER_DIRECTIVES],
+  directives: [ROUTER_DIRECTIVES, ClickCounter],
   pipes: [ShortDescriptionPipe],
   inputs: ['post']
 })

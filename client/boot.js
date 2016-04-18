@@ -8,6 +8,7 @@ import { ROUTER_PROVIDERS, LocationStrategy, HashLocationStrategy } from 'angula
 import { HTTP_PROVIDERS } from 'angular2/http';
 import { AUTH_PROVIDERS } from './app/auth';
 import { POSTS_PROVIDERS } from './app/posts';
+import { environment } from './app/core';
 
 if (ENVIRONMENT === 'production') {
   enableProdMode();
@@ -17,7 +18,8 @@ bootstrap(AppComponent, [
   HTTP_PROVIDERS,
   ROUTER_PROVIDERS,
   TRANSLATE_PROVIDERS,
-  provide(LocationStrategy, { useClass: HashLocationStrategy }),
   AUTH_PROVIDERS,
-  POSTS_PROVIDERS
+  POSTS_PROVIDERS,
+  provide(LocationStrategy, { useClass: HashLocationStrategy }),
+  provide(environment, { useValue: ENVIRONMENT })
 ]);
