@@ -1,8 +1,8 @@
-# Angular 2 ES6 Starter 
+# Angular 2 ESNext Starter
 [![npm version](https://badge.fury.io/js/angular2.svg)](http://badge.fury.io/js/angular2)
-[![Dependency Status](https://david-dm.org/blacksonic/angular2-es6-starter.svg)](https://david-dm.org/blacksonic/angular2-es6-starter)
-[![devDependency Status](https://david-dm.org/blacksonic/angular2-es6-starter/dev-status.svg)](https://david-dm.org/blacksonic/angular2-es6-starter#info=devDependencies)
-[![Build Status](https://travis-ci.org/blacksonic/angular2-es6-starter.svg?branch=master)](https://travis-ci.org/blacksonic/angular2-es6-starter)
+[![Dependency Status](https://david-dm.org/blacksonic/angular2-esnext-starter.svg)](https://david-dm.org/blacksonic/angular2-esnext-starter)
+[![devDependency Status](https://david-dm.org/blacksonic/angular2-esnext-starter/dev-status.svg)](https://david-dm.org/blacksonic/angular2-esnext-starter#info=devDependencies)
+[![Build Status](https://travis-ci.org/blacksonic/angular2-esnext-starter.svg?branch=master)](https://travis-ci.org/blacksonic/angular2-esnext-starter)
 [![Code Climate](https://codeclimate.com/github/blacksonic/angular2-es6-starter/badges/gpa.svg)](https://codeclimate.com/github/blacksonic/angular2-es6-starter)
 [![Code Coverage](https://codeclimate.com/github/blacksonic/angular2-es6-starter/badges/coverage.svg)](https://codeclimate.com/github/blacksonic/angular2-es6-starter)
 
