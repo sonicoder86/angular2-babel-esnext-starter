@@ -3,8 +3,8 @@
 [![Dependency Status](https://david-dm.org/blacksonic/angular2-esnext-starter.svg)](https://david-dm.org/blacksonic/angular2-esnext-starter)
 [![devDependency Status](https://david-dm.org/blacksonic/angular2-esnext-starter/dev-status.svg)](https://david-dm.org/blacksonic/angular2-esnext-starter#info=devDependencies)
 [![Build Status](https://travis-ci.org/blacksonic/angular2-esnext-starter.svg?branch=master)](https://travis-ci.org/blacksonic/angular2-esnext-starter)
-[![Code Climate](https://codeclimate.com/github/blacksonic/angular2-es6-starter/badges/gpa.svg)](https://codeclimate.com/github/blacksonic/angular2-es6-starter)
-[![Code Coverage](https://codeclimate.com/github/blacksonic/angular2-es6-starter/badges/coverage.svg)](https://codeclimate.com/github/blacksonic/angular2-es6-starter)
+[![Code Climate](https://codeclimate.com/github/blacksonic/angular2-esnext-starter/badges/gpa.svg)](https://codeclimate.com/github/blacksonic/angular2-esnext-starter)
+[![Code Coverage](https://codeclimate.com/github/blacksonic/angular2-esnext-starter/badges/coverage.svg)](https://codeclimate.com/github/blacksonic/angular2-esnext-starter)
 
 This repo stands as a starting point for those who try [Angular 2](https://angular.io/) in Javascript.
 It shows techniques how easy development can be also without Typescript.
