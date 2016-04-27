@@ -21,7 +21,6 @@ You can see the list of links, add and edit them after you signed in.
 - E2E testing with [Protractor](https://angular.github.io/protractor/#/).
 - Includes deployment to [Heroku](https://heroku.com/).
 - Linting with [ESlint](http://eslint.org/) based on [Airbnb's styleguide](https://github.com/airbnb/javascript).
-- Optional typing with [Flow](http://flowtype.org/).
 
 ### Motivation
 
@@ -53,7 +52,7 @@ By adding Flow types and using decorators wherever you can, it will be really ea
 ```bash
 
 git clone https://github.com/blacksonic/angular2-es6-starter.git
-cd angular2-es6-starter
+cd angular2-esnext-starter
 npm install
 
 gulp serve
