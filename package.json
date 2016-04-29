@@ -27,18 +27,18 @@
     "node": "4.4.2"
   },
   "dependencies": {
-    "jsonwebtoken": "5.7.0",
+    "jsonwebtoken": "6.2.0",
     "koa": "1.2.0",
     "koa-bodyparser": "2.0.1",
-    "koa-jwt": "1.1.2",
+    "koa-jwt": "1.2.0",
     "koa-router": "5.4.0",
     "koa-static": "2.0.0",
     "node-uuid": "1.4.7"
   },
   "devDependencies": {
-    "angular2": "2.0.0-beta.15",
-    "babel-core": "6.7.6",
-    "babel-eslint": "6.0.2",
+    "angular2": "2.0.0-beta.17",
+    "babel-core": "6.7.7",
+    "babel-eslint": "6.0.4",
     "babel-loader": "6.2.4",
     "babel-plugin-__coverage__": "0.111111.1",
     "babel-plugin-angular2-annotations": "5.0.0",
@@ -52,7 +52,7 @@
     "es6-promise": "3.1.2",
     "es6-shim": "0.35.0",
     "gulp": "3.9.1",
-    "gulp-cssnano": "2.1.1",
+    "gulp-cssnano": "2.1.2",
     "gulp-delete-lines": "0.0.7",
     "gulp-eslint": "2.0.0",
     "gulp-less": "3.0.5",
@@ -69,16 +69,16 @@
     "karma-webpack": "1.7.0",
     "localStorage": "1.0.3",
     "mini-lr": "0.1.9",
-    "ng2-translate": "1.11.1",
+    "ng2-translate": "2.0.0",
     "phantomjs-polyfill": "0.0.2",
     "phantomjs-prebuilt": "2.1.7",
     "protractor": "3.2.2",
     "raw-loader": "0.5.1",
     "reflect-metadata": "0.1.2",
     "run-sequence": "1.1.5",
-    "rxjs": "5.0.0-beta.2",
+    "rxjs": "5.0.0-beta.6",
     "validate.js": "0.9.0",
     "webpack": "1.13.0",
-    "zone.js": "0.6.11"
+    "zone.js": "0.6.12"
   }
 }

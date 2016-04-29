@@ -8,13 +8,13 @@ describe('AboutComponent', () => {
     TestComponentBuilder
   ]);
 
-  beforeEach(injectAsync([TestComponentBuilder], (componentBuilder) => {
+  beforeEach(async(inject([TestComponentBuilder], (componentBuilder) => {
     return componentBuilder
       .createAsync(AboutComponent)
       .then(fixture => {
         subjectElement = fixture.nativeElement;
       });
-  }));
+  })));
 
   it('should display title', () => {
     let header = subjectElement.querySelector('h1');

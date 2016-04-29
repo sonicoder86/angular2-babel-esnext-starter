@@ -1,4 +1,4 @@
-import { Directive, HostListener, ElementRef } from 'angular2/core';
+import { Directive, HostListener, ViewContainerRef } from 'angular2/core';
 
 @Directive({
   selector: '[click-counter]'
@@ -6,13 +6,13 @@ import { Directive, HostListener, ElementRef } from 'angular2/core';
 export class ClickCounter {
   numberOfClicks = 0;
 
-  constructor(element: ElementRef) {
-    this._element = element;
+  constructor(containerRef: ViewContainerRef) {
+    this._containerRef = containerRef;
   }
 
   @HostListener('click', ['$event'])
   onClick(event) {
-    let fullId = this._element.nativeElement.id;
+    let fullId = this._containerRef.element.nativeElement.id;
 
     console.log(fullId.substring(5), this.numberOfClicks++, event);
   }

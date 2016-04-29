@@ -30,7 +30,7 @@ describe('LoginComponent', () => {
     CORE_TESTING_PROVIDERS
   ]);
 
-  beforeEach(injectAsync([TestComponentBuilder, BrowserDomAdapter], (componentBuilder, _dom_) => {
+  beforeEach(async(inject([TestComponentBuilder, BrowserDomAdapter], (componentBuilder, _dom_) => {
     dom = _dom_;
 
     return componentBuilder
@@ -40,7 +40,7 @@ describe('LoginComponent', () => {
         subjectElement = fixture.nativeElement;
         subjectFixture = fixture;
       });
-  }));
+  })));
 
   it('should send login request', () => {
     stubLoginMethod(true);

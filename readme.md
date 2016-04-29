@@ -51,7 +51,7 @@ By adding Flow types and using decorators wherever you can, it will be really ea
 
 ```bash
 
-git clone https://github.com/blacksonic/angular2-es6-starter.git
+git clone https://github.com/blacksonic/angular2-esnext-starter.git
 cd angular2-esnext-starter
 npm install
 

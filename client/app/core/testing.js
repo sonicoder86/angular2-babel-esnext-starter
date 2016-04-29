@@ -1,4 +1,6 @@
-import { Router, Location, Instruction } from 'angular2/router';
+import { Router, Instruction } from 'angular2/router';
+import { Location } from 'angular2/platform/common';
+
 import { provide } from 'angular2/core';
 
 class RouterMock {
