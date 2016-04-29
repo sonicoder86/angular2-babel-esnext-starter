@@ -370,6 +370,7 @@
     "expect": true,
     "global": true,
     "require": true,
+    "async": true,
     "ENVIRONMENT": true
   }
 }

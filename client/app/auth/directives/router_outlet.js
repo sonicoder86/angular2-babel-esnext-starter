@@ -11,7 +11,13 @@ export class LoggedInRouterOutlet extends RouterOutlet {
   ];
 
   static get parameters() {
-    return [[ViewContainerRef], [DynamicComponentLoader], [Router], [new AttributeMetadata('name'), String], [UserService]];
+    return [
+      [ViewContainerRef],
+      [DynamicComponentLoader],
+      [Router],
+      [new AttributeMetadata('name'), String],
+      [UserService]
+    ];
   }
 
   constructor(containerRef, componentLoader, parentRouter, name, userService) {
