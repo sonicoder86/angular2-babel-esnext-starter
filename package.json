@@ -1,5 +1,5 @@
 {
-  "name": "angular2-es6-starter",
+  "name": "angular2-esnext-starter",
   "version": "1.0.0",
   "main": "server/index.js",
   "scripts": {
@@ -22,7 +22,7 @@
     "webpack",
     "gulp"
   ],
-  "description": "A skeleton Angular 2 application built in ES6 with Babel, Webpack, Gulp.",
+  "description": "Angular 2 development in Javascript with ES6/ES7 syntax powered by Babel.",
   "engines": {
     "node": "4.4.2"
   },
