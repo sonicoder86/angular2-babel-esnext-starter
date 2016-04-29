@@ -9,7 +9,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/blacksonic/angular2-es6-starter.git"
+    "url": "git+https://github.com/blacksonic/angular2-esnext-starter.git"
   },
   "author": {
     "name": "blacksonic",
