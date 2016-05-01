@@ -11,6 +11,10 @@ It shows techniques how easy development can be also without Typescript.
 It is a basic CRUD application with authentication, similar to the news site [jslive.com](https://jslive.com).
 You can see the list of links, add and edit them after you signed in.
 
+> If you're looking for Angular 2 in Javascript without Gulp tasks and server side check out [angular2-esnext-todomvc](https://github.com/blacksonic/angular2-esnext-todomvc)
+
+> If you're looking for Angular 2 in Typescript check out [angular2-webpack-starter](https://github.com/AngularClass/angular2-webpack-starter)
+
 - Pure Javascript implementation.
 - Uses [Babel](https://babeljs.io/) to support class/parameter decorators.
 - Bundles files with [Webpack](https://webpack.github.io/).
