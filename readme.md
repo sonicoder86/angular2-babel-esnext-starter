@@ -11,6 +11,8 @@ It shows techniques how easy development can be also without Typescript.
 It is a basic CRUD application with authentication, similar to the news site [jslive.com](https://jslive.com).
 You can see the list of links, add and edit them after you signed in.
 
+**Important! This starter currently runs on beta.17 version of Angular 2. If you are interested in the brand new rc.0 visit my [TodoMVC application](https://github.com/blacksonic/angular2-esnext-todomvc). This repository will be upgraded soon afterwards.**
+
 > If you're looking for Angular 2 in Javascript without Gulp tasks and server side check out [angular2-esnext-todomvc](https://github.com/blacksonic/angular2-esnext-todomvc)
 
 > If you're looking for Angular 2 in Typescript check out [angular2-webpack-starter](https://github.com/AngularClass/angular2-webpack-starter)
