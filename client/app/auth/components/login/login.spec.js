@@ -16,7 +16,6 @@ describe('LoginComponent', () => {
   let subject;
   let subjectElement;
   let credentials = { email: 'test@gmail.com', password: 'secret' };
-  let dom;
 
   beforeEachProviders(() => [
     TestComponentBuilder,
