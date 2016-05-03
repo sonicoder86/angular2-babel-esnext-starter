@@ -1,6 +1,5 @@
-import { Component, ChangeDetectionStrategy } from 'angular2/core';
-import { ROUTER_DIRECTIVES, Router } from 'angular2/router';
-import { TranslatePipe } from 'ng2-translate/ng2-translate';
+import { Component, ChangeDetectionStrategy } from '@angular/core';
+import { ROUTER_DIRECTIVES, Router } from '@angular/router-deprecated';
 import template from './menu.html';
 import { UserService } from '../../../auth';
 
@@ -8,8 +7,7 @@ import { UserService } from '../../../auth';
   selector: 'top-menu',
   template: template,
   directives: [ROUTER_DIRECTIVES],
-  changeDetection: ChangeDetectionStrategy.OnPush,
-  pipes: [TranslatePipe]
+  changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class MenuComponent {
   static get parameters() {

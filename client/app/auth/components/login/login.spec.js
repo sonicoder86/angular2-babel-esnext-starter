@@ -1,8 +1,6 @@
-import { TestComponentBuilder } from 'angular2/testing';
-import { FormBuilder } from 'angular2/common';
-import { BrowserDomAdapter } from 'angular2/platform/browser';
-import { TRANSLATE_PROVIDERS } from 'ng2-translate/ng2-translate';
-import { HTTP_PROVIDERS } from 'angular2/http';
+import { TestComponentBuilder } from '@angular/compiler/testing';
+import { FormBuilder } from '@angular/common';
+import { HTTP_PROVIDERS } from '@angular/http';
 import { Observable } from 'rxjs/Observable';
 import { LoginComponent } from './login';
 import { CORE_TESTING_PROVIDERS, RouterMock } from '../../../core/testing';
@@ -23,16 +21,12 @@ describe('LoginComponent', () => {
   beforeEachProviders(() => [
     TestComponentBuilder,
     FormBuilder,
-    BrowserDomAdapter,
-    TRANSLATE_PROVIDERS,
     HTTP_PROVIDERS,
     AUTH_TESTING_PROVIDERS,
     CORE_TESTING_PROVIDERS
   ]);
 
-  beforeEach(async(inject([TestComponentBuilder, BrowserDomAdapter], (componentBuilder, _dom_) => {
-    dom = _dom_;
-
+  beforeEach(async(inject([TestComponentBuilder], (componentBuilder) => {
     return componentBuilder
       .createAsync(LoginComponent)
       .then(fixture => {
@@ -75,7 +69,7 @@ describe('LoginComponent', () => {
 
     stubLoginMethod(true);
 
-    dom.querySelector(subjectElement, 'button[type=submit]').click();
+    subjectElement.querySelector('button[type=submit]').click();
 
     setTimeout(() => {
       expect(UserServiceMock.prototype.login).toHaveBeenCalledWith(credentials);

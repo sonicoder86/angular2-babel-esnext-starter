@@ -1,19 +1,17 @@
-import { TestComponentBuilder } from 'angular2/testing';
-import { Injector } from 'angular2/core';
-import { TRANSLATE_PROVIDERS, TranslateService } from 'ng2-translate/ng2-translate';
-import { HTTP_PROVIDERS } from 'angular2/http';
+import { TestComponentBuilder } from '@angular/compiler/testing';
+import { Injector } from '@angular/core';
+import { HTTP_PROVIDERS } from '@angular/http';
 import { Observable } from 'rxjs/Observable';
 import { MenuComponent } from './menu';
 import { CORE_TESTING_PROVIDERS, RouterMock } from '../../testing';
 import { AUTH_TESTING_PROVIDERS, UserServiceMock } from '../../../auth/testing';
-import { setupTranslations, enTranslation } from '../../../i18n';
+import { enTranslation } from '../../../i18n';
 
 describe('MenuComponent', () => {
   let builder;
 
   beforeEachProviders(() => [
     TestComponentBuilder,
-    TRANSLATE_PROVIDERS,
     HTTP_PROVIDERS,
     AUTH_TESTING_PROVIDERS,
     CORE_TESTING_PROVIDERS
@@ -21,7 +19,6 @@ describe('MenuComponent', () => {
 
   beforeEach(inject([Injector], (injector) => {
     builder = injector.get(TestComponentBuilder);
-    setupTranslations(injector.get(TranslateService));
   }));
 
   it('should display page title', (done) => {

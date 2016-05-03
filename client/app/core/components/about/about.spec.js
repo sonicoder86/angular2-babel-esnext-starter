@@ -1,4 +1,4 @@
-import { TestComponentBuilder } from 'angular2/testing';
+import { TestComponentBuilder } from '@angular/compiler/testing';
 import { AboutComponent } from './about';
 
 describe('AboutComponent', () => {

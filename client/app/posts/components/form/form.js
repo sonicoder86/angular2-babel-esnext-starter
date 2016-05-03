@@ -1,5 +1,5 @@
-import { Component, EventEmitter, Input, Output } from 'angular2/core';
-import { FormBuilder, Validators } from 'angular2/common';
+import { Component, EventEmitter, Input, Output } from '@angular/core';
+import { FormBuilder, Validators } from '@angular/common';
 import template from './form.html';
 import { validatorFactory } from '../../validator';
 

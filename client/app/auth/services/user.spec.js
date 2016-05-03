@@ -1,4 +1,4 @@
-import { Injector } from 'angular2/core';
+import { Injector } from '@angular/core';
 import { UserService } from './user';
 import { FakeBackend, FAKE_BACKEND_PROVIDERS } from '../../helpers/fake_backend';
 import { StorageService } from './storage';

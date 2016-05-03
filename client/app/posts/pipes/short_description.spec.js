@@ -1,6 +1,6 @@
 import { ShortDescriptionPipe } from './short_description';
-import { Component } from 'angular2/core';
-import { TestComponentBuilder } from 'angular2/testing';
+import { Component } from '@angular/core';
+import { TestComponentBuilder } from '@angular/compiler/testing';
 
 let longDescription =
   'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut laboret dolore.';

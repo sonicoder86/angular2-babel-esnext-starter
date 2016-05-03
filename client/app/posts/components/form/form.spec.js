@@ -1,7 +1,7 @@
 import { FormComponent } from './form';
-import { FormBuilder } from 'angular2/common';
-import { Injector, Component, EventEmitter } from 'angular2/core';
-import { TestComponentBuilder } from 'angular2/testing';
+import { FormBuilder } from '@angular/common';
+import { Injector, Component, EventEmitter } from '@angular/core';
+import { TestComponentBuilder } from '@angular/compiler/testing';
 
 let examplePost = {
   _id: undefined,

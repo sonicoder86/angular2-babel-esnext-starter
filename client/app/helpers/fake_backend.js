@@ -1,6 +1,6 @@
-import { MockBackend } from 'angular2/http/testing';
-import { provide } from 'angular2/core';
-import { Http, BaseRequestOptions, Response, ResponseOptions, RequestMethod } from 'angular2/http';
+import { MockBackend } from '@angular/http/testing';
+import { provide } from '@angular/core';
+import { Http, BaseRequestOptions, Response, ResponseOptions, RequestMethod } from '@angular/http';
 
 export class BackendExpectation {
   constructor(options) {

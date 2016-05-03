@@ -1,7 +1,6 @@
-import { Component } from 'angular2/core';
-import { FORM_DIRECTIVES, FormBuilder, Validators } from 'angular2/common';
-import { TranslatePipe } from 'ng2-translate/ng2-translate';
-import { Router } from 'angular2/router';
+import { Component } from '@angular/core';
+import { FORM_DIRECTIVES, FormBuilder, Validators } from '@angular/common';
+import { Router } from '@angular/router-deprecated';
 import template from './login.html';
 import { UserService } from '../../services/user';
 import { validatorFactory } from '../../../posts/validator';
@@ -9,8 +8,7 @@ import { validatorFactory } from '../../../posts/validator';
 @Component({
   selector: 'login',
   template: template,
-  directives: [FORM_DIRECTIVES],
-  pipes: [TranslatePipe]
+  directives: [FORM_DIRECTIVES]
 })
 export class LoginComponent {
   static get parameters() {

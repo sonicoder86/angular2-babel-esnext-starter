@@ -1,8 +1,8 @@
 import { PostService } from './post';
-import { MockBackend } from 'angular2/http/testing';
-import { RequestMethod, Headers } from 'angular2/http';
-import { provide, Injector } from 'angular2/core';
-import { Http, BaseRequestOptions, Response, ResponseOptions } from 'angular2/http';
+import { MockBackend } from '@angular/http/testing';
+import { RequestMethod, Headers } from '@angular/http';
+import { provide, Injector } from '@angular/core';
+import { Http, BaseRequestOptions, Response, ResponseOptions } from '@angular/http';
 import { AUTH_PROVIDERS, RequestService } from '../../auth';
 
 describe('PostService', () => {

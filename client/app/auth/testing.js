@@ -1,4 +1,4 @@
-import { provide } from 'angular2/core';
+import { provide } from '@angular/core';
 import { Observable } from 'rxjs/Observable';
 import { UserService } from './services/user';
 

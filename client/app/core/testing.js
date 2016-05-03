@@ -1,7 +1,7 @@
-import { Router, Instruction } from 'angular2/router';
-import { Location } from 'angular2/platform/common';
+import { Router, Instruction } from '@angular/router-deprecated';
+import { Location } from '@angular/common';
 
-import { provide } from 'angular2/core';
+import { provide } from '@angular/core';
 
 class RouterMock {
   navigate() {}

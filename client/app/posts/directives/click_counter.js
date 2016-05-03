@@ -1,4 +1,4 @@
-import { Directive, HostListener, ViewContainerRef } from 'angular2/core';
+import { Directive, HostListener, ViewContainerRef } from '@angular/core';
 
 @Directive({
   selector: '[click-counter]'
