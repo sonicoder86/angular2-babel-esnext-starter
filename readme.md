@@ -6,9 +6,6 @@
 [![Code Climate](https://codeclimate.com/github/blacksonic/angular2-esnext-starter/badges/gpa.svg)](https://codeclimate.com/github/blacksonic/angular2-esnext-starter)
 [![Code Coverage](https://codeclimate.com/github/blacksonic/angular2-esnext-starter/badges/coverage.svg)](https://codeclimate.com/github/blacksonic/angular2-esnext-starter)
 
-##### Current Angular 2 version:
-![version](https://img.shields.io/npm/v/@angular/core.svg?maxAge=2592000)
-
 This repo stands as a starting point for those who try [Angular 2](https://angular.io/) in Javascript.
 It shows techniques how easy development can be also without Typescript.
 It is a basic CRUD application with authentication, similar to the news site [jslive.com](https://jslive.com).

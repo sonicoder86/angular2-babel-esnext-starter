@@ -37,6 +37,10 @@ module.exports = {
       {
         test: /\.html$/,
         loader: 'raw?minimize=false'
+      },
+      {
+        test: /\.json$/,
+        loader: 'json'
       }
     ],
     noParse: [ /.+zone\.js\/dist\/.+/, /.+angular2\/bundles\/.+/ ]
