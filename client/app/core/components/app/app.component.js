@@ -17,7 +17,7 @@ export class AppComponent {
     return [[new InjectMetadata('ENVIRONMENT')]];
   }
 
-  constructor(env) {
-    this.environment = env;
+  constructor(environment) {
+    this.environment = environment;
   }
 }

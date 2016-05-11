@@ -1,5 +1,4 @@
 # Angular 2 ESNext Starter
-[![npm version](https://badge.fury.io/js/angular2.svg)](http://badge.fury.io/js/angular2)
 [![Dependency Status](https://david-dm.org/blacksonic/angular2-esnext-starter.svg)](https://david-dm.org/blacksonic/angular2-esnext-starter)
 [![devDependency Status](https://david-dm.org/blacksonic/angular2-esnext-starter/dev-status.svg)](https://david-dm.org/blacksonic/angular2-esnext-starter#info=devDependencies)
 [![Build Status](https://travis-ci.org/blacksonic/angular2-esnext-starter.svg?branch=master)](https://travis-ci.org/blacksonic/angular2-esnext-starter)
@@ -25,6 +24,7 @@ You can see the list of links, add and edit them after you signed in.
 - E2E testing with [Protractor](https://angular.github.io/protractor/#/).
 - Includes deployment to [Heroku](https://heroku.com/).
 - Linting with [ESlint](http://eslint.org/) based on [Airbnb's styleguide](https://github.com/airbnb/javascript).
+- Layout and namings based on the [official Angular 2 style guide](https://angular.io/styleguide)
 
 ### Motivation
 
