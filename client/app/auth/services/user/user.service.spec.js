@@ -1,9 +1,9 @@
 import { Injector } from '@angular/core';
 
 import { UserService } from './user.service';
-import { FakeBackend, FAKE_BACKEND_PROVIDERS } from '../../helpers/fake-backend';
-import { StorageService } from './storage.service';
-import { RequestService } from './request.service';
+import { FakeBackend, FAKE_BACKEND_PROVIDERS } from '../../../helpers/fake-backend';
+import { StorageService } from '../storage/storage.service';
+import { RequestService } from '../request/request.service';
 
 describe('UserService', () => {
   let subject;

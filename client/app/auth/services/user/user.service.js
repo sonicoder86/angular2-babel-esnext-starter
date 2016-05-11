@@ -2,8 +2,8 @@ import { Injectable } from '@angular/core';
 import { Http } from '@angular/http';
 import { BehaviorSubject } from 'rxjs/BehaviorSubject';
 
-import { StorageService } from './storage.service';
-import { RequestService } from './request.service';
+import { StorageService } from '../storage/storage.service';
+import { RequestService } from '../request/request.service';
 
 @Injectable()
 export class UserService {

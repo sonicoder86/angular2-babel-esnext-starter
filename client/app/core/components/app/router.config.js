@@ -4,12 +4,10 @@ import { PostEditComponent } from '../../../posts/components/post-edit/post-edit
 import { AboutComponent } from '../about/about.component';
 import { LoginComponent } from '../../../auth/components/login/login.component';
 
-export const router = {
-  config: [
-    { path: '/', component: PostListComponent, name: 'List', useAsDefault: true },
-    { path: '/new', component: PostNewComponent, name: 'New' },
-    { path: '/edit/:id', component: PostEditComponent, name: 'Edit' },
-    { path: '/about', component: AboutComponent, name: 'About' },
-    { path: '/login', component: LoginComponent, name: 'Login' }
-  ]
-};
+export const routes = [
+  { path: '/', component: PostListComponent, name: 'List', useAsDefault: true },
+  { path: '/new', component: PostNewComponent, name: 'New' },
+  { path: '/edit/:id', component: PostEditComponent, name: 'Edit' },
+  { path: '/about', component: AboutComponent, name: 'About' },
+  { path: '/login', component: LoginComponent, name: 'Login' }
+];

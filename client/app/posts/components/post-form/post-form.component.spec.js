@@ -1,7 +1,8 @@
-import { PostFormComponent } from './post-form.component';
 import { FormBuilder } from '@angular/common';
 import { Injector, Component, EventEmitter } from '@angular/core';
 import { TestComponentBuilder } from '@angular/compiler/testing';
+
+import { PostFormComponent } from './post-form.component';
 
 let examplePost = {
   _id: undefined,

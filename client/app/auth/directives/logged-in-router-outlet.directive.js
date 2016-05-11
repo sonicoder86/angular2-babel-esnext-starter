@@ -1,7 +1,7 @@
 import { ViewContainerRef, DynamicComponentLoader, AttributeMetadata, Directive } from '@angular/core';
 import { Router, RouterOutlet } from '@angular/router-deprecated';
 
-import { UserService } from '../services/user.service';
+import { UserService } from '../services/user/user.service';
 
 @Directive({
   selector: 'router-outlet'

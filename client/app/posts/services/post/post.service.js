@@ -2,7 +2,7 @@ import { Injectable } from '@angular/core';
 import { Http } from '@angular/http';
 import { BehaviorSubject } from 'rxjs/BehaviorSubject';
 
-import { RequestService } from '../../auth';
+import { RequestService } from '../../../auth';
 
 @Injectable()
 export class PostService {

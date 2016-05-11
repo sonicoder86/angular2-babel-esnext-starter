@@ -2,8 +2,8 @@ import { Component } from '@angular/core';
 import { Router } from '@angular/router-deprecated';
 
 import template from './post-new.template.html';
-import { PostService } from '../../services/post.service';
-import { PostFormComponent } from './../post-form/post-form.component';
+import { PostService } from '../../services/post/post.service';
+import { PostFormComponent } from '../post-form/post-form.component';
 
 @Component({
   selector: 'post-new',

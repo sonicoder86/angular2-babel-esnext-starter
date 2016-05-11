@@ -3,7 +3,7 @@ import { FORM_DIRECTIVES, FormBuilder, Validators } from '@angular/common';
 import { Router } from '@angular/router-deprecated';
 
 import template from './login.template.html';
-import { UserService } from '../../services/user.service';
+import { UserService } from '../../services/user/user.service';
 import { validatorFactory } from '../../../posts/validator';
 
 @Component({
