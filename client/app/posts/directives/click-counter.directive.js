@@ -3,7 +3,7 @@ import { Directive, HostListener, ViewContainerRef } from '@angular/core';
 @Directive({
   selector: '[click-counter]'
 })
-export class ClickCounter {
+export class ClickCounterDirective {
   numberOfClicks = 0;
 
   constructor(containerRef: ViewContainerRef) {

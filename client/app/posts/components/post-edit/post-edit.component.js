@@ -1,15 +1,15 @@
 import { Component } from '@angular/core';
 import { RouteParams, Router } from '@angular/router-deprecated';
-import template from './edit.html';
-import { PostService } from '../../services/post';
-import { FormComponent } from './../form/form';
+import template from './post-edit.template.html';
+import { PostService } from '../../services/post.service';
+import { PostFormComponent } from './../post-form/post-form.component';
 
 @Component({
-  selector: 'edit',
+  selector: 'post-edit',
   template: template,
-  directives: [FormComponent]
+  directives: [PostFormComponent]
 })
-export class EditComponent {
+export class PostEditComponent {
   constructor(postService: PostService, params: RouteParams, router: Router) {
     this._postService = postService;
     this._params = params;

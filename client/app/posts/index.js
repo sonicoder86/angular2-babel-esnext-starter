@@ -1,4 +1,4 @@
-import { PostService } from './services/post';
+import { PostService } from './services/post.service';
 
 const POSTS_PROVIDERS = [PostService];
 

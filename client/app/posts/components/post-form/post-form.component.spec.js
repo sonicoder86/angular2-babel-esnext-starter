@@ -1,4 +1,4 @@
-import { FormComponent } from './form';
+import { PostFormComponent } from './post-form.component';
 import { FormBuilder } from '@angular/common';
 import { Injector, Component, EventEmitter } from '@angular/core';
 import { TestComponentBuilder } from '@angular/compiler/testing';
@@ -12,7 +12,7 @@ let examplePost = {
 
 @Component({
   selector: 'test',
-  directives: [FormComponent],
+  directives: [PostFormComponent],
   template: `
     <div>
       <post-form [post]="actualPost" (saved)="onSave($event)"></post-form>
@@ -49,7 +49,7 @@ describe('FormComponent', () => {
 
   describe('as a Component', () => {
     it('should create form group in constructor and bind it to input elements', (done) => {
-      builder.createAsync(FormComponent).then((fixture) => {
+      builder.createAsync(PostFormComponent).then((fixture) => {
         let component = fixture.componentInstance;
         let element = fixture.nativeElement;
 
@@ -64,7 +64,7 @@ describe('FormComponent', () => {
     });
 
     it('should update input fields based on input changes', (done) => {
-      builder.createAsync(FormComponent).then((fixture) => {
+      builder.createAsync(PostFormComponent).then((fixture) => {
         let component = fixture.componentInstance;
         let element = fixture.nativeElement;
 
@@ -81,7 +81,7 @@ describe('FormComponent', () => {
     });
 
     it('should notify when form is submitted', (done) => {
-      builder.createAsync(FormComponent).then((fixture) => {
+      builder.createAsync(PostFormComponent).then((fixture) => {
         let component = fixture.componentInstance;
 
         component.saved.subscribe((value) => {
@@ -94,7 +94,7 @@ describe('FormComponent', () => {
     });
 
     it('should notify when submit button is clicked', (done) => {
-      builder.createAsync(FormComponent).then((fixture) => {
+      builder.createAsync(PostFormComponent).then((fixture) => {
         let component = fixture.componentInstance;
         let element = fixture.nativeElement;
 

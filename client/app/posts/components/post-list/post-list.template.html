@@ -3,7 +3,7 @@
         <h1>Posts <a [routerLink]="['/New']" class="btn btn-primary pull-right">New post</a></h1>
 
         <div class="list-group">
-            <list-item *ngFor="let postItem of getRemotePosts() | async" [post]="postItem"></list-item>
+            <post-list-item *ngFor="let post of getRemotePosts() | async" [post]="post"></post-list-item>
         </div>
     </div>
 </div>

@@ -1,4 +1,4 @@
-import { ShortDescriptionPipe } from './short_description';
+import { ShortDescriptionPipe } from './short-description.pipe';
 import { Component } from '@angular/core';
 import { TestComponentBuilder } from '@angular/compiler/testing';
 

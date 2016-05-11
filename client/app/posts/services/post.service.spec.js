@@ -1,4 +1,4 @@
-import { PostService } from './post';
+import { PostService } from './post.service';
 import { MockBackend } from '@angular/http/testing';
 import { RequestMethod, Headers } from '@angular/http';
 import { provide, Injector } from '@angular/core';

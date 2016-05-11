@@ -1,14 +1,14 @@
-import { ListComponent } from '../../../posts/components/list/list';
-import { NewComponent } from '../../../posts/components/new/new';
-import { EditComponent } from '../../../posts/components/edit/edit';
+import { PostListComponent } from '../../../posts/components/post-list/post-list.component';
+import { PostNewComponent } from '../../../posts/components/post-new/post-new.component';
+import { PostEditComponent } from '../../../posts/components/post-edit/post-edit.component';
 import { AboutComponent } from '../about/about';
 import { LoginComponent } from '../../../auth/components/login/login';
 
 export const router = {
   config: [
-    { path: '/', component: ListComponent, name: 'List', useAsDefault: true },
-    { path: '/new', component: NewComponent, name: 'New' },
-    { path: '/edit/:id', component: EditComponent, name: 'Edit' },
+    { path: '/', component: PostListComponent, name: 'List', useAsDefault: true },
+    { path: '/new', component: PostNewComponent, name: 'New' },
+    { path: '/edit/:id', component: PostEditComponent, name: 'Edit' },
     { path: '/about', component: AboutComponent, name: 'About' },
     { path: '/login', component: LoginComponent, name: 'Login' }
   ]

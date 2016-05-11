@@ -1,16 +1,17 @@
 import { Component, ChangeDetectionStrategy } from '@angular/core';
 import { ROUTER_DIRECTIVES } from '@angular/router-deprecated';
-import template from './list.html';
-import { PostService } from '../../services/post';
-import { ListItemComponent } from './../list_item/list_item';
+
+import template from './post-list.template.html';
+import { PostService } from '../../services/post.service';
+import { PostListItemComponent } from './../post-list-item/post-list-item.component';
 
 @Component({
-  selector: 'list',
+  selector: 'post-list',
   template: template,
-  directives: [ROUTER_DIRECTIVES, ListItemComponent],
+  directives: [ROUTER_DIRECTIVES, PostListItemComponent],
   changeDetection: ChangeDetectionStrategy.Detached
 })
-export class ListComponent {
+export class PostListComponent {
   constructor(postService: PostService) {
     this._postService = postService;
   }

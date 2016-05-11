@@ -1,13 +1,14 @@
 import { Component, EventEmitter, Input, Output } from '@angular/core';
 import { FormBuilder, Validators } from '@angular/common';
-import template from './form.html';
+
+import template from './post-form.template.html';
 import { validatorFactory } from '../../validator';
 
 @Component({
   selector: 'post-form',
   template: template
 })
-export class FormComponent {
+export class PostFormComponent {
   @Input()
   post;
 

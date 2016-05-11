@@ -1,15 +1,16 @@
 import { Component } from '@angular/core';
 import { Router } from '@angular/router-deprecated';
-import template from './new.html';
-import { PostService } from '../../services/post';
-import { FormComponent } from './../form/form';
+
+import template from './post-new.template.html';
+import { PostService } from '../../services/post.service';
+import { PostFormComponent } from './../post-form/post-form.component';
 
 @Component({
-  selector: 'new',
+  selector: 'post-new',
   template: template,
-  directives: [FormComponent]
+  directives: [PostFormComponent]
 })
-export class NewComponent {
+export class PostNewComponent {
   constructor(postService: PostService, router: Router) {
     this._postService = postService;
     this._router = router;
