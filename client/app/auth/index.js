@@ -1,7 +1,7 @@
-import { StorageService } from './services/storage';
-import { RequestService } from './services/request';
-import { UserService } from './services/user';
-import { LoggedInRouterOutlet } from './directives/router_outlet';
+import { StorageService } from './services/storage.service';
+import { RequestService } from './services/request.service';
+import { UserService } from './services/user.service';
+import { LoggedInRouterOutletDirective } from './directives/logged-in-router-outlet.directive.js';
 
 const AUTH_PROVIDERS = [StorageService, RequestService, UserService];
 
@@ -9,6 +9,6 @@ export {
   StorageService,
   RequestService,
   UserService,
-  LoggedInRouterOutlet,
+  LoggedInRouterOutletDirective,
   AUTH_PROVIDERS
 };

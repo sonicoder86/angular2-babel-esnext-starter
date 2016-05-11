@@ -1,6 +1,6 @@
 import { provide } from '@angular/core';
 import { Observable } from 'rxjs/Observable';
-import { UserService } from './services/user';
+import { UserService } from './services/user.service';
 
 class UserServiceMock {
   login() {

@@ -1,5 +1,5 @@
-import { RequestService } from './request';
-import { StorageService } from './storage';
+import { RequestService } from './request.service';
+import { StorageService } from './storage.service';
 
 describe('RequestService', () => {
   let subject;

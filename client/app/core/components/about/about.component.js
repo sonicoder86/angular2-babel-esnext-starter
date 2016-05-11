@@ -1,5 +1,6 @@
-import { Component } from '@angular/core';
-import template from './about.html';
+import { Component, Inject } from '@angular/core';
+
+import template from './about.template.html';
 
 @Component({
   selector: 'about',

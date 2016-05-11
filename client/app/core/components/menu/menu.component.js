@@ -1,6 +1,7 @@
 import { Component, ChangeDetectionStrategy } from '@angular/core';
 import { ROUTER_DIRECTIVES, Router } from '@angular/router-deprecated';
-import template from './menu.html';
+
+import template from './menu.template.html';
 import { UserService } from '../../../auth';
 
 @Component({
@@ -10,11 +11,7 @@ import { UserService } from '../../../auth';
   changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class MenuComponent {
-  static get parameters() {
-    return [[UserService], [Router]];
-  }
-
-  constructor(userService, router) {
+  constructor(userService: UserService, router: Router) {
     this.userService = userService;
     this._router = router;
   }

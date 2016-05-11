@@ -14,8 +14,7 @@ import { ClickCounterDirective } from '../../directives/click-counter.directive'
   pipes: [ShortDescriptionPipe]
 })
 export class PostListItemComponent {
-  @Input()
-  post;
+  @Input() post;
 
   constructor(userService: UserService) {
     this.userService = userService;

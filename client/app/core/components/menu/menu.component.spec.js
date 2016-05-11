@@ -2,7 +2,8 @@ import { TestComponentBuilder } from '@angular/compiler/testing';
 import { Injector } from '@angular/core';
 import { HTTP_PROVIDERS } from '@angular/http';
 import { Observable } from 'rxjs/Observable';
-import { MenuComponent } from './menu';
+
+import { MenuComponent } from './menu.component';
 import { CORE_TESTING_PROVIDERS, RouterMock } from '../../testing';
 import { AUTH_TESTING_PROVIDERS, UserServiceMock } from '../../../auth/testing';
 import { enTranslation } from '../../../i18n';

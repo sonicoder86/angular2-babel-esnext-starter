@@ -1,11 +1,12 @@
 import { ViewContainerRef, DynamicComponentLoader, AttributeMetadata, Directive } from '@angular/core';
 import { Router, RouterOutlet } from '@angular/router-deprecated';
-import { UserService } from '../services/user';
+
+import { UserService } from '../services/user.service';
 
 @Directive({
   selector: 'router-outlet'
 })
-export class LoggedInRouterOutlet extends RouterOutlet {
+export class LoggedInRouterOutletDirective extends RouterOutlet {
   publicRoutes = [
     '', 'login', 'signup', 'about'
   ];

@@ -9,11 +9,9 @@ import { validatorFactory } from '../../validator';
   template: template
 })
 export class PostFormComponent {
-  @Input()
-  post;
+  @Input() post;
 
-  @Output()
-  saved = new EventEmitter();
+  @Output() saved = new EventEmitter();
 
   constructor(builder: FormBuilder) {
     this.postForm = builder.group({

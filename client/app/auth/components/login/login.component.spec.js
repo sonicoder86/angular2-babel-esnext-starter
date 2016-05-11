@@ -2,7 +2,8 @@ import { TestComponentBuilder } from '@angular/compiler/testing';
 import { FormBuilder } from '@angular/common';
 import { HTTP_PROVIDERS } from '@angular/http';
 import { Observable } from 'rxjs/Observable';
-import { LoginComponent } from './login';
+
+import { LoginComponent } from './login.component';
 import { CORE_TESTING_PROVIDERS, RouterMock } from '../../../core/testing';
 import { AUTH_TESTING_PROVIDERS, UserServiceMock } from '../../testing';
 

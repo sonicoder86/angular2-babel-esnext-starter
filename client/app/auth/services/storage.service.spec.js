@@ -1,5 +1,6 @@
 import localStorage from 'localStorage';
-import { StorageService } from './storage';
+
+import { StorageService } from './storage.service';
 
 describe('StorageService', () => {
   let subject;
