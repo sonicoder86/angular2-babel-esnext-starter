@@ -12,11 +12,8 @@ import { validatorFactory } from '../../../posts/validator';
   directives: [FORM_DIRECTIVES]
 })
 export class LoginComponent {
-  static get parameters() {
-    return [[UserService], [FormBuilder], [Router]];
-  }
 
-  constructor(userService, builder, router) {
+  constructor(userService: UserService, builder: FormBuilder, router: Router) {
     this._userService = userService;
     this._router = router;
 

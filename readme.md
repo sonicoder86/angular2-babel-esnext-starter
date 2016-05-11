@@ -16,6 +16,7 @@ You can see the list of links, add and edit them after you signed in.
 
 - Pure Javascript implementation.
 - Uses [Babel](https://babeljs.io/) to support class/parameter decorators.
+- Same language constructs can be used as in Typescript (types will be stripped).
 - Bundles files with [Webpack](https://webpack.github.io/).
 - Automates tasks with [Gulp](http://gulpjs.com/).
 - Automatically rebundles and refreshes the browser on changes.
@@ -96,79 +97,9 @@ To get a good overview of testing possibilities within Angular 2 [read this arti
 
 ### ES6 workarounds
 
-##### Dependency Injection
+**No more is needed, code can be written as in Typescript!**
 
-By default parameter injection doesn't work as in Typescript, instead we need to define the ```parameters``` getter in the class.
-
-```javascript
-@Injectable()
-export class UserService {
-  static get parameters() {
-    return [[Http]];
-  }
-
-  constructor(http) {
-    this._http = http;
-  }
-}
-```
-
-If we want to be standard complaint we can use this technique.
-Examples for this can be found in the ```auth``` module directory.
-
-To make it less verbose we can use [Flow](http://flowtype.org/) types with the help of
-[babel-plugin-angular2-annotations](https://github.com/shuhei/babel-plugin-angular2-annotations)
-and [babel-plugin-transform-flow-strip-types](https://babeljs.io/docs/plugins/transform-flow-strip-types/).
-
-```javascript
-@Injectable()
-export class UserService {
-  constructor(http: Http) {
-    this._http = http;
-  }
-}
-```
-
-Just added the type to the constructor and it works as with ```parameters``` getter.
-To see it in action take a look at the ```post``` module directory.
-
-For a more detailed description about dependency injection possibilities [read this article](https://medium.com/@blacksonic86/angular-2-dependency-injection-in-es6-f5551a3d6bf).
-
-##### Component Inputs
-
-By default ```@Input``` decorators for empty properties won't work, instead it can be written into the ```@Component``` decorator.
-
-```javascript
-
-@Component({
-  selector: 'list-item',
-  template: template,
-  inputs: ['post']
-})
-export class ListItemComponent {
-  post;
-}
-```
-
-You can see it work inside ```post``` module's ```list-item``` component.
-
-To overcome this [babel-plugin-angular2-annotations](https://github.com/shuhei/babel-plugin-angular2-annotations) helps us to enable ``@Input``` decorators for empty properties.
-Now it can be written less verbose.
-
-```javascript
-@Component({
-  selector: 'post-form',
-  template: template
-})
-export class FormComponent {
-  @Input()
-  post;
-
-  @Output()
-  saved = new EventEmitter();
-}
-```
-You can see it work inside ```post``` module's ```form``` component.
+Read about the details how it is implemented [in this article](http://shuheikagawa.com/blog/2016/05/08/angular-2-with-babel/).
 
 ### Authentication
 

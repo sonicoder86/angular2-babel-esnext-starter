@@ -7,13 +7,10 @@ import { RequestService } from '../request/request.service';
 
 @Injectable()
 export class UserService {
+
   _loggedIn = new BehaviorSubject(false);
 
-  static get parameters() {
-    return [[Http], [StorageService], [RequestService]];
-  }
-
-  constructor(http, storage, request) {
+  constructor(http: Http, storage: StorageService, request: RequestService) {
     this._http = http;
     this._storage = storage;
     this._request = request;

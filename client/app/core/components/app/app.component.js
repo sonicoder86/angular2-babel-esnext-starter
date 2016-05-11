@@ -1,4 +1,4 @@
-import { Component, InjectMetadata } from '@angular/core';
+import { Component, Inject } from '@angular/core';
 import { RouteConfig } from '@angular/router-deprecated';
 
 import template from './app.template.html';
@@ -13,11 +13,8 @@ import { routes } from './router.config';
 })
 @RouteConfig(routes)
 export class AppComponent {
-  static get parameters() {
-    return [[new InjectMetadata('ENVIRONMENT')]];
-  }
 
-  constructor(environment) {
+  constructor(@Inject('ENVIRONMENT') environment) {
     this.environment = environment;
   }
 }

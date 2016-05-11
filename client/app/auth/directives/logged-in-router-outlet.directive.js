@@ -1,4 +1,4 @@
-import { ViewContainerRef, DynamicComponentLoader, AttributeMetadata, Directive } from '@angular/core';
+import { ViewContainerRef, DynamicComponentLoader, Attribute, Directive } from '@angular/core';
 import { Router, RouterOutlet } from '@angular/router-deprecated';
 
 import { UserService } from '../services/user/user.service';
@@ -11,17 +11,13 @@ export class LoggedInRouterOutletDirective extends RouterOutlet {
     '', 'login', 'signup', 'about'
   ];
 
-  static get parameters() {
-    return [
-      [ViewContainerRef],
-      [DynamicComponentLoader],
-      [Router],
-      [new AttributeMetadata('name'), String],
-      [UserService]
-    ];
-  }
-
-  constructor(containerRef, componentLoader, parentRouter, name, userService) {
+  constructor(
+    containerRef: ViewContainerRef,
+    componentLoader: DynamicComponentLoader,
+    parentRouter: Router,
+    @Attribute('name') name,
+    userService: UserService
+  ) {
     super(containerRef, componentLoader, parentRouter, name);
 
     this.parentRouter = parentRouter;

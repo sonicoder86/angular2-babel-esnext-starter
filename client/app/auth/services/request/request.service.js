@@ -5,11 +5,8 @@ import { StorageService } from '../storage/storage.service';
 
 @Injectable()
 export class RequestService {
-  static get parameters() {
-    return [[StorageService]];
-  }
 
-  constructor(storage) {
+  constructor(storage: StorageService) {
     this._storage = storage;
   }
 
