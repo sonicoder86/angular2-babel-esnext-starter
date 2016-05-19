@@ -1,4 +1,9 @@
-import { ViewContainerRef, DynamicComponentLoader, Attribute, Directive } from '@angular/core';
+import {
+  ViewContainerRef,
+  DynamicComponentLoader,
+  Attribute, // eslint-disable-line no-unused-vars
+  Directive
+} from '@angular/core';
 import { Router, RouterOutlet } from '@angular/router-deprecated';
 
 import { UserService } from '../services/user/user.service';

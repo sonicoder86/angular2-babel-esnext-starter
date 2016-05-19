@@ -1,4 +1,4 @@
-import { Component, Inject } from '@angular/core';
+import { Component, Inject } from '@angular/core'; // eslint-disable-line no-unused-vars
 import { RouteConfig } from '@angular/router-deprecated';
 
 import template from './app.template.html';
