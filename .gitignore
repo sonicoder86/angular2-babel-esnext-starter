@@ -1,5 +1,7 @@
 dist
 .idea
 node_modules
+deploy
+jsconfig.json
 coverage
 npm-debug.log
