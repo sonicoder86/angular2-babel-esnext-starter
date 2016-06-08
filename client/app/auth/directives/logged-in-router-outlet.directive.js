@@ -13,7 +13,7 @@ import { UserService } from '../services/user/user.service';
 })
 export class LoggedInRouterOutletDirective extends RouterOutlet {
   publicRoutes = [
-    '', 'login', 'signup', 'about'
+    '', 'login', 'signup', 'about', 'article'
   ];
 
   constructor(
@@ -30,7 +30,9 @@ export class LoggedInRouterOutletDirective extends RouterOutlet {
   }
 
   activate(instruction) {
-    if (this._canActivate(instruction.urlPath)) {
+    //for article route must replace the /:id from string
+    let urlPath = instruction.urlPath.replace(/\/(.+)/,'');
+    if (this._canActivate(urlPath)) {
       return super.activate(instruction);
     }
 
