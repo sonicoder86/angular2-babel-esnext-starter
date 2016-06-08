@@ -1,161 +1,111 @@
-I decided to to take another looking easy challenge - to make collapsible directive with angular2 by myself.<br />
-I will use css of great <a href="http://getbootstrap.com/">bootstrap</a> framework. <br />
-
-Bootstrap framework has <strong>collapsed</strong> CSS class for make elements disappear (by applying "display:none" style), and "in" class, which when it set on collapsed element - makes it to show up.<br />
-
-
-So, once we already know (after doing couple of things in <a href="http://gs500coder.blogspot.co.uk/2016/01/creating-chart-component-angular2.html">previous posts</a>) how to create some angular2 components -
-<br />
-<br />
 <p>
-<h3>
-Lets create parent component (App)</h3>
-<pre><code class="language-javascript">
+Remember we created <a href="http://gs500coder.blogspot.co.uk/2016/01/creating-chart-component-angular2.html">flot</a> component in previous posts?<br/>
+Lets have a quick look on the code now:
+<pre>
+<code class="language-javascript">
+export class App {  
+  constructor() {
+    ...
+    //Look here - dont you feel something here is uuuugggglllyyyy?
+    this.dataset = [{label: "line1",color:"blue",data:[
+    [1, 130],
+    [2, 40],
+    [3, 80],
+    [4, 160],
+    [5, 159],
+    [6, 370],
+    [7, 330],
+    [8, 350],
+    [9, 370],
+    [10, 400],
+    [11, 330],
+    [12, 350]
+]}];
+  }
+}
+</code>
+</pre>
+The way <strong>dataset</strong> property sat - is perfect example of hardcoding, and everybody knows that hardcoding is bad.<br/>
+Since we dont have real server to get data from yet, at least lets move the data-getting logic to some different module, in other words - 
+</p>
+
+<h3>Lets Create A Service</h3>
+<p>
+<pre>
+<code class="language-javascript">
+export var FlotEntries: Array<number>[] = [
+    [1, 130],
+    [2, 40],
+    [3, 80],
+    [4, 160],
+    [5, 159],
+    [6, 370],
+    [7, 330],
+    [8, 350],
+    [9, 370],
+    [10, 400],
+    [11, 330],
+    [12, 350]
+];
+
+//@Injectable()
+export class FlotService {
+  getFlotEntries() {
+    return FlotEntries;
+  }
+}
+</code>
+</pre>
+This service doing only one thing - getting data for a plot chart.
+</p>
+
+<h3>Lets Use Our Service</h3>
+<p>
+Last thing that left - is to teach our main component how to use the service:<br/>
+Note: <strong>Dont forget to list the service inside "poviders" property</strong>
+<pre>
+<code class="language-javascript">
 //our root app component
 import {Component} from 'angular2/core'
-import {Collapse} from 'src/collapse'
+import {FlotCmp} from './flot';
+import {FlotService} from './FlotService';
+
 @Component({
   selector: 'my-app',
   providers: [],
   template: `
     &lt;div&gt;
-      &lt;h2 (click)="isCollapsed = !isCollapsed"&gt;click here&lt;/h2&gt;
-       
-      &lt;div class="collapse in" [collapse]="isCollapsed" &gt;
-        &lt;div class="well"&gt;
-          panel panel panel
-        &lt;/div&gt;
-      &lt;/div&gt;
-      
+      &lt;flot  [options]="splineOptions" [dataset]="dataset" height="250px" width="100%"&gt;&lt;/flot&gt;
     &lt;/div&gt;
   `,
-  directives: [Collapse]
+  directives: [FlotCmp],
+  providers: [FlotService]//important!!!
 })
 export class App {
-  isCollapsed:boolean = false;
-  constructor() {}
-} 
-</code>
-</pre>
-</p>
-<h3>
-Directive is not dead</h3>
-Yes there are directives in angular2 too.
-Their goal is to be decorator-style directives, which do not have templates.
-According to<a href="https://angular.io/docs/ts/latest/guide/attribute-directives.html"> angular2 documentation</a> "directive changes the appearance or behavior of a DOM element."<br />
-Note that for changing class property of directive's root element i go to use <a href="https://angular.io/docs/ts/latest/api/core/HostBinding-var.html">HostBinding</a>
-factory
-<br />
-<pre><code class="language-javascript">
-import {Directive, Input, HostBinding} from 'angular2/core'
-@Directive({selector: '[collapse]'})
-export class Collapse { 
- 
-
-  @HostBinding('class.in') 
-  private isCollapsed:boolean;
   
-  
-  @Input()
-  private set collapse(value:boolean) { 
-     
-      if(!value){   
-        this.isCollapsed = true; 
-      }else { 
-        this.isCollapsed = false; 
-      }
-     
+  constructor(private _flotService:FlotService) {
+    this.name = 'Angular2'
+    this.splineOptions: any = {
+            series: {
+                lines: { show: true },
+                points: {
+                    radius: 3,
+                    show: true
+                }
+            }
+    };
+    this.dataset = [{label: "line1",color:"blue",data:this._flotService.getFlotEntries()]}];
   }
-  constructor() {}  
 }
 </code>
 </pre>
-<br />
-<h3>
-Animation</h3>
-Everybody knows that collapse is not looking cool without animation.<br />
-Everyone who little familiar with css, knows that for make animation you may use <a href="http://www.w3schools.com/css/css3_transitions.asp">CSS3 Transitions</a>.<br />
-For example:
-<br />
-<br />
-<pre><code class="language-css">
-.collapsing{
- height:80px; 
- overflow:hidden;
- transition:height 0.4s ease-in-out;
-}
-</code>
-</pre>
-After applying this class on some element, its height will smoothly change to 80 pixels.
-<br />
-<br />
-<h3>
-Trick</h3>
-Animation will not work for elements those height is not specified (auto). So, for make some html elements to collapse with animation we must give them their own initial css height.  One of the ways to measure the actual height of the element - is to use <strong>scrollHeight</strong> property.
-<br />
-<pre><code class="language-javascript">
-    this.h = elem.scrollHeight;   
-</code>
-</pre>
-<br />
-<p>
-<h3>
-Lets use the trick on our the directive</h3>
-<pre><code class="language-javascript">
-import {Directive, Input, HostBinding, ElementRef} from 'angular2/core'
-@Directive({selector: '[collapse]'})
-export class Collapse { 
+<br/>
+Looks better isn't it?<br/>
+<a href="http://plnkr.co/edit/vImkub2voZb2fDS9lMr4?p=preview">plunkr</a><br/>
+Thats it, now you know how to create angular2 service.
+<br/>
+Hope you have fun reading
 
-  @HostBinding('class.collapsing') 
-  private isCollapsing:boolean   
 
-    // style
-  @HostBinding('style.height') 
-  private height:string;
-  
-  
-  @Input()
-  private set collapse(value:boolean) { 
-    if(value!==undefined){
-      if(value){ 
-        this.hide(); 
-      }else { 
-        this.show();
-      }
-    }
-    //
-  }
-  constructor(public el: ElementRef) {
-    
-    this.measureHeight(); 
-  }  
-  measureHeight() {
-    let elem = this.el.nativeElement;
-    //lets be sure the element has display:block style
-    elem.className = elem.className.replace('collapse', '');
-    this.h = elem.scrollHeight;
-   
-  }
-  hide(){
-    this.height = this.h +'px'
-    setTimeout(() =&gt; {
-        this.height = '0px';
-        this.isCollapsing = true;//apply 'collapsing' class
-    },1); 
-  }
-  show() {
-    this.height = '0px'
-    setTimeout(() =&gt; {
-        this.height = this.h + 'px';
-        this.isCollapsing = true;//apply 'collapsing' class
-    },1);
-  }  
-}
-</code>
-</pre>
 </p>
-<p>
-Here is running code:
-<iframe  src="http://embed.plnkr.co/HLIA1zkh83110ssfKNrW/" width="100%" height="400px" frameborder="0"></iframe>
-Hope you have fun reading...
-</p>
+

@@ -14,7 +14,6 @@ let posts = [
   {
     "_id": uuid.v4(),
     "name" : "angular2 - first step",
-    "link" : "http://www.koko.com",
     "text" : getArticle('article_1.html'),
    // "website" : "http://gs500coder.blogspot.co.il/2016/01/building-my-first-directive-with.html/",
     "description" : "Want to know how is it feeling programming Angular?"
@@ -36,31 +35,36 @@ let posts = [
   {
     "_id": uuid.v4(),
     "name" : "Using Angular2 Services",
-    "website" : "http://gs500coder.blogspot.co.il/2016/02/using-angular2-services.html",
+    "text" : getArticle('article_4.html'), 
+  // "website" : "http://gs500coder.blogspot.co.il/2016/02/using-angular2-services.html",
     "description" : "How to make Angular2 Services"
   },
   {
     "_id": uuid.v4(),
     "name" : "Promises in Angular2",
-    "website" : "http://gs500coder.blogspot.co.il/2016/03/using-promises-in-angular2.html",
+    "text" : getArticle('article_5.html'), 
+    //"website" : "http://gs500coder.blogspot.co.il/2016/03/using-promises-in-angular2.html",
     "description" : "What are Promises and how to use them with Angular2"
   },
   {
     "_id": uuid.v4(),
     "name" : "Custom events in angular2",
-    "website" : "http://gs500coder.blogspot.co.il/2016/04/events-in-angular2.html",
+    "text" : getArticle('article_6.html'), 
+    //"website" : "http://gs500coder.blogspot.co.il/2016/04/events-in-angular2.html",
     "description" : "What are custom events in Angular2"
   },
   {
     "_id": uuid.v4(),
     "name" : "Routes in angular2 (part 1)",
-    "website" : "http://gs500coder.blogspot.co.il/2016/05/nested-routes-challenge-in-angular2.html",
+    "text" : getArticle('article_7.html'),     
+    //"website" : "http://gs500coder.blogspot.co.il/2016/05/nested-routes-challenge-in-angular2.html",
     "description" : "Routes in Angular2"
   },
   {
     "_id": uuid.v4(),
     "name" : "Routes in angular2 (part 2)",
-    "website" : "http://gs500coder.blogspot.co.il/2016/05/routes-in-angular2-part-2.html",
+    "text" : getArticle('article_8.html'),     
+    //"website" : "http://gs500coder.blogspot.co.il/2016/05/routes-in-angular2-part-2.html",
     "description" : "Nested Routes in Angular2"
   }
 ];
