@@ -1,4 +1,4 @@
-<div class="list-group-item post-item" click-counter [id]="'post-' + post._id" >
+<div class="list-group-item post-item col-sm-12 col-md-6" click-counter [id]="'post-' + post._id" >
     <a [routerLink]="['/Edit', { id: post._id }]" *ngIf="getLoggedIn() | async" class="btn btn-default pull-right">Edit</a>
     <a href="{{ post.website || '#/article/' + post._id}}">
         <h4 class="list-group-item-heading">{{ post.name }}</h4>

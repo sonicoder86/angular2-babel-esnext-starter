@@ -4,7 +4,7 @@ import { ROUTER_DIRECTIVES } from '@angular/router-deprecated';
 import template from './post-list.template.html';
 import { PostService } from '../../services/post/post.service';
 import { PostListItemComponent } from '../post-list-item/post-list-item.component';
-
+import { UserService } from '../../../auth';
 @Component({
   selector: 'post-list',
   template: template,
@@ -12,8 +12,9 @@ import { PostListItemComponent } from '../post-list-item/post-list-item.componen
   changeDetection: ChangeDetectionStrategy.Detached
 })
 export class PostListComponent {
-  constructor(postService: PostService) {
+  constructor(postService: PostService, userService: UserService) {
     this._postService = postService;
+    this._userService = userService;
   }
 
   ngOnInit() {
@@ -23,4 +24,8 @@ export class PostListComponent {
   getRemotePosts() {
     return this._postService.remotePosts;
   }
+
+  getLoggedIn() {
+    return this._userService.getLoggedIn();
+  }  
 }
