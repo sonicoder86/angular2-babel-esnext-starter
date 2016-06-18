@@ -135,15 +135,16 @@ describe('FormComponent', () => {
 
         fixture.detectChanges();
 
-        element.querySelector('button[type=submit]').click();
-        fixture.detectChanges();
-
         component.saveFinished.subscribe(() => {
           let value = component.actualPost;
           delete value._id;
           expect(value).toEqual(examplePost);
           done();
         });
+
+        element.querySelector('button[type=submit]').click();
+        fixture.detectChanges();
+
       }).catch(e => done.fail(e));
     });
   });
