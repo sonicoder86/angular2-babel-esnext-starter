@@ -6,13 +6,14 @@ let config = require('./config');
 let jwtMiddleware = require('koa-jwt')({ secret: config.jwt_secret });
 let fs = require('fs');
 let path = __dirname + '/articles/';
+let assert = require('assert');
 function getArticle( file) {
   return fs.readFileSync(path + file, { encoding: 'utf8' });
 }
 
 let posts = [
   {
-    "_id": uuid.v4(),
+    "_id": "5766a617dcba0f05cc9bf45e",//uuid.v4(),
     "name" : "angular2 - first step",
     "text" : getArticle('article_1.html'),
     "img": "https://gravatar.com/avatar/c9e0eedda66ad0a55cb7aaced698edf2?s=96&amp;d=https://dashboard.heroku.com%2Fimages%2Fstatic%2Fninja-avatar-48x48.png",
@@ -77,25 +78,29 @@ let posts = [
   }
 ];
 //
-function findPost(id) {
+function findPost(id) {  
   return posts.find((post) => {
     return post._id == id;
   });
 }
 
-router.get('/posts', function*() {
-  this.body = posts;
+
+let  monk = require('monk');
+let wrap = require('co-monk');
+let db = monk(process.env.MONGODB_URI);
+let articles = wrap(db.get('articles'));
+let ObjectId = require('mongodb').ObjectId; 
+
+router.get('/posts', function*() {  
+  var res = yield articles.find({});
+  //articles.findAndModify({ _id: res[0]._id }, { $set: {text:getArticle('article_1.html')} });
+
+  this.body = res;
 });
 
 router.get('/post/:id', function*() {
-  let foundPost = findPost(this.params.id);
-
-  if (foundPost) {
-    this.body = foundPost;
-  }
-  else {
-    this.throw(404);
-  }
+  var res = yield articles.findOne({_id: ObjectId(this.params.id)});
+  this.body = res;
 });
 
 router.post('/post/:id', function*() {

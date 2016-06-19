@@ -27,12 +27,15 @@
     "node": "4.4.2"
   },
   "dependencies": {
+    "co-monk": "^1.0.0",
     "jsonwebtoken": "6.2.0",
     "koa": "1.2.0",
     "koa-bodyparser": "2.1.0",
     "koa-jwt": "1.2.0",
     "koa-router": "5.4.0",
     "koa-static": "2.0.0",
+    "mongodb": "^2.1.18",
+    "monk": "https://github.com/vccabral/monk.git",
     "node-uuid": "1.4.7"
   },
   "devDependencies": {
