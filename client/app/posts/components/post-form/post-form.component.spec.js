@@ -144,7 +144,6 @@ describe('FormComponent', () => {
 
         element.querySelector('button[type=submit]').click();
         fixture.detectChanges();
-
       }).catch(e => done.fail(e));
     });
   });
