@@ -23,4 +23,8 @@ export class PostListItemComponent {
   getLoggedIn() {
     return this.userService.getLoggedIn();
   }
+  
+  replaceSpaces(nm) {
+    return nm.replace(/\-/g,'*').replace(/\s+/g,'-');
+  }
 }

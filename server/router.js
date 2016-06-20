@@ -98,8 +98,9 @@ router.get('/posts', function*() {
   this.body = res;
 });
 
-router.get('/post/:id', function*() {
-  var res = yield articles.findOne({_id: ObjectId(this.params.id)});
+router.get('/post/:name', function*() {
+  
+  var res = yield articles.findOne({name: this.params.name.replace(/\-/g,' ').replace(/\*/g,'-')});
   this.body = res;
 });
 

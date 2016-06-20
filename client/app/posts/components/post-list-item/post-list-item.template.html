@@ -5,7 +5,7 @@
             </div>
         
             <div class="col-sm-10 col-xs-7">
-                <a href="{{ post.website || '#/article/' + post._id}}">
+                <a href="{{ post.website || '#/article/' + replaceSpaces(post.name)}}">
                     <h4 class="list-group-item-heading">{{ post.name }}</h4>
                 </a>
                 <p class="list-group-item-text">{{ post.description | short_description }}</p>
