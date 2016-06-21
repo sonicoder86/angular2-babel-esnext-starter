@@ -92,9 +92,9 @@ let articles = wrap(db.get('articles'));
 let ObjectId = require('mongodb').ObjectId; 
 
 router.get('/posts', function*() {  
-  var res = yield articles.find({});
+  var res = yield articles.find({"tags": "Angular2"});
   //articles.findAndModify({ _id: res[0]._id }, { $set: {text:getArticle('article_1.html')} });
-
+  console.dir('results: ',res.count)
   this.body = res;
 });
 
