@@ -9,7 +9,11 @@
                     <h4 class="list-group-item-heading">{{ post.name }}</h4>
                 </a>
                 <p class="list-group-item-text">{{ post.description | short_description }}</p>
-            
+                <div>
+                    <a *ngFor="let tag of post.tags" href="#">
+                        <span class="badge">{{tag}}</span>
+                    </a>
+                </div>                           
                 <a [routerLink]="['/Edit', { id: post._id }]" *ngIf="getLoggedIn() | async" class="btn btn-default pull-right">Edit</a>
             </div>
     </div>
