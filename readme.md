@@ -1,14 +1,7 @@
 # Angular 2 ESNext Starter
-[![Dependency Status](https://david-dm.org/blacksonic/angular2-esnext-starter.svg)](https://david-dm.org/blacksonic/angular2-esnext-starter)
-[![devDependency Status](https://david-dm.org/blacksonic/angular2-esnext-starter/dev-status.svg)](https://david-dm.org/blacksonic/angular2-esnext-starter#info=devDependencies)
-[![Build Status](https://travis-ci.org/blacksonic/angular2-esnext-starter.svg?branch=master)](https://travis-ci.org/blacksonic/angular2-esnext-starter)
-[![Code Climate](https://codeclimate.com/github/blacksonic/angular2-esnext-starter/badges/gpa.svg)](https://codeclimate.com/github/blacksonic/angular2-esnext-starter)
-[![Code Coverage](https://codeclimate.com/github/blacksonic/angular2-esnext-starter/badges/coverage.svg)](https://codeclimate.com/github/blacksonic/angular2-esnext-starter)
 
-This repo stands as a starting point for those who try [Angular 2](https://angular.io/) in Javascript.
-It shows techniques how easy development can be also without Typescript.
-It is a basic CRUD application with authentication, similar to the news site [jslive.com](https://jslive.com).
-You can see the list of links, add and edit them after you signed in.
+This repo experimental angular2 project originally cloned from [This Great Repo](https://github.com/blacksonic/angular2-esnext-starter.git).
+The main purpose is to display some angular2 and overs articles for web developers
 
 > If you're looking for Angular 2 in Javascript without Gulp tasks and server side check out [angular2-esnext-todomvc](https://github.com/blacksonic/angular2-esnext-todomvc)
 
@@ -56,7 +49,7 @@ By adding Flow types and using decorators wherever you can, it will be really ea
 
 ```bash
 
-git clone https://github.com/blacksonic/angular2-esnext-starter.git
+git clone https://github.com/shootermv/angular2-esnext-starter.git
 cd angular2-esnext-starter
 npm install
 

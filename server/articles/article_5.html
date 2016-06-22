@@ -1,0 +1,93 @@
+<p>
+In the last post we created our first <a href="http://gs500coder.blogspot.co.il/2016/02/using-angular2-services.html">angular service</a>. This service served only some static data for <a href="http://gs500coder.blogspot.co.il/2016/01/creating-chart-component-angular2.html">chart component</a>t we build in previous posts.<br />
+Everybody knows that to serve static data is not cool.<br />
+The really though guys use services for bring data from server.<br />
+In other words - real service must use is <b>promises</b>.
+</p>
+<h3>
+Promises In Angular2</h3>
+<p>
+For one who used promises in angular 1. to use promise in angular2 is pretty simple:
+
+<pre><code class="language-javascript">
+@Injectable()
+export class FlotService {
+  getFlotEntries() {
+    return Promise.resolve(FlotEntries);
+  }
+}
+</code>
+</pre>
+Yes, the same old good <b>Promise.resolve</b>. 
+And for consume the service we should use the same old "then"
+<pre><code class="language-javascript">
+export class App implements OnInit {
+  
+  private dataset:any;
+  public entries;  
+  getEntries() {
+    this._flotService.getFlotEntries().then(
+                       entries => this.dataset[0].data = entries,
+                       error =>  this.errorMessage = <any>error);
+  } 
+</code>
+</pre>
+Now lets make our <a href="http://gs500coder.blogspot.co.il/2016/01/creating-chart-component-angular2.html">chart</a> component to work with this service.
+</p>
+
+<h3>
+Projecting data into component</h3>
+<p>The issue i had run into is that while the call to the service is on the main "App" component, the place i want data to be displayed is on the inner component - "Flot", which  getting chart "data" property as input parameter: 
+ <pre><code class="language-javascript">
+&lt;flot  [options]="splineOptions" [dataset]="dataset" height="250px" width="100%"&gt;&lt;/flot&gt;
+</code>
+</pre>
+In angular 1. all data changes are observed and immediately projected after the change is located by digest cycle.<br/> In angular2 - not in all cases. Angular2 change detection doesn't observe the content only the value or reference itself (angular2 observes only "dataset" but not inner property "data")
+</p>
+<h3>
+A workaround </h3>
+<p>One way to make angular2 to watch the inner properties changes is to use <strong>ngDoCheck()</strong>.<br/>
+<strong>ngDoCheck()</strong> is called every change detection cycle, whether or not there are any input property changes.(great thanks to <a href="http://stackoverflow.com/questions/35583999/how-to-project-data-change-into-child-component-with-angular2">these guys</a> for this information)<br/>
+Now we need to modify flot component - so it start to use OnChanges:
+<pre><code class="language-javascript">
+import {Component, ElementRef, Input} from 'angular2/core';
+
+@Component({
+  selector: 'flot',
+  template: `<div>loading</div>`
+})
+
+export class FlotCmp{
+
+  ...
+
+  ngOnInit() {
+      if(!FlotCmp.chosenInitialized) {
+        let plotArea = $(this.el.nativeElement).find('div').empty();
+        plotArea.css({
+            width: this.width, 
+            height: this.height
+        });
+        
+        $.plot( plotArea, this.dataset, this.options);    
+        FlotCmp.chosenInitialized = true;
+      }
+  } 
+  ngDoCheck() {
+    if(this.dataset[0].data !== null && !this.dataPlotted) {
+        console.log('plotting data');
+        let plotArea = $(this.el.nativeElement).find('div').empty();
+        $.plot( plotArea, this.dataset, this.options);    
+        this.dataPlotted = true; 
+    }
+  }  
+}  
+</code>
+</pre>
+Now the child component view reacts to changes of flot data
+</p>
+<p>
+Here is running code:
+<iframe  src="http://embed.plnkr.co/n7Y5o6i1DL60wCfkYbBc/" width="100%" height="400px" frameborder="0"></iframe>
+Hope you have fun reading...
+</p>

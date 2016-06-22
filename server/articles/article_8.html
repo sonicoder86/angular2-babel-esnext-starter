@@ -1,0 +1,118 @@
+<p>
+In <a href="http://gs500coder.blogspot.co.il/2016/05/nested-routes-challenge-in-angular2.html">previous post</a> we talked about routes in angular2.
+We saw some basic example of app using routes.
+But what about nested routes?
+</p>
+<p>
+<h3>Nested Routes</h3>
+Lets say for example that we need in our application to have a login page which has no menus on it. After passing authentication user should be redirected to protected pages which have the same menus on each of them:
+<a href="https://1.bp.blogspot.com/-wR3_4H3cxmQ/V0V0eu47o-I/AAAAAAAAATI/E0l3M8vKA00Xf8UD986i9YlAwcgHq2gqwCLcB/s1600/structure.png" imageanchor="1" ><img border="0" src="https://1.bp.blogspot.com/-wR3_4H3cxmQ/V0V0eu47o-I/AAAAAAAAATI/E0l3M8vKA00Xf8UD986i9YlAwcgHq2gqwCLcB/s320/structure.png" /></a>
+</p>
+
+<p>
+<h3>Step 1</h3>
+Transfer application to use nested routes is very easy. 
+<br/>First you need to create the middle ware route which will host its own routes directive on it. Lets call it <strong>layout</strong>.<br/>
+On this middle ware view we will locate the menu.
+<pre><code class="language-javascript">
+import {Component} from 'angular2/core'
+import {RouteConfig, Router, Route,  ROUTER_DIRECTIVES} from 'angular2/router';
+...
+@Component({
+  selector: 'layout',
+ template: `
+    &lt;h2&gt;Hello {{name}}&lt;/h2&gt;
+    &lt;!-- menu is located here now --&gt;
+    &lt;a [routerLink]="['Layout']"&gt;Dashboard&lt;/a&gt; | 
+    &lt;a [routerLink]="['Reports']"&gt;Reports&lt;/a&gt; |
+    &lt;a [routerLink]="['Login']"&gt;Login&lt;/a&gt;
+    &lt;hr&gt;
+   &lt;!-- router directive --&gt;
+   &lt;router-outlet&gt;&lt;/router-outlet&gt;, 
+ directives: [ROUTER_DIRECTIVES]
+})
+
+  
+@RouteConfig([
+   new Route({path: '/', name: 'Dashboard', component: Dashboard, useAsDefault:true}),
+   new Route({path: '/reports', name: 'Reports', component: Reports})
+])
+export class Layout {
+  constructor(){
+    this.name = 'Angular2 Nested Routes';
+  }
+}
+</code>
+</pre>
+
+</p>
+<p>
+<h3>Step 2</h3>
+Next thing lets create the <strong>login</strong> page which will located at the base root route "/login".
+<pre><code class="language-javascript">
+import {Component} from 'angular2/core'
+
+@Component({
+  selector: 'login',
+ template: `
+   &lt;div&gt;
+     &lt;h1&gt;Please Log In&lt;/h1&gt;
+     &lt;div style="text-align:center"&gt;
+           username:&lt;input&gt; 
+     &lt;/div&gt;
+     &lt;div style="text-align:center"&gt;
+           password:&lt;input&gt; 
+     &lt;/div&gt;
+     &lt;div style="text-align:center"&gt;
+      &lt;button (click)="login()"&gt;login&lt;/button&gt;
+    &lt;/div&gt;
+   &lt;/div&gt;  `
+})
+
+export class Login {
+  constructor(public router: Router){}
+  login(){
+    this.router.navigate(['Layout']);
+  }
+}
+
+</code>
+</pre>
+Also lets create the <strong>Dashboard</strong> page which will located at the inner route "layout/dashboard".
+</p>
+<p>
+<h3>Step 3</h3>
+Last thing we should modify the root "app" component so it will support nested routes:
+<pre><code class="language-javascript">
+import {Component} from 'angular2/core'
+import {RouteConfig, Router, Route,  ROUTER_DIRECTIVES} from 'angular2/router';
+import {Layout} from './layout';
+import {Login} from './login';
+
+
+@Component({
+  selector: 'my-app',
+  template: `
+      &lt;router-outlet&gt;&lt;/router-outlet&gt;
+  `,
+  directives: [ROUTER_DIRECTIVES]
+})
+@RouteConfig([
+   new Route({path: '/layout/...', name: 'Layout', component: Layout}),
+   new Route({path: '/login', name: 'Login', component: Login}),
+   {
+    path: '/**',
+    redirectTo: ['Layout']
+  }
+])
+export class App {
+}
+</code>
+</pre>
+</p>
+
+<p>
+Here is running code:
+<iframe  src="https://embed.plnkr.co/GoHuloXhcGVkqj0gENoA/" width="100%" height="400px" frameborder="0"></iframe>
+Hope you have fun reading...
+</p>
