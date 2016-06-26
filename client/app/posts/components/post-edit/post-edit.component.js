@@ -18,7 +18,7 @@ export class PostEditComponent {
 
   ngOnInit() {
     this.post = this._postService
-      .getPost(this._params.get('id'));
+      .getPostById(this._params.get('id'));
   }
 
   onSave(post) {

@@ -33,6 +33,12 @@ router.get('/posts/:tag', function*() {
   this.body = res;
 });
 
+router.get('/article/:id', function*() {
+  
+  var res = yield articles.findOne({_id: ObjectId(this.params.id)});
+  this.body = res;
+});
+
 router.get('/post/:name', function*() {
   
   var res = yield articles.findOne({name: this.params.name.replace(/\-/g,' ').replace(/\*/g,'-')});
