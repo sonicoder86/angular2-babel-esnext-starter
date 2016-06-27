@@ -13,8 +13,9 @@ export class PostService {
     this._request = request;
   }
 
-  refreshPosts() {
-    let postsResponse = this._http.get('/posts')
+  refreshPosts(category) {
+    let url = !category ? '/posts' : '/posts/' + category;
+    let postsResponse = this._http.get(url)
       .map(res => res.json());
 
     postsResponse.subscribe(

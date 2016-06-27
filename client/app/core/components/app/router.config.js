@@ -7,6 +7,7 @@ import { LoginComponent } from '../../../auth/components/login/login.component';
 
 export const routes = [
   { path: '/', component: PostListComponent, name: 'List', useAsDefault: true },
+  { path: '/categories/:category', component: PostListComponent, name: 'CategoryList'},
   { path: '/new', component: PostNewComponent, name: 'New' },
   { path: '/edit/:id', component: PostEditComponent, name: 'Edit' },
   { path: '/about', component: AboutComponent, name: 'About' },
