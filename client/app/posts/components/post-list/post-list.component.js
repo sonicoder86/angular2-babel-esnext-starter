@@ -19,7 +19,7 @@ export class PostListComponent {
   }
 
   ngOnInit() {
-    this._postService.refreshPosts(this._params.get('category') || null);
+    this._postService.refreshPosts(this._params.get('category') || 'Angular2');
   }
 
   getRemotePosts() {

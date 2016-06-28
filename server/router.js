@@ -29,7 +29,7 @@ router.get('/posts', function*() {
 });
 
 router.get('/posts/:tag', function*() {  
-  var res = yield articles.find({"tags": this.params.tag});
+  var res = yield articles.find({"tags": this.params.tag}, {sort: {order: 1}});
   this.body = res;
 });
 
