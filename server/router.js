@@ -18,7 +18,7 @@ function findPost(id) {
 
 let  monk = require('monk');
 let wrap = require('co-monk');
-let db = monk(process.env.MONGODB_URI || 'mongodb://localhost/heroku_chn8dvhx');
+let db = monk(process.env.MONGODB_URI || 'mongodb://localhost/my-courses');
 let articles = wrap(db.get('articles'));
 let ObjectId = require('mongodb').ObjectId; 
 
