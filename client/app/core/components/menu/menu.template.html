@@ -1,13 +1,20 @@
 <div class="container">
     <div class="navbar-header">
-        <a class="navbar-brand" [routerLink]="['/List']">Angular 2 App</a>
+        <button type="button" class="navbar-toggle collapsed" (click)="navCollapsed=!navCollapsed">
+         <span class="sr-only">Toggle navigation</span>
+         <span class="icon-bar"></span>
+         <span class="icon-bar"></span>
+         <span class="icon-bar"></span>
+        </button>
+        <a class="navbar-brand" [routerLink]="['/List']">My Courses</a>
     </div>
-    <div id="navbar" class="collapse navbar-collapse">
+    <div id="navbar" class="collapse navbar-collapse" [class.in]="navCollapsed">
         <ul class="nav navbar-nav">
-            <li><a [routerLink]="['/List']">Posts</a></li>
-            <li><a [routerLink]="['/About']">About</a></li>
-            <li><a [routerLink]="['/Login']" *ngIf="!(getLoggedIn() | async)">Login</a></li>
-            <li><a href="#" (click)="logout()" *ngIf="getLoggedIn() | async">Logout</a></li>
+            <li><a [routerLink]="['/List']" (click)="navCollapsed=!navCollapsed">Posts</a></li>
+            <li><a [routerLink]="['/Categories']" (click)="navCollapsed=!navCollapsed">Categories</a></li>
+            <li><a [routerLink]="['/About']" (click)="navCollapsed=!navCollapsed">About</a></li>
+            <li><a [routerLink]="['/Login']" *ngIf="!(getLoggedIn() | async)" (click)="navCollapsed=!navCollapsed">Login</a></li>
+            <li><a href="#" (click)="logout()" *ngIf="getLoggedIn() | async" (click)="navCollapsed=!navCollapsed">Logout</a></li>
         </ul>
     </div>
 </div>

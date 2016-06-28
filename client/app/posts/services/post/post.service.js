@@ -13,8 +13,9 @@ export class PostService {
     this._request = request;
   }
 
-  refreshPosts() {
-    let postsResponse = this._http.get('/posts')
+  refreshPosts(category) {
+    let url = !category ? '/posts' : '/posts/' + category;
+    let postsResponse = this._http.get(url)
       .map(res => res.json());
 
     postsResponse.subscribe(
@@ -39,7 +40,12 @@ export class PostService {
     return this._http.get(`/post/${id}`)
       .map(res => res.json());
   }
-
+  
+  getPostById(id) {
+    return this._http.get(`/article/${id}`)
+      .map(res => res.json());
+  }
+  
   updatePost(post) {
     return this._http
       .post(`/post/${post._id}`, JSON.stringify(post), { headers: this._request.getAuthHeaders() })

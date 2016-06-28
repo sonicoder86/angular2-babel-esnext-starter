@@ -9,7 +9,8 @@ import { validatorFactory } from '../../../posts/validator';
 @Component({
   selector: 'login',
   template: template,
-  directives: [FORM_DIRECTIVES]
+  directives: [FORM_DIRECTIVES],
+  styleUrls:['css/login.css']
 })
 export class LoginComponent {
 
