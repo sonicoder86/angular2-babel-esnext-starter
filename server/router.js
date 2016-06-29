@@ -20,6 +20,7 @@ let  monk = require('monk');
 let wrap = require('co-monk');
 let db = monk(process.env.MONGODB_URI || 'mongodb://localhost/my-courses');
 let articles = wrap(db.get('articles'));
+let users = wrap(db.get('users'));
 let ObjectId = require('mongodb').ObjectId; 
 
 router.get('/posts', function*() {  
@@ -73,8 +74,9 @@ router.post('/login', function*() {
   let password = this.request.body.password;
 
   let result = {success: false};
-
-  if (email == 'admin@gmail.com' && password == 'angular2') {
+  let res = yield users.find({email:email, password:password});
+  console.log(res.length)
+  if (res.length) {
     result.success = true;
     result.auth_token = jwt.sign({ email: email }, config.jwt_secret);
   }
