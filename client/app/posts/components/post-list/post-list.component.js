@@ -15,11 +15,12 @@ export class PostListComponent {
   constructor(postService: PostService, userService: UserService, params: RouteParams) {
     this._postService = postService;
     this._userService = userService;    
-    this._params = params;   
+    this._params = params; 
+    this._currentCategory = this._params.get('category') || 'Angular2';
   }
 
   ngOnInit() {
-    this._postService.refreshPosts(this._params.get('category') || 'Angular2');
+    this._postService.refreshPosts(this._currentCategory);
   }
 
   getRemotePosts() {

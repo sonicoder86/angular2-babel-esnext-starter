@@ -1,8 +1,13 @@
 <div class="row">
     <div class="col-sm-12">
-        <h1>Angular 2 Series <a [routerLink]="['/New']" class="btn btn-primary pull-right" *ngIf="getLoggedIn() | async">New post</a></h1>
+        <ol class="breadcrumb">
+            <li><a href="#">Posts</a></li>            
+            <li class="active">{{_currentCategory}}</li>
+            <a [routerLink]="['/New']" class="btn btn-primary pull-right" *ngIf="getLoggedIn() | async">New post</a>
+        </ol>
+         
 
-        <div class="list-group">
+        <div class="list-group row">
             <post-list-item *ngFor="let post of getRemotePosts() | async" [post]="post"></post-list-item>
         </div>
     </div>
