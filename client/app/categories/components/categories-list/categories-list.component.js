@@ -16,11 +16,10 @@ export class CategoriesListComponent {
     this._categoriesService = categoriesService;   
   }
 
-  getRemoteCategories() {   
-    //return [{name:'Angularjs'}, {name:'Angular2'}]
+  getRemoteCategories() {
     return this._categoriesService.remoteCategories;
   }
   ngOnInit() {
-    this._categoriesService.refreshCategories(this._currentCategory);
+    this._categoriesService.refreshCategories();
   }
 }
