@@ -8,6 +8,7 @@ import { FORM_PROVIDERS, LocationStrategy, HashLocationStrategy } from '@angular
 import { HTTP_PROVIDERS } from '@angular/http';
 import { AUTH_PROVIDERS } from './app/auth';
 import { POSTS_PROVIDERS } from './app/posts';
+import { CATEGORIES_PROVIDERS } from './app/categories';
 
 if (ENVIRONMENT === 'production') {
   enableProdMode();
@@ -19,6 +20,7 @@ bootstrap(AppComponent, [
   ROUTER_PROVIDERS,
   AUTH_PROVIDERS,
   POSTS_PROVIDERS,
+  CATEGORIES_PROVIDERS,
   provide(LocationStrategy, { useClass: HashLocationStrategy }),
   provide('ENVIRONMENT', { useValue: ENVIRONMENT })
 ]);

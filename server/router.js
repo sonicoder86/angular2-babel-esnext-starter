@@ -21,7 +21,15 @@ let wrap = require('co-monk');
 let db = monk(process.env.MONGODB_URI || 'mongodb://localhost/my-courses');
 let articles = wrap(db.get('articles'));
 let users = wrap(db.get('users'));
+let categories = wrap(db.get('categories'));
 let ObjectId = require('mongodb').ObjectId; 
+
+
+router.get('/categories', function*() { 
+  var res = yield categories.find({});
+  this.body = res;
+});
+
 
 router.get('/posts', function*() {  
   var res = yield articles.find({});

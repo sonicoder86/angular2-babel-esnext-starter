@@ -2,9 +2,8 @@ import { Component, ChangeDetectionStrategy } from '@angular/core';
 import { ROUTER_DIRECTIVES, RouteParams } from '@angular/router-deprecated';
 
 import template from './categories-list.template.html';
-//import { PostService } from '../../services/post/post.service';
 import { CategoriesListItemComponent } from '../categories-list-item/categories-list-item.component';
-import { UserService } from '../../../auth';
+import { CategoriesService } from '../../services/categories/categories.service';
 @Component({
   selector: 'categories-list',
   template: template,
@@ -12,12 +11,16 @@ import { UserService } from '../../../auth';
   changeDetection: ChangeDetectionStrategy.Detached
 })
 export class CategoriesListComponent {
-  constructor(params: RouteParams) {    
-    this._params = params;   
+  constructor(params: RouteParams, categoriesService:CategoriesService) {    
+    this._params = params;
+    this._categoriesService = categoriesService;   
   }
 
   getRemoteCategories() {   
-    return [{name:'Angularjs'}, {name:'Angular2'}]
+    //return [{name:'Angularjs'}, {name:'Angular2'}]
+    return this._categoriesService.remoteCategories;
   }
- 
+  ngOnInit() {
+    this._categoriesService.refreshCategories(this._currentCategory);
+  }
 }

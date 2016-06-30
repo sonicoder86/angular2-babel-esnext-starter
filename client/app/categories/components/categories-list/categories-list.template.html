@@ -2,7 +2,7 @@
     <div class="col-sm-12">
         <h1>Categories</h1>
         <div class="list-group">
-            <categories-list-item *ngFor="let category of getRemoteCategories()" [category]="category"></categories-list-item>
+            <categories-list-item *ngFor="let category of getRemoteCategories() | async" [category]="category"></categories-list-item>
         </div>
     </div>
 </div>
