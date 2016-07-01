@@ -45,17 +45,17 @@ router.get('/posts/:tag', function*() {
 router.get('/article/:id', function*() {
   
   var res = yield articles.findOne({_id: ObjectId(this.params.id)});
+  res.tags = res.tags.join(',');
   this.body = res;
 });
 
 router.get('/post/:name', function*() {
-  
   var res = yield articles.findOne({name: this.params.name.replace(/\-/g,' ').replace(/\*/g,'-')});
   this.body = res;
 });
 
-router.post('/post/:id', function*() {
-  let foundPost = findPost(this.params.id);
+router.post('/post/:id', jwtMiddleware, function*() {
+  /*let foundPost = findPost(this.params.id);
 
   if (foundPost) {
     Object.assign(foundPost, this.request.body);
@@ -63,18 +63,23 @@ router.post('/post/:id', function*() {
   }
   else {
     this.throw(404);
-  }
+  }*/
+  this.request.body.tags = this.request.body.tags.split(',');
+  var res = yield articles.update({ _id: ObjectId(this.params.id) }, this.request.body); 
+  this.body = res;
 });
 
 
 router.post('/post', jwtMiddleware, function*() {
-  posts.unshift(Object.assign(
-    { },
-    this.request.body,
-    { _id: uuid.v4() }
-  ));
-
-  this.body = {success: true};
+  let newDoc = {
+    name:this.request.body.name,
+    tags:this.request.body.tags.split(','),
+    text:this.request.body.text,
+    description:this.request.body.description
+  };
+  var res = yield articles.insert(newDoc);
+  Object.assign(newDoc, res);  
+  this.body = newDoc;
 });
 
 router.post('/login', function*() {

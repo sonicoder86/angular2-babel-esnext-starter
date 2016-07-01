@@ -17,8 +17,10 @@ export class PostFormComponent {
     this.postForm = builder.group({
       _id: [''],
       name: ['', Validators.required],
-      website: ['', Validators.compose([Validators.required, validatorFactory('url')])],
-      description: ['']
+      tags: ['', Validators.required],
+      description: ['', Validators.required],
+    //  website: ['', Validators.compose([Validators.required, validatorFactory('url')])],
+      text: ['']
     });
   }
 
@@ -26,7 +28,8 @@ export class PostFormComponent {
     if (change.post && change.post.currentValue) {
       this.postForm.controls['_id'].updateValue(change.post.currentValue._id);
       this.postForm.controls['name'].updateValue(change.post.currentValue.name);
-      this.postForm.controls['website'].updateValue(change.post.currentValue.website);
+      this.postForm.controls['tags'].updateValue(change.post.currentValue.tags);
+      this.postForm.controls['text'].updateValue(change.post.currentValue.text);
       this.postForm.controls['description'].updateValue(change.post.currentValue.description);
     }
   }
