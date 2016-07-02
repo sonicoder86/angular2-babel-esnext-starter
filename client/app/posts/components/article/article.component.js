@@ -5,7 +5,8 @@ import { PostService } from '../../services/post/post.service';
 //ArticleComponent
 @Component({
   selector: 'article',
-  template: template
+  template: template,
+  styleUrls: ['css/article.css']
 })
 export class ArticleComponent {
   constructor(postService: PostService, params: RouteParams, router: Router) {

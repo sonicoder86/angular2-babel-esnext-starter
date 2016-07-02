@@ -1,3 +1,8 @@
-<h2>{{ post?.name }}</h2>
-<div [innerHTML]="post?.text" prism>
+<header>
+    <h1>{{ post?.name }}</h1>
+</header>
+<div class="article">
+
+    <div [innerHTML]="post?.text" prism>
+    </div>
 </div>
