@@ -1,4 +1,4 @@
-import { Router, Instruction } from '@angular/router-deprecated';
+import { Router, Instruction } from '@angular/router';
 import { Location } from '@angular/common';
 
 import { provide } from '@angular/core';

@@ -1,17 +1,14 @@
 import { Component, Inject } from '@angular/core'; // eslint-disable-line no-unused-vars
-import { RouteConfig } from '@angular/router-deprecated';
+import { ROUTER_DIRECTIVES } from '@angular/router';
 
 import template from './app.template.html';
 import { MenuComponent } from '../menu/menu.component';
-import { LoggedInRouterOutletDirective } from '../../../auth';
-import { routes } from './router.config';
 
 @Component({
   selector: 'my-app',
-  directives: [LoggedInRouterOutletDirective, MenuComponent],
+  directives: [ROUTER_DIRECTIVES, MenuComponent],
   template: template
 })
-@RouteConfig(routes)
 export class AppComponent {
 
   constructor(@Inject('ENVIRONMENT') environment) {

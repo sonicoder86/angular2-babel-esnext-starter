@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
 import { FORM_DIRECTIVES, FormBuilder, Validators } from '@angular/common';
-import { Router } from '@angular/router-deprecated';
+import { Router } from '@angular/router';
 
 import template from './login.template.html';
 import { UserService } from '../../services/user/user.service';
@@ -26,7 +26,7 @@ export class LoginComponent {
   onSubmit(credentials) {
     this._userService.login(credentials).subscribe((result) => {
       if (result) {
-        this._router.navigate(['List']);
+        this._router.navigate(['']);
       }
     });
   }
