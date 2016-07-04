@@ -18,6 +18,7 @@ export class PostFormComponent {
       _id: [''],
       name: ['', Validators.required],
       tags: ['', Validators.required],
+      img: [''],
       description: ['', Validators.required],
     //  website: ['', Validators.compose([Validators.required, validatorFactory('url')])],
       text: ['']
@@ -29,6 +30,7 @@ export class PostFormComponent {
       this.postForm.controls['_id'].updateValue(change.post.currentValue._id);
       this.postForm.controls['name'].updateValue(change.post.currentValue.name);
       this.postForm.controls['tags'].updateValue(change.post.currentValue.tags);
+      this.postForm.controls['img'].updateValue(change.post.currentValue.img);
       this.postForm.controls['text'].updateValue(change.post.currentValue.text);
       this.postForm.controls['description'].updateValue(change.post.currentValue.description);
     }

@@ -7,6 +7,10 @@
         Name is required
     </div>
     <div class="form-group">
+        <label for="post-image">Image Url</label>
+        <input [ngFormControl]="postForm.controls['img']" class="form-control" id="post-image"/>
+    </div>    
+    <div class="form-group">
         <label for="post-tags">Tags</label>
         <textarea [ngFormControl]="postForm.controls['tags']" class="form-control" id="post-tags" rows="1"></textarea>
     </div>

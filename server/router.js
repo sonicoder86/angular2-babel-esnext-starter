@@ -75,6 +75,7 @@ router.post('/post', jwtMiddleware, function*() {
     name:this.request.body.name,
     tags:this.request.body.tags.split(','),
     text:this.request.body.text,
+    img:this.request.body.img,
     description:this.request.body.description
   };
   var res = yield articles.insert(newDoc);
