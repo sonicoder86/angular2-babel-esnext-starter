@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { Router } from '@angular/router-deprecated';
+import { Router } from '@angular/router';
 
 import template from './post-new.template.html';
 import { PostService } from '../../services/post/post.service';
@@ -19,7 +19,7 @@ export class PostNewComponent {
   onSave(post) {
     this._postService.addPost(post).subscribe(
       () => {
-        this._router.navigate(['List']);
+        this._router.navigate(['']);
       },
       (error) => {
         console.error(error);

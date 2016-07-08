@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { RouteParams, Router } from '@angular/router-deprecated';
+import { ActivatedRoute, Router } from '@angular/router';
 import template from './post-edit.template.html';
 import { PostService } from '../../services/post/post.service';
 import { PostFormComponent } from '../post-form/post-form.component';
@@ -10,21 +10,24 @@ import { PostFormComponent } from '../post-form/post-form.component';
   directives: [PostFormComponent]
 })
 export class PostEditComponent {
-  constructor(postService: PostService, params: RouteParams, router: Router) {
-    this._postService = postService;
-    this._params = params;
-    this._router = router;
+   constructor(postService: PostService, route: ActivatedRoute, router: Router) {
+      this._postService = postService;
+		  this._route = route;
+      this._router = router;
   }
 
   ngOnInit() {
-    this.post = this._postService
-      .getPostById(this._params.get('id'));
+    this.post = this._route.params
+      .map(params => params.id)
+      .flatMap((id) => {
+        return this._postService.getPost(id);
+      });
   }
 
   onSave(post) {
     this._postService.updatePost(post).subscribe(
       () => {
-        this._router.navigate(['List']);
+        this._router.navigate(['']);
       },
       (err) => {
         console.error(err);

@@ -1,5 +1,5 @@
 import { Component, ChangeDetectionStrategy } from '@angular/core';
-import { ROUTER_DIRECTIVES, RouteParams } from '@angular/router-deprecated';
+import { ROUTER_DIRECTIVES } from '@angular/router';
 
 import template from './post-list.template.html';
 import { PostService } from '../../services/post/post.service';
@@ -12,11 +12,11 @@ import { UserService } from '../../../auth';
   changeDetection: ChangeDetectionStrategy.Detached
 })
 export class PostListComponent {
-  constructor(postService: PostService, userService: UserService, params: RouteParams) {
+  constructor(postService: PostService, userService: UserService/*, params: RouteParams*/) {
     this._postService = postService;
     this._userService = userService;    
-    this._params = params; 
-    this._currentCategory = this._params.get('category') || 'Angular2';
+  //  this._currentCategory = this._params.get('category') || 'Angular2';
+  this._currentCategory ='Angular2';
   }
 
   ngOnInit() {

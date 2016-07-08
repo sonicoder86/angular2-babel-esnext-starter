@@ -50,7 +50,7 @@ describe('LoginComponent', () => {
 
     subject.onSubmit(credentials);
 
-    expect(RouterMock.prototype.navigate).toHaveBeenCalledWith(['List']);
+    expect(RouterMock.prototype.navigate).toHaveBeenCalledWith(['']);
   });
 
   it('should skip navigation on failed login', () => {

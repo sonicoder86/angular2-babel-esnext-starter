@@ -14,7 +14,7 @@
                         <span class="badge">{{tag}}</span>
                     </a>
                 </div>                           
-                <a [routerLink]="['/Edit', { id: post._id }]" *ngIf="getLoggedIn() | async" class="btn btn-default pull-right">Edit</a>
+                <a [routerLink]="['edit', post._id ]" *ngIf="getLoggedIn() | async" class="btn btn-default pull-right">Edit</a>
             </div>
     </div>
 </div>
