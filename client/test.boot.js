@@ -15,7 +15,7 @@ setBaseTestProviders(TEST_BROWSER_DYNAMIC_PLATFORM_PROVIDERS, TEST_BROWSER_DYNAM
 Object.assign(global, {
   afterEach, beforeEach, beforeEachProviders,
   describe, it, expect,
-  inject, async, tick
+  inject, async: async, tick
 });
 
 let testContext = require.context('./app', true, /\.spec\.js/);

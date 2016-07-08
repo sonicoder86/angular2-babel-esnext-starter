@@ -43,8 +43,8 @@ describe('PostService', () => {
     AUTH_PROVIDERS,
     {
       provide: Http,
-      useFactory: (backend, defaultOptions) => {
-        return new Http(backend, defaultOptions);
+      useFactory: (mokcBackend, defaultOptions) => {
+        return new Http(mokcBackend, defaultOptions);
       },
       deps: [MockBackend, BaseRequestOptions]
     }
