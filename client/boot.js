@@ -1,7 +1,7 @@
 import './shim';
 import 'rxjs/add/operator/map';
 import { bootstrap } from '@angular/platform-browser-dynamic';
-import { enableProdMode, provide } from '@angular/core';
+import { enableProdMode } from '@angular/core';
 import { FORM_PROVIDERS, LocationStrategy, HashLocationStrategy } from '@angular/common';
 import { HTTP_PROVIDERS } from '@angular/http';
 
@@ -24,6 +24,6 @@ bootstrap(AppComponent, [
   POSTS_PROVIDERS,
   CORE_PROVIDERS,
 
-  provide(LocationStrategy, { useClass: HashLocationStrategy }),
-  provide('ENVIRONMENT', { useValue: ENVIRONMENT })
+  { provide: LocationStrategy, useClass: HashLocationStrategy },
+  { provide: 'ENVIRONMENT', useValue: ENVIRONMENT }
 ]);

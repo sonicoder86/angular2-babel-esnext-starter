@@ -1,5 +1,4 @@
 import { MockBackend } from '@angular/http/testing';
-import { provide } from '@angular/core';
 import { Http, BaseRequestOptions, Response, ResponseOptions, RequestMethod } from '@angular/http';
 
 export class BackendExpectation {
@@ -71,10 +70,11 @@ export class FakeBackend extends MockBackend {
 export const FAKE_BACKEND_PROVIDERS = [
   FakeBackend,
   BaseRequestOptions,
-  provide(Http, {
+  {
+    provide: Http,
     useFactory: (backend, defaultOptions) => {
       return new Http(backend, defaultOptions);
     },
     deps: [FakeBackend, BaseRequestOptions]
-  })
+  }
 ];

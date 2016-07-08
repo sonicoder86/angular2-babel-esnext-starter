@@ -1,6 +1,6 @@
 import { MockBackend } from '@angular/http/testing';
 import { RequestMethod, Headers } from '@angular/http';
-import { provide, Injector } from '@angular/core';
+import { Injector } from '@angular/core';
 import { Http, BaseRequestOptions, Response, ResponseOptions } from '@angular/http';
 
 import { PostService } from './post.service';
@@ -41,12 +41,13 @@ describe('PostService', () => {
     MockBackend,
     BaseRequestOptions,
     AUTH_PROVIDERS,
-    provide(Http, {
-      useFactory: (backendInstance, defaultOptions) => {
-        return new Http(backendInstance, defaultOptions);
+    {
+      provide: Http,
+      useFactory: (backend, defaultOptions) => {
+        return new Http(backend, defaultOptions);
       },
       deps: [MockBackend, BaseRequestOptions]
-    })
+    }
   ]);
 
   beforeEach(inject([Injector], (injector) => {

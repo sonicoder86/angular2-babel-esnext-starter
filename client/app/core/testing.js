@@ -1,8 +1,6 @@
 import { Router, Instruction } from '@angular/router';
 import { Location } from '@angular/common';
 
-import { provide } from '@angular/core';
-
 class RouterMock {
   navigate() {}
 
@@ -19,7 +17,7 @@ class RouterMock {
 
 const CORE_TESTING_PROVIDERS = [
   Location,
-  provide(Router, { useClass: RouterMock })
+  { provide: Router, useClass: RouterMock }
 ];
 
 export {

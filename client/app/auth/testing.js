@@ -1,4 +1,3 @@
-import { provide } from '@angular/core';
 import { Observable } from 'rxjs/Observable';
 import { UserService } from './services/user/user.service';
 
@@ -19,7 +18,7 @@ class UserServiceMock {
 }
 
 const AUTH_TESTING_PROVIDERS = [
-  provide(UserService, { useClass: UserServiceMock })
+  { provide: UserService, useClass: UserServiceMock }
 ];
 
 export {
