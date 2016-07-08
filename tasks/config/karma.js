@@ -19,7 +19,8 @@ module.exports = function(config) {
 
     // list of files / patterns to load in the browser
     files: [
-      { pattern: 'client/setup.spec.js' },
+      { pattern: 'client/test.vendor.js' },
+      { pattern: 'client/test.boot.js' },
       { pattern: 'client/css/*.css', included: false, served: true }
     ],
 
@@ -34,7 +35,8 @@ module.exports = function(config) {
     // preprocess matching files before serving them to the browser
     // available preprocessors: https://npmjs.org/browse/keyword/karma-preprocessor
     preprocessors: {
-      'client/setup.spec.js': ['webpack', 'sourcemap']
+      'client/test.vendor.js': ['webpack', 'sourcemap'],
+      'client/test.boot.js': ['webpack', 'sourcemap']
     },
 
     // test results reporter to use
