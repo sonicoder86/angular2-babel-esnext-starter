@@ -31,7 +31,7 @@ export class PostFormComponent {
     }
   }
 
-  onSubmit(post) {
-    this.saved.emit(post);
+  onSubmit(validPost) {
+    this.saved.emit(validPost);
   }
 }
