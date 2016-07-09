@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { TestComponentBuilder } from '@angular/compiler/testing';
+import { TestComponentBuilder } from '@angular/core/testing';
 
 import { ShortDescriptionPipe } from './short-description.pipe';
 
@@ -24,7 +24,9 @@ describe('ShortDescriptionPipe', () => {
   let pipe;
   let builder;
 
-  beforeEachProviders(() => [ShortDescriptionPipe, TestComponentBuilder]);
+  beforeEach(() => {
+    addProviders([ShortDescriptionPipe, TestComponentBuilder]);
+  });
 
   beforeEach(inject([ShortDescriptionPipe, TestComponentBuilder], (descriptionPipe, componentBuilder) => {
     pipe = descriptionPipe;

@@ -36,19 +36,21 @@ describe('PostService', () => {
     });
   }
 
-  beforeEachProviders(() => [
-    PostService,
-    MockBackend,
-    BaseRequestOptions,
-    AUTH_PROVIDERS,
-    {
-      provide: Http,
-      useFactory: (mokcBackend, defaultOptions) => {
-        return new Http(mokcBackend, defaultOptions);
-      },
-      deps: [MockBackend, BaseRequestOptions]
-    }
-  ]);
+  beforeEach(() => {
+    addProviders([
+      PostService,
+      MockBackend,
+      BaseRequestOptions,
+      AUTH_PROVIDERS,
+      {
+        provide: Http,
+        useFactory: (mokcBackend, defaultOptions) => {
+          return new Http(mokcBackend, defaultOptions);
+        },
+        deps: [MockBackend, BaseRequestOptions]
+      }
+    ]);
+  });
 
   beforeEach(inject([Injector], (injector) => {
     service = injector.get(PostService);

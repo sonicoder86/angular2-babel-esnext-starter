@@ -4,10 +4,9 @@ import { StorageService } from '../storage/storage.service';
 describe('RequestService', () => {
   let subject;
 
-  beforeEachProviders(() => [
-    RequestService,
-    StorageService
-  ]);
+  beforeEach(() => {
+    addProviders([RequestService, StorageService]);
+  });
 
   beforeEach(inject([RequestService], (request) => {
     subject = request;

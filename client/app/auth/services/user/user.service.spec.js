@@ -15,12 +15,14 @@ describe('UserService', () => {
       .respond(200, JSON.stringify({ success: true, auth_token: 'secret_token' }));
   }
 
-  beforeEachProviders(() => [
-    UserService,
-    StorageService,
-    RequestService,
-    FAKE_BACKEND_PROVIDERS
-  ]);
+  beforeEach(() => {
+    addProviders([
+      UserService,
+      StorageService,
+      RequestService,
+      FAKE_BACKEND_PROVIDERS
+    ]);
+  });
 
   beforeEach(inject([Injector], (injector) => {
     subject = injector.get(UserService);

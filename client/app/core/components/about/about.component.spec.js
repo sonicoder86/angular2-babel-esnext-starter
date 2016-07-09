@@ -1,13 +1,13 @@
-import { TestComponentBuilder } from '@angular/compiler/testing';
+import { TestComponentBuilder } from '@angular/core/testing';
 
 import { AboutComponent } from './about.component';
 
 describe('AboutComponent', () => {
   let subjectElement;
 
-  beforeEachProviders(() => [
-    TestComponentBuilder
-  ]);
+  beforeEach(() => {
+    addProviders([TestComponentBuilder]);
+  });
 
   beforeEach(async(inject([TestComponentBuilder], (componentBuilder) => {
     return componentBuilder

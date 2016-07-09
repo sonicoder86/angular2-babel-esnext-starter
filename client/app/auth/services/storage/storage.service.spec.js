@@ -11,9 +11,9 @@ describe('StorageService', () => {
     spyOn(localStorage, 'removeItem');
   });
 
-  beforeEachProviders(() => [
-    StorageService
-  ]);
+  beforeEach(() => {
+    addProviders([StorageService]);
+  });
 
   beforeEach(inject([StorageService], (storage) => {
     subject = storage;
