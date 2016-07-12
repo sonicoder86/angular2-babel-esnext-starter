@@ -10,7 +10,7 @@
                 </a>
                 <p class="list-group-item-text">{{ post.description | short_description }}</p>
                 <div>
-                    <a *ngFor="let tag of post.tags" href="#">
+                    <a *ngFor="let tag of post.tags" [routerLink]="['/CategoryList', { category: tag }]">
                         <span class="badge">{{tag}}</span>
                     </a>
                 </div>                           
