@@ -1,9 +1,8 @@
-        <ol class="breadcrumb">
-            <li><a href="#">Posts</a></li>   
-            <li *ngIf="_prevCategory"><a href="#/{{_prevCategory}}">{{_prevCategory.replace('categories/','')}}</a></li>          
-            <li class="active">{{ post?.name }}</li>
-
-        </ol>
+<ol class="breadcrumb">
+    <li><a href="#">Posts</a></li>   
+    <li *ngIf="_prevCategory"><a href="#/{{_prevCategory}}">{{_prevCategory.replace('categories/','')}}</a></li>          
+    <li class="active">{{ post?.name }}</li>
+</ol>
 
 <header>
     <h1>{{ post?.name }}</h1>
