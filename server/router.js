@@ -67,7 +67,7 @@ router.post('/login', function*() {
 
   let result = {success: false};
   let res = yield users.find({email:email, password:password});
-  console.log(res.length)
+
   if (res.length) {
     result.success = true;
     result.auth_token = jwt.sign({ email: email }, config.jwt_secret);
