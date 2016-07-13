@@ -1,20 +1,8 @@
 'use strict';
 let router = require('koa-router')();
-let uuid = require('node-uuid');
 let jwt = require('jsonwebtoken');
 let config = require('./config');
 let jwtMiddleware = require('koa-jwt')({ secret: config.jwt_secret });
-let fs = require('fs');
-let path = __dirname + '/articles/';
-let assert = require('assert');
-
-//
-function findPost(id) {  
-  return posts.find((post) => {
-    return post._id == id;
-  });
-}
-
 
 let  monk = require('monk');
 let wrap = require('co-monk');
@@ -32,8 +20,7 @@ router.get('/categories', function*() {
 
 
 router.get('/posts', function*() {  
-  var res = yield articles.find({});
-  //articles.findAndModify({ _id: res[0]._id }, { $set: {text:getArticle('article_1.html')} }); 
+  var res = yield articles.find({}); 
   this.body = res;
 });
 
@@ -55,15 +42,6 @@ router.get('/post/:name', function*() {
 });
 
 router.post('/post/:id', jwtMiddleware, function*() {
-  /*let foundPost = findPost(this.params.id);
-
-  if (foundPost) {
-    Object.assign(foundPost, this.request.body);
-    this.body = foundPost;
-  }
-  else {
-    this.throw(404);
-  }*/
   this.request.body.tags = this.request.body.tags.split(',');
   var res = yield articles.update({ _id: ObjectId(this.params.id) }, this.request.body); 
   this.body = res;
