@@ -20,7 +20,7 @@ export class PostEditComponent {
     this.post = this._route.params
       .map(params => params.id)
       .flatMap((id) => {
-        return this._postService.getPost(id);
+        return this._postService.getPostById(id);
       });
   }
 
