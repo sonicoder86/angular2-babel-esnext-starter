@@ -1,4 +1,4 @@
-import { Component} from '@angular/core';
+import { Component } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import template from './article.template.html';
 import { PostService } from '../../services/post/post.service';
@@ -16,12 +16,7 @@ export class ArticleComponent {
     //this._prevCategory = breadcrumbService.getLast();
   }
   ngOnInit() {
-
-    this.post = this._route.params
-      .map(params => params.id)
-      .flatMap((id) => {        
-        return this._postService.getPost(id);
-      });
+     this._postService.getPost(this._route.params.value.id).subscribe(post=>this.post = post);     
   }
   ngAfterViewChecked() {
     let codeElems = document.querySelectorAll('code');
