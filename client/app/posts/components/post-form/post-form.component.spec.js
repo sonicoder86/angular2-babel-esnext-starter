@@ -1,6 +1,6 @@
-import { FormBuilder } from '@angular/common';
 import { Injector, Component, EventEmitter } from '@angular/core';
 import { TestComponentBuilder } from '@angular/core/testing';
+import { disableDeprecatedForms, provideForms } from '@angular/forms';
 
 import { PostFormComponent } from './post-form.component';
 
@@ -43,7 +43,11 @@ describe('FormComponent', () => {
   }
 
   beforeEach(() => {
-    addProviders([TestComponentBuilder, FormBuilder]);
+    addProviders([
+      TestComponentBuilder,
+      disableDeprecatedForms(),
+      provideForms()
+    ]);
   });
 
   beforeEach(inject([Injector], (injector) => {

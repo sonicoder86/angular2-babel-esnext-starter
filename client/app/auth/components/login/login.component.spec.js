@@ -1,5 +1,5 @@
 import { TestComponentBuilder } from '@angular/core/testing';
-import { FormBuilder } from '@angular/common';
+import { disableDeprecatedForms, provideForms } from '@angular/forms';
 import { HTTP_PROVIDERS } from '@angular/http';
 import { Observable } from 'rxjs/Observable';
 
@@ -21,7 +21,8 @@ describe('LoginComponent', () => {
   beforeEach(() => {
     addProviders([
       TestComponentBuilder,
-      FormBuilder,
+      disableDeprecatedForms(),
+      provideForms(),
       HTTP_PROVIDERS,
       AUTH_TESTING_PROVIDERS,
       CORE_TESTING_PROVIDERS
