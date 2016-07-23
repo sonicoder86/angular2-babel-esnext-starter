@@ -44,15 +44,13 @@ describe('ShortDescriptionPipe', () => {
   });
 
   describe('as a pipe', () => {
-    it('should shorten long descriptions', (done) => {
-      builder.createAsync(TestComponent).then((fixture) => {
-        let element = fixture.nativeElement;
+    it('should shorten long descriptions', () => {
+      let fixture = builder.createSync(TestComponent);
+      let element = fixture.nativeElement;
 
-        fixture.detectChanges();
+      fixture.detectChanges();
 
-        expect(element.querySelector('#post-description').innerText).toBe(expectedShortenedText);
-        done();
-      }).catch(e => done.fail(e));
+      expect(element.querySelector('#post-description').innerText).toBe(expectedShortenedText);
     });
   });
 });

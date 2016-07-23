@@ -1,4 +1,4 @@
-import { TestComponentBuilder } from '@angular/core/testing';
+import { TestComponentBuilder, async } from '@angular/core/testing';
 
 import { AboutComponent } from './about.component';
 

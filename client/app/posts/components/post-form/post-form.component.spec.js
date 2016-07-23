@@ -55,102 +55,90 @@ describe('FormComponent', () => {
   }));
 
   describe('as a Component', () => {
-    it('should create form group in constructor and bind it to input elements', (done) => {
-      builder.createAsync(PostFormComponent).then((fixture) => {
-        let component = fixture.componentInstance;
-        let element = fixture.nativeElement;
+    it('should create form group in constructor and bind it to input elements', () => {
+      let fixture = builder.createSync(PostFormComponent);
+      let component = fixture.componentInstance;
+      let element = fixture.nativeElement;
 
-        component.postForm.controls['name'].updateValue('Sonic');
-        component.postForm.controls['website'].updateValue('http://www.sonic.com');
-        component.postForm.controls['description'].updateValue('Short bio');
-        fixture.detectChanges();
+      component.postForm.controls['name'].updateValue('Sonic');
+      component.postForm.controls['website'].updateValue('http://www.sonic.com');
+      component.postForm.controls['description'].updateValue('Short bio');
+      fixture.detectChanges();
 
-        assertInputFields(element);
-        done();
-      }).catch(e => done.fail(e));
+      assertInputFields(element);
     });
 
-    it('should update input fields based on input changes', (done) => {
-      builder.createAsync(PostFormComponent).then((fixture) => {
-        let component = fixture.componentInstance;
-        let element = fixture.nativeElement;
+    it('should update input fields based on input changes', () => {
+      let fixture = builder.createSync(PostFormComponent);
+      let component = fixture.componentInstance;
+      let element = fixture.nativeElement;
 
-        component.ngOnChanges({
-          post: {
-            currentValue: examplePost
-          }
-        });
-        fixture.detectChanges();
+      component.ngOnChanges({
+        post: {
+          currentValue: examplePost
+        }
+      });
+      fixture.detectChanges();
 
-        assertInputFields(element);
-        done();
-      }).catch(e => done.fail(e));
+      assertInputFields(element);
     });
 
-    it('should notify when form is submitted', (done) => {
-      builder.createAsync(PostFormComponent).then((fixture) => {
-        let component = fixture.componentInstance;
+    it('should notify when form is submitted', () => {
+      let fixture = builder.createSync(PostFormComponent);
+      let component = fixture.componentInstance;
 
-        component.saved.subscribe((value) => {
-          expect(value).toBe(examplePost);
-          done();
-        });
+      component.saved.subscribe((value) => {
+        expect(value).toBe(examplePost);
+      });
 
-        component.onSubmit(examplePost);
-      }).catch(e => done.fail(e));
+      component.onSubmit(examplePost);
     });
 
-    it('should notify when submit button is clicked', (done) => {
-      builder.createAsync(PostFormComponent).then((fixture) => {
-        let component = fixture.componentInstance;
-        let element = fixture.nativeElement;
+    it('should notify when submit button is clicked', () => {
+      let fixture = builder.createSync(PostFormComponent);
+      let component = fixture.componentInstance;
+      let element = fixture.nativeElement;
 
-        component.ngOnChanges({
-          post: {
-            currentValue: examplePost
-          }
-        });
-        fixture.detectChanges();
+      component.ngOnChanges({
+        post: {
+          currentValue: examplePost
+        }
+      });
+      fixture.detectChanges();
 
-        component.saved.subscribe((value) => {
-          expect(value).toEqual(examplePost);
-          done();
-        });
+      component.saved.subscribe((value) => {
+        expect(value).toEqual(examplePost);
+      });
 
-        element.querySelector('button[type=submit]').click();
-      }).catch(e => done.fail(e));
+      element.querySelector('button[type=submit]').click();
     });
   });
 
   describe('as a Directive', () => {
-    it('should accept post input from parent component and display it in input fields', (done) => {
-      builder.createAsync(TestComponent).then((fixture) => {
-        let element = fixture.nativeElement;
+    it('should accept post input from parent component and display it in input fields', () => {
+      let fixture = builder.createSync(TestComponent);
+      let element = fixture.nativeElement;
 
-        fixture.detectChanges();
+      fixture.detectChanges();
 
-        assertInputFields(element);
-        done();
-      }).catch(e => done.fail(e));
+      assertInputFields(element);
     });
 
-    it('should notify parent component when submit button is clicked', (done) => {
-      builder.createAsync(TestComponent).then((fixture) => {
-        let component = fixture.componentInstance;
-        let element = fixture.nativeElement;
+    it('should notify parent component when submit button is clicked', () => {
+      let fixture = builder.createSync(TestComponent);
+      let component = fixture.componentInstance;
+      let element = fixture.nativeElement;
 
-        fixture.detectChanges();
+      fixture.detectChanges();
 
-        component.saveFinished.subscribe(() => {
-          let value = component.actualPost;
-          delete value._id;
-          expect(value).toEqual(examplePost);
-          done();
-        });
+      component.saveFinished.subscribe(() => {
+        let value = component.actualPost;
+        delete value._id;
+        expect(value).toEqual(examplePost);
+      });
 
-        element.querySelector('button[type=submit]').click();
-        fixture.detectChanges();
-      }).catch(e => done.fail(e));
+      element.querySelector('button[type=submit]').click();
+      fixture.detectChanges();
     });
   });
 });
