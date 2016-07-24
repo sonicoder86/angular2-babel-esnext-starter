@@ -103,9 +103,8 @@ Read about the details how it is implemented [in this article](http://shuheikaga
 
 ### Authentication
 
-Authentication is solved by extending the default ```RouterOutlet``` and adding logic to it's ```activate``` method.
-This solution is preferred for now, because the ```@CanActivate``` router lifecycle decorator has no access to the application's dependency injection, only with workarounds.
-For a detailed explanation [read this article](https://medium.com/@blacksonic86/authentication-in-angular-2-958052c64492).
+It is implemented with the router's built-in lifecycle events.
+For a detailed explanation [read this article](https://medium.com/@blacksonic86/angular-2-authentication-revisited-611bf7373bf9).
 
 ### Deployment (to Heroku)
 
