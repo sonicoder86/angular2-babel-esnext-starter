@@ -9,7 +9,7 @@
 
     <div class="form-group">
         <label for="post-website">Website</label>
-        <input type="text" [formControlName]="'website'" class="form-control" id="post-website">
+        <input type="text" formControlName="website" class="form-control" id="post-website">
     </div>
     <div *ngIf="postForm.controls.website.hasError('required') && postForm.controls.website.touched" class="alert alert-danger">
         Website is required
@@ -20,7 +20,7 @@
 
     <div class="form-group">
         <label for="post-description">Description</label>
-        <textarea [formControlName]="'description'" class="form-control" id="post-description" rows="5"></textarea>
+        <textarea formControlName="description" class="form-control" id="post-description" rows="5"></textarea>
     </div>
 
     <button type="submit" [disabled]="!postForm.valid" class="btn btn-primary">Save</button>
