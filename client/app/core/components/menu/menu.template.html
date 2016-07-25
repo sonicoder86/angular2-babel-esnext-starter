@@ -13,7 +13,7 @@
             <li><a [routerLink]="['']" (click)="navCollapsed=!navCollapsed">Posts</a></li>
             <li><a [routerLink]="['categories']" (click)="navCollapsed=!navCollapsed">Categories</a></li>
             <li><a [routerLink]="['about']" (click)="navCollapsed=!navCollapsed">About</a></li>
-            <li><a href="#/login" *ngIf="!(getLoggedIn() | async)" (click)="navCollapsed=!navCollapsed">Login</a></li>
+            <li><a [routerLink]="['login']" *ngIf="!(getLoggedIn() | async)" (click)="navCollapsed=!navCollapsed">Login</a></li>
             <li><a href="#" (click)="logout();navCollapsed=!navCollapsed" *ngIf="getLoggedIn() | async">Logout</a></li>
         </ul>
     </div>
