@@ -22,7 +22,6 @@ You can see the list of links, add and edit them after you signed in.
 - Automatically rebundles and refreshes the browser on changes.
 - Unit testing with [Karma](https://karma-runner.github.io/0.13/index.html) and [Jasmine](http://jasmine.github.io/).
 - Code coverage for original ES6 code.
-- E2E testing with [Protractor](https://angular.github.io/protractor/#/).
 - Includes deployment to [Heroku](https://heroku.com/).
 - Linting with [ESlint](http://eslint.org/) based on [Airbnb's styleguide](https://github.com/airbnb/javascript).
 - Layout and namings based on the [official Angular 2 style guide](https://angular.io/styleguide)
@@ -122,5 +121,3 @@ git commit -m "Deploy #1" && echo Committed
 git push -f git@heroku.com:angular2-es6-starter.git master
 
 ```
-
-Check out the [deployed version](https://angular2-es6-starter.herokuapp.com/).
