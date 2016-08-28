@@ -49,7 +49,7 @@ By adding Flow types and using decorators wherever you can, it will be really ea
 - Authentication and restricting access to routes
 - Form handling
 - Using custom validators in forms
-- ~~Internationalization~~ ng2-translate not compatible with Angular 2 rc.0 for now
+- Internationalization with [ng2-translate](https://github.com/ocombe/ng2-translate)
 
 ### Quick Start
 

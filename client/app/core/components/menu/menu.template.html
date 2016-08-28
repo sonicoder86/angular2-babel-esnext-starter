@@ -1,13 +1,13 @@
 <div class="container">
     <div class="navbar-header">
-        <a class="navbar-brand" [routerLink]="['']">Angular 2 App</a>
+        <a class="navbar-brand" [routerLink]="['']">{{ 'pageTitle' | translate }}</a>
     </div>
     <div id="navbar" class="collapse navbar-collapse">
         <ul class="nav navbar-nav">
-            <li><a [routerLink]="['']">Posts</a></li>
-            <li><a [routerLink]="['about']">About</a></li>
-            <li><a [routerLink]="['login']" *ngIf="!(getLoggedIn() | async)">Login</a></li>
-            <li><a href="#" (click)="logout()" *ngIf="getLoggedIn() | async">Logout</a></li>
+            <li><a [routerLink]="['']">{{ 'menu.posts' | translate }}</a></li>
+            <li><a [routerLink]="['about']">{{ 'menu.about' | translate }}</a></li>
+            <li><a [routerLink]="['login']" *ngIf="!(getLoggedIn() | async)">{{ 'menu.login' | translate }}</a></li>
+            <li><a href="#" (click)="logout()" *ngIf="getLoggedIn() | async">{{ 'menu.logout' | translate }}</a></li>
         </ul>
     </div>
 </div>

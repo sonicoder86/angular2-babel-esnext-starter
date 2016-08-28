@@ -33,6 +33,7 @@
     "koa-jwt": "1.2.0",
     "koa-router": "5.4.0",
     "koa-static": "2.0.0",
+    "ng2-translate": "2.4.2",
     "node-uuid": "1.4.7"
   },
   "devDependencies": {

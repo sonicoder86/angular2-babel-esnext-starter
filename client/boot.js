@@ -6,6 +6,7 @@ import { enableProdMode, NgModule } from '@angular/core';
 import { HttpModule } from '@angular/http';
 import { RouterModule } from '@angular/router';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { TranslateModule } from 'ng2-translate/ng2-translate';
 
 import { routes } from './app/core/app.routes';
 import { CORE_PROVIDERS, CORE_DECLARATIONS, AppComponent } from './app/core';
@@ -20,6 +21,7 @@ if (ENVIRONMENT === 'production') {
   declarations: [CORE_DECLARATIONS, AUTH_DECLARATIONS, POSTS_DECLARATIONS],
   imports: [
     HttpModule, BrowserModule, FormsModule, ReactiveFormsModule,
+    TranslateModule.forRoot(),
     RouterModule.forRoot(routes, {
       useHash: true
     })
