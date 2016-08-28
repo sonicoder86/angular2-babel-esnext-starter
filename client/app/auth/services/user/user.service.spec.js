@@ -1,4 +1,4 @@
-import { Injector } from '@angular/core';
+import { TestBed, inject } from '@angular/core/testing';
 
 import { UserService } from './user.service';
 import { FakeBackend, FAKE_BACKEND_PROVIDERS } from '../../../helpers/fake-backend';
@@ -15,44 +15,55 @@ describe('UserService', () => {
       .respond(200, JSON.stringify({ success: true, auth_token: 'secret_token' }));
   }
 
+<<<<<<< HEAD
   beforeEachProviders(() => [
     UserService,
     StorageService,
     RequestService,
     FAKE_BACKEND_PROVIDERS
   ]);
-
-  beforeEach(inject([Injector], (injector) => {
-    subject = injector.get(UserService);
-    storage = injector.get(StorageService);
-    backend = injector.get(FakeBackend);
-  }));
-
+=======
   beforeEach(() => {
-    spyOn(storage, 'setAuthToken');
-    spyOn(storage, 'removeAuthToken');
+    TestBed.configureTestingModule({
+      providers: [
+        UserService,
+        StorageService,
+        RequestService,
+        FAKE_BACKEND_PROVIDERS
+      ]
+    });
   });
+>>>>>>> 6287fe8... upgrade to module syntax
 
-  it('should log in user when request was successful', (done) => {
+  beforeEach(inject([UserService, StorageService, FakeBackend],
+    (userService, storageService, fakeBackend) => {
+      subject = userService;
+      storage = storageService;
+      backend = fakeBackend;
+
+      spyOn(storage, 'setAuthToken');
+      spyOn(storage, 'removeAuthToken');
+    }
+  ));
+
+  it('should log in user when request was successful', () => {
     successfulHttpLogin();
 
     subject.login(credentials).subscribe((result) => {
       expect(result).toBeTruthy();
       expect(storage.setAuthToken).toHaveBeenCalledWith('secret_token');
-      done();
     });
 
     backend.flush();
   });
 
-  it('should not log in user when request was unsuccessful', (done) => {
+  it('should not log in user when request was unsuccessful', () => {
     backend.expectPOST('/login', JSON.stringify(credentials))
       .respond(200, JSON.stringify({ success: false }));
 
     subject.login(credentials).subscribe((result) => {
       expect(result).toBeFalsy();
       expect(storage.setAuthToken.calls.count()).toEqual(0);
-      done();
     });
 
     backend.flush();
@@ -67,7 +78,7 @@ describe('UserService', () => {
     expect(subject.isLoggedIn()).toBeTruthy();
   });
 
-  it('should notify current login state', (done) => {
+  it('should notify current login state', () => {
     successfulHttpLogin();
 
     subject.login(credentials).subscribe(() => { });
@@ -75,7 +86,6 @@ describe('UserService', () => {
 
     subject.getLoggedIn().subscribe((loggedIn) => {
       expect(loggedIn).toBeTruthy();
-      done();
     });
   });
 

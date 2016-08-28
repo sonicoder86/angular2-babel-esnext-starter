@@ -3,12 +3,14 @@ import { RequestService } from './services/request/request.service';
 import { UserService } from './services/user/user.service';
 import { BreadcrumbService } from './services/breadcrumb/breadcrumb.service';
 
-const AUTH_PROVIDERS = [StorageService, RequestService, UserService, BreadcrumbService];
+import { LoginComponent } from './components/login/login.component';
 
 export {
   StorageService,
   RequestService,
-  UserService,
   BreadcrumbService,
-  AUTH_PROVIDERS
+  UserService
 };
+
+export const AUTH_PROVIDERS = [StorageService, RequestService, UserService];
+export const AUTH_DECLARATIONS = [LoginComponent];

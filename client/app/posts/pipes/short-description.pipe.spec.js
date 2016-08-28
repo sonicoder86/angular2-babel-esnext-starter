@@ -1,5 +1,9 @@
+import { TestBed, inject } from '@angular/core/testing';
 import { Component } from '@angular/core';
+<<<<<<< HEAD
 import { TestComponentBuilder } from '@angular/compiler/testing';
+=======
+>>>>>>> 6287fe8... upgrade to module syntax
 
 import { ShortDescriptionPipe } from './short-description.pipe';
 
@@ -10,11 +14,7 @@ let expectedShortenedText =
 let shortDescription = 'Lorem ipsum.';
 
 @Component({
-  selector: 'test',
-  pipes: [ShortDescriptionPipe],
-  template: `
-    <div id="post-description">{{ actualDescription | short_description }}</div>
-  `
+  template: '<div id="post-description">{{ actualDescription | short_description }}</div>'
 })
 class TestComponent {
   actualDescription = longDescription;
@@ -22,13 +22,20 @@ class TestComponent {
 
 describe('ShortDescriptionPipe', () => {
   let pipe;
-  let builder;
 
+<<<<<<< HEAD
   beforeEachProviders(() => [ShortDescriptionPipe, TestComponentBuilder]);
+=======
+  beforeEach(() => {
+    TestBed.configureTestingModule({
+      providers: [ShortDescriptionPipe],
+      declarations: [ShortDescriptionPipe, TestComponent]
+    });
+  });
+>>>>>>> 6287fe8... upgrade to module syntax
 
-  beforeEach(inject([ShortDescriptionPipe, TestComponentBuilder], (descriptionPipe, componentBuilder) => {
+  beforeEach(inject([ShortDescriptionPipe], (descriptionPipe) => {
     pipe = descriptionPipe;
-    builder = componentBuilder;
   }));
 
   describe('as a function', () => {
@@ -42,9 +49,15 @@ describe('ShortDescriptionPipe', () => {
   });
 
   describe('as a pipe', () => {
+<<<<<<< HEAD
     it('should shorten long descriptions', (done) => {
       builder.createAsync(TestComponent).then((fixture) => {
         let element = fixture.nativeElement;
+=======
+    it('should shorten long descriptions', () => {
+      let fixture = TestBed.createComponent(TestComponent);
+      let element = fixture.nativeElement;
+>>>>>>> 6287fe8... upgrade to module syntax
 
         fixture.detectChanges();
 

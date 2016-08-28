@@ -1,3 +1,4 @@
+import { TestBed, inject } from '@angular/core/testing';
 import localStorage from 'localStorage';
 
 import { StorageService } from './storage.service';
@@ -9,11 +10,17 @@ describe('StorageService', () => {
     spyOn(localStorage, 'getItem').and.returnValue('secret_token');
     spyOn(localStorage, 'setItem');
     spyOn(localStorage, 'removeItem');
-  });
 
+<<<<<<< HEAD
   beforeEachProviders(() => [
     StorageService
   ]);
+=======
+    TestBed.configureTestingModule({
+      providers: [StorageService]
+    });
+  });
+>>>>>>> 6287fe8... upgrade to module syntax
 
   beforeEach(inject([StorageService], (storage) => {
     subject = storage;
