@@ -1,5 +1,3 @@
-import { provideRouter } from '@angular/router';
-
 import { PostListComponent } from '../posts/components/post-list/post-list.component';
 import { PostNewComponent } from '../posts/components/post-new/post-new.component';
 import { PostEditComponent } from '../posts/components/post-edit/post-edit.component';
@@ -15,5 +13,3 @@ export const routes = [
   { path: 'about', component: AboutComponent },
   { path: 'login', component: LoginComponent, canActivate: [LoggedOutGuard] }
 ];
-
-export const APP_ROUTES_PROVIDER = provideRouter(routes);

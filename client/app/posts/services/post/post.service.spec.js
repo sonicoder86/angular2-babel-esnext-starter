@@ -1,6 +1,6 @@
+import { TestBed, inject } from '@angular/core/testing';
 import { MockBackend } from '@angular/http/testing';
 import { RequestMethod, Headers } from '@angular/http';
-import { Injector } from '@angular/core';
 import { Http, BaseRequestOptions, Response, ResponseOptions } from '@angular/http';
 
 import { PostService } from './post.service';
@@ -37,27 +37,22 @@ describe('PostService', () => {
   }
 
   beforeEach(() => {
-    addProviders([
-      PostService,
-      MockBackend,
-      BaseRequestOptions,
-      AUTH_PROVIDERS,
-      {
-        provide: Http,
-        useFactory: (mokcBackend, defaultOptions) => {
-          return new Http(mokcBackend, defaultOptions);
-        },
-        deps: [MockBackend, BaseRequestOptions]
-      }
-    ]);
-  });
+    TestBed.configureTestingModule({
+      providers: [
+        PostService,
+        MockBackend,
+        BaseRequestOptions,
+        AUTH_PROVIDERS,
+        {
+          provide: Http,
+          useFactory: (mokcBackend, defaultOptions) => {
+            return new Http(mokcBackend, defaultOptions);
+          },
+          deps: [MockBackend, BaseRequestOptions]
+        }
+      ]
+    });
 
-  beforeEach(inject([Injector], (injector) => {
-    service = injector.get(PostService);
-    backend = injector.get(MockBackend);
-  }));
-
-  beforeEach(() => {
     let headers = new Headers();
     headers.append('Content-Type', 'application/json');
     headers.append('Authorization', 'Bearer secretToken');
@@ -65,38 +60,40 @@ describe('PostService', () => {
     spyOn(RequestService.prototype, 'getAuthHeaders').and.returnValue(headers);
   });
 
-  it('should refresh remote posts', (done) => {
+  beforeEach(inject([PostService, MockBackend], (postService, mockBackend) => {
+    service = postService;
+    backend = mockBackend;
+  }));
+
+  it('should refresh remote posts', () => {
     returnsResponse(postsResponse, RequestMethod.Get, '/posts');
 
     service.remotePosts.subscribe((posts) => {
       if (posts.length) {
         expect(posts).toEqual(postsResponse);
-        done();
       }
     });
 
     service.refreshPosts();
   });
 
-  it('should return posts got in response', (done) => {
+  it('should return posts got in response', () => {
     returnsResponse(postsResponse, RequestMethod.Get, '/posts');
 
     service.refreshPosts().subscribe((posts) => {
       expect(posts).toEqual(postsResponse);
-      done();
     });
   });
 
-  it('should return post', (done) => {
+  it('should return post', () => {
     returnsResponse(singlePost, RequestMethod.Get, `/post/${singlePost._id}`);
 
     service.getPost(singlePost._id).subscribe((post) => {
       expect(post).toEqual(singlePost);
-      done();
     });
   });
 
-  it('should add post', (done) => {
+  it('should add post', () => {
     returnsResponse(singlePost, RequestMethod.Post, '/post', JSON.stringify(singlePost), {
       'Content-Type': 'application/json', Authorization: 'Bearer secretToken'
     });
@@ -104,11 +101,10 @@ describe('PostService', () => {
     service.addPost(singlePost).subscribe((post) => {
       expect(post).toEqual(singlePost);
       expect(RequestService.prototype.getAuthHeaders).toHaveBeenCalled();
-      done();
     });
   });
 
-  it('should update post', (done) => {
+  it('should update post', () => {
     returnsResponse(singlePost, RequestMethod.Post, `/post/${singlePost._id}`, JSON.stringify(singlePost), {
       'Content-Type': 'application/json', Authorization: 'Bearer secretToken'
     });
@@ -116,7 +112,6 @@ describe('PostService', () => {
     service.updatePost(singlePost).subscribe((post) => {
       expect(post).toEqual(singlePost);
       expect(RequestService.prototype.getAuthHeaders).toHaveBeenCalled();
-      done();
     });
   });
 });

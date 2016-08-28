@@ -1,24 +1,18 @@
-import { TestComponentBuilder, async } from '@angular/core/testing';
+import { TestBed, async } from '@angular/core/testing';
 
 import { AboutComponent } from './about.component';
 
 describe('AboutComponent', () => {
-  let subjectElement;
-
-  beforeEach(() => {
-    addProviders([TestComponentBuilder]);
-  });
-
-  beforeEach(async(inject([TestComponentBuilder], (componentBuilder) => {
-    return componentBuilder
-      .createAsync(AboutComponent)
-      .then(fixture => {
-        subjectElement = fixture.nativeElement;
-      });
-  })));
+  beforeEach(async(() => {
+    TestBed.configureTestingModule({
+      declarations: [AboutComponent]
+    });
+    TestBed.compileComponents();
+  }));
 
   it('should display title', () => {
-    let header = subjectElement.querySelector('h1');
+    let fixture = TestBed.createComponent(AboutComponent);
+    let header = fixture.nativeElement.querySelector('h1');
 
     expect(header.textContent).toEqual('About');
   });

@@ -2,11 +2,13 @@ import { StorageService } from './services/storage/storage.service';
 import { RequestService } from './services/request/request.service';
 import { UserService } from './services/user/user.service';
 
-const AUTH_PROVIDERS = [StorageService, RequestService, UserService];
+import { LoginComponent } from './components/login/login.component';
 
 export {
   StorageService,
   RequestService,
-  UserService,
-  AUTH_PROVIDERS
+  UserService
 };
+
+export const AUTH_PROVIDERS = [StorageService, RequestService, UserService];
+export const AUTH_DECLARATIONS = [LoginComponent];

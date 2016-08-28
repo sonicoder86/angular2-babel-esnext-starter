@@ -1,3 +1,4 @@
+import { TestBed, inject } from '@angular/core/testing';
 import localStorage from 'localStorage';
 
 import { StorageService } from './storage.service';
@@ -9,10 +10,10 @@ describe('StorageService', () => {
     spyOn(localStorage, 'getItem').and.returnValue('secret_token');
     spyOn(localStorage, 'setItem');
     spyOn(localStorage, 'removeItem');
-  });
 
-  beforeEach(() => {
-    addProviders([StorageService]);
+    TestBed.configureTestingModule({
+      providers: [StorageService]
+    });
   });
 
   beforeEach(inject([StorageService], (storage) => {

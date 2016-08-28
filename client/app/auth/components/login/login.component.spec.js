@@ -1,6 +1,5 @@
-import { TestComponentBuilder } from '@angular/core/testing';
-import { disableDeprecatedForms, provideForms } from '@angular/forms';
-import { HTTP_PROVIDERS } from '@angular/http';
+import { TestBed } from '@angular/core/testing';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { Observable } from 'rxjs/Observable';
 
 import { LoginComponent } from './login.component';
@@ -19,23 +18,21 @@ describe('LoginComponent', () => {
   let credentials = { email: 'test@gmail.com', password: 'secret' };
 
   beforeEach(() => {
-    addProviders([
-      TestComponentBuilder,
-      disableDeprecatedForms(),
-      provideForms(),
-      HTTP_PROVIDERS,
-      AUTH_TESTING_PROVIDERS,
-      CORE_TESTING_PROVIDERS
-    ]);
-  });
+    TestBed.configureTestingModule({
+      declarations: [LoginComponent],
+      imports: [FormsModule, ReactiveFormsModule],
+      providers: [
+        AUTH_TESTING_PROVIDERS,
+        CORE_TESTING_PROVIDERS
+      ]
+    });
 
-  beforeEach(inject([TestComponentBuilder], (componentBuilder) => {
-    let fixture = componentBuilder.createSync(LoginComponent);
+    let fixture = TestBed.createComponent(LoginComponent);
 
     subject = fixture.componentInstance;
     subjectElement = fixture.nativeElement;
     subjectFixture = fixture;
-  }));
+  });
 
   it('should send login request', () => {
     stubLoginMethod(true);

@@ -1,31 +1,35 @@
 import './shim';
 import 'rxjs/add/operator/map';
-import { bootstrap } from '@angular/platform-browser-dynamic';
-import { enableProdMode } from '@angular/core';
-import { LocationStrategy, HashLocationStrategy } from '@angular/common';
-import { HTTP_PROVIDERS } from '@angular/http';
-import { disableDeprecatedForms, provideForms } from '@angular/forms';
+import { platformBrowserDynamic } from '@angular/platform-browser-dynamic';
+import { BrowserModule } from '@angular/platform-browser';
+import { enableProdMode, NgModule } from '@angular/core';
+import { HttpModule } from '@angular/http';
+import { RouterModule } from '@angular/router';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
-import { AppComponent } from './app/core/components/app/app.component';
-import { APP_ROUTES_PROVIDER } from './app/core/app.routes';
-import { CORE_PROVIDERS } from './app/core';
-import { AUTH_PROVIDERS } from './app/auth';
-import { POSTS_PROVIDERS } from './app/posts';
+import { routes } from './app/core/app.routes';
+import { CORE_PROVIDERS, CORE_DECLARATIONS, AppComponent } from './app/core';
+import { AUTH_PROVIDERS, AUTH_DECLARATIONS } from './app/auth';
+import { POSTS_PROVIDERS, POSTS_DECLARATIONS } from './app/posts';
 
 if (ENVIRONMENT === 'production') {
   enableProdMode();
 }
 
-bootstrap(AppComponent, [
-  disableDeprecatedForms(),
-  provideForms(),
-  HTTP_PROVIDERS,
+@NgModule({
+  declarations: [CORE_DECLARATIONS, AUTH_DECLARATIONS, POSTS_DECLARATIONS],
+  imports: [
+    HttpModule, BrowserModule, FormsModule, ReactiveFormsModule,
+    RouterModule.forRoot(routes, {
+      useHash: true
+    })
+  ],
+  providers: [
+    CORE_PROVIDERS, AUTH_PROVIDERS, POSTS_PROVIDERS,
+    { provide: 'ENVIRONMENT', useValue: ENVIRONMENT }
+  ],
+  bootstrap: [AppComponent]
+})
+class AppModule {}
 
-  APP_ROUTES_PROVIDER,
-  AUTH_PROVIDERS,
-  POSTS_PROVIDERS,
-  CORE_PROVIDERS,
-
-  { provide: LocationStrategy, useClass: HashLocationStrategy },
-  { provide: 'ENVIRONMENT', useValue: ENVIRONMENT }
-]);
+platformBrowserDynamic().bootstrapModule(AppModule);

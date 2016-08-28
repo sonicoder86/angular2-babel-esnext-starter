@@ -1,5 +1,5 @@
+import { TestBed, inject } from '@angular/core/testing';
 import { Component } from '@angular/core';
-import { TestComponentBuilder } from '@angular/core/testing';
 
 import { ShortDescriptionPipe } from './short-description.pipe';
 
@@ -10,11 +10,7 @@ let expectedShortenedText =
 let shortDescription = 'Lorem ipsum.';
 
 @Component({
-  selector: 'test',
-  pipes: [ShortDescriptionPipe],
-  template: `
-    <div id="post-description">{{ actualDescription | short_description }}</div>
-  `
+  template: '<div id="post-description">{{ actualDescription | short_description }}</div>'
 })
 class TestComponent {
   actualDescription = longDescription;
@@ -22,15 +18,16 @@ class TestComponent {
 
 describe('ShortDescriptionPipe', () => {
   let pipe;
-  let builder;
 
   beforeEach(() => {
-    addProviders([ShortDescriptionPipe, TestComponentBuilder]);
+    TestBed.configureTestingModule({
+      providers: [ShortDescriptionPipe],
+      declarations: [ShortDescriptionPipe, TestComponent]
+    });
   });
 
-  beforeEach(inject([ShortDescriptionPipe, TestComponentBuilder], (descriptionPipe, componentBuilder) => {
+  beforeEach(inject([ShortDescriptionPipe], (descriptionPipe) => {
     pipe = descriptionPipe;
-    builder = componentBuilder;
   }));
 
   describe('as a function', () => {
@@ -45,7 +42,7 @@ describe('ShortDescriptionPipe', () => {
 
   describe('as a pipe', () => {
     it('should shorten long descriptions', () => {
-      let fixture = builder.createSync(TestComponent);
+      let fixture = TestBed.createComponent(TestComponent);
       let element = fixture.nativeElement;
 
       fixture.detectChanges();

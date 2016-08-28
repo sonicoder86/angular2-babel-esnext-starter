@@ -1,6 +1,6 @@
-import { Injector, Component, EventEmitter } from '@angular/core';
-import { TestComponentBuilder } from '@angular/core/testing';
-import { disableDeprecatedForms, provideForms } from '@angular/forms';
+import { Component, EventEmitter } from '@angular/core';
+import { TestBed } from '@angular/core/testing';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
 import { PostFormComponent } from './post-form.component';
 
@@ -12,13 +12,7 @@ let examplePost = {
 };
 
 @Component({
-  selector: 'test',
-  directives: [PostFormComponent],
-  template: `
-    <div>
-      <post-form [post]="actualPost" (saved)="onSave($event)"></post-form>
-    </div>
-  `
+  template: '<post-form [post]="actualPost" (saved)="onSave($event)"></post-form>'
 })
 class TestComponent {
   actualPost = examplePost;
@@ -34,8 +28,6 @@ class TestComponent {
 }
 
 describe('FormComponent', () => {
-  let builder;
-
   function assertInputFields(element) {
     expect(element.querySelector('#post-name').value).toBe(examplePost.name);
     expect(element.querySelector('#post-website').value).toBe(examplePost.website);
@@ -43,20 +35,15 @@ describe('FormComponent', () => {
   }
 
   beforeEach(() => {
-    addProviders([
-      TestComponentBuilder,
-      disableDeprecatedForms(),
-      provideForms()
-    ]);
+    TestBed.configureTestingModule({
+      declarations: [PostFormComponent, TestComponent],
+      imports: [FormsModule, ReactiveFormsModule]
+    });
   });
-
-  beforeEach(inject([Injector], (injector) => {
-    builder = injector.get(TestComponentBuilder);
-  }));
 
   describe('as a Component', () => {
     it('should create form group in constructor and bind it to input elements', () => {
-      let fixture = builder.createSync(PostFormComponent);
+      let fixture = TestBed.createComponent(PostFormComponent);
       let component = fixture.componentInstance;
       let element = fixture.nativeElement;
 
@@ -69,7 +56,7 @@ describe('FormComponent', () => {
     });
 
     it('should update input fields based on input changes', () => {
-      let fixture = builder.createSync(PostFormComponent);
+      let fixture = TestBed.createComponent(PostFormComponent);
       let component = fixture.componentInstance;
       let element = fixture.nativeElement;
 
@@ -84,7 +71,7 @@ describe('FormComponent', () => {
     });
 
     it('should notify when form is submitted', () => {
-      let fixture = builder.createSync(PostFormComponent);
+      let fixture = TestBed.createComponent(PostFormComponent);
       let component = fixture.componentInstance;
 
       component.saved.subscribe((value) => {
@@ -95,7 +82,7 @@ describe('FormComponent', () => {
     });
 
     it('should notify when submit button is clicked', () => {
-      let fixture = builder.createSync(PostFormComponent);
+      let fixture = TestBed.createComponent(PostFormComponent);
       let component = fixture.componentInstance;
       let element = fixture.nativeElement;
 
@@ -116,7 +103,7 @@ describe('FormComponent', () => {
 
   describe('as a Directive', () => {
     it('should accept post input from parent component and display it in input fields', () => {
-      let fixture = builder.createSync(TestComponent);
+      let fixture = TestBed.createComponent(TestComponent);
       let element = fixture.nativeElement;
 
       fixture.detectChanges();
@@ -125,7 +112,7 @@ describe('FormComponent', () => {
     });
 
     it('should notify parent component when submit button is clicked', () => {
-      let fixture = builder.createSync(TestComponent);
+      let fixture = TestBed.createComponent(TestComponent);
       let component = fixture.componentInstance;
       let element = fixture.nativeElement;
 

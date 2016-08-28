@@ -1,3 +1,5 @@
+import { TestBed, inject } from '@angular/core/testing';
+
 import { RequestService } from './request.service';
 import { StorageService } from '../storage/storage.service';
 
@@ -5,16 +7,16 @@ describe('RequestService', () => {
   let subject;
 
   beforeEach(() => {
-    addProviders([RequestService, StorageService]);
+    TestBed.configureTestingModule({
+      providers: [RequestService, StorageService]
+    });
+
+    spyOn(StorageService.prototype, 'getAuthToken').and.returnValue('secret_token');
   });
 
   beforeEach(inject([RequestService], (request) => {
     subject = request;
   }));
-
-  beforeEach(() => {
-    spyOn(StorageService.prototype, 'getAuthToken').and.returnValue('secret_token');
-  });
 
   it('should return JSON headers', () => {
     let result = subject.getJsonHeaders();
