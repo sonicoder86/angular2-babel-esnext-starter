@@ -1,9 +1,9 @@
 # Angular 2 Babel ESNext Starter
-[![Dependency Status](https://david-dm.org/blacksonic/angular2-esnext-starter.svg)](https://david-dm.org/blacksonic/angular2-esnext-starter)
-[![devDependency Status](https://david-dm.org/blacksonic/angular2-esnext-starter/dev-status.svg)](https://david-dm.org/blacksonic/angular2-esnext-starter#info=devDependencies)
-[![Build Status](https://travis-ci.org/blacksonic/angular2-esnext-starter.svg?branch=master)](https://travis-ci.org/blacksonic/angular2-esnext-starter)
-[![Code Climate](https://codeclimate.com/github/blacksonic/angular2-esnext-starter/badges/gpa.svg)](https://codeclimate.com/github/blacksonic/angular2-esnext-starter)
-[![Code Coverage](https://codeclimate.com/github/blacksonic/angular2-esnext-starter/badges/coverage.svg)](https://codeclimate.com/github/blacksonic/angular2-esnext-starter)
+[![Dependency Status](https://david-dm.org/blacksonic/angular2-babel-esnext-starter.svg)](https://david-dm.org/blacksonic/angular2-babel-esnext-starter)
+[![devDependency Status](https://david-dm.org/blacksonic/angular2-babel-esnext-starter/dev-status.svg)](https://david-dm.org/blacksonic/angular2-babel-esnext-starter#info=devDependencies)
+[![Build Status](https://travis-ci.org/blacksonic/angular2-babel-esnext-starter.svg?branch=master)](https://travis-ci.org/blacksonic/angular2-babel-esnext-starter)
+[![Code Climate](https://codeclimate.com/github/blacksonic/angular2-babel-esnext-starter/badges/gpa.svg)](https://codeclimate.com/github/blacksonic/angular2-babel-esnext-starter)
+[![Code Coverage](https://codeclimate.com/github/blacksonic/angular2-babel-esnext-starter/badges/coverage.svg)](https://codeclimate.com/github/blacksonic/angular2-babel-esnext-starter)
 
 This repository shows development and testing techniques with [Angular 2](https://angular.io/).
 The application is written in modern Javascript without Typescript.
@@ -48,8 +48,8 @@ You can see the list of links, add and edit them after you signed in.
 
 ```bash
 
-git clone https://github.com/blacksonic/angular2-esnext-starter.git
-cd angular2-esnext-starter
+git clone https://github.com/blacksonic/angular2-babel-esnext-starter.git
+cd angular2-babel-esnext-starter
 npm install
 
 gulp serve
