@@ -18,11 +18,12 @@
   "license": "ISC",
   "keywords": [
     "angular2",
+    "babel",
     "es6",
     "webpack",
     "gulp"
   ],
-  "description": "Angular 2 development in Javascript with ES6/ES7 syntax powered by Babel.",
+  "description": "Angular 2 development and testing examples with Babel in Javascript (ES6/ES7).",
   "engines": {
     "node": "4.4.2"
   },

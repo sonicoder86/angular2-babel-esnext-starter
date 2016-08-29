@@ -1,12 +1,15 @@
-# Angular 2 ESNext Starter
+# Angular 2 Babel ESNext Starter
 [![Dependency Status](https://david-dm.org/blacksonic/angular2-esnext-starter.svg)](https://david-dm.org/blacksonic/angular2-esnext-starter)
 [![devDependency Status](https://david-dm.org/blacksonic/angular2-esnext-starter/dev-status.svg)](https://david-dm.org/blacksonic/angular2-esnext-starter#info=devDependencies)
 [![Build Status](https://travis-ci.org/blacksonic/angular2-esnext-starter.svg?branch=master)](https://travis-ci.org/blacksonic/angular2-esnext-starter)
 [![Code Climate](https://codeclimate.com/github/blacksonic/angular2-esnext-starter/badges/gpa.svg)](https://codeclimate.com/github/blacksonic/angular2-esnext-starter)
 [![Code Coverage](https://codeclimate.com/github/blacksonic/angular2-esnext-starter/badges/coverage.svg)](https://codeclimate.com/github/blacksonic/angular2-esnext-starter)
 
-This repo stands as a starting point for those who try [Angular 2](https://angular.io/) in Javascript.
-It shows techniques how easy development can be also without Typescript.
+This repository shows development and testing techniques with [Angular 2](https://angular.io/).
+The application is written in modern Javascript without Typescript.
+It can be ideal for those who are new to Angular 2 and want to learn how things work 
+and fiddle with Typescript later.
+
 It is a basic CRUD application with authentication, similar to the news site [jslive.com](https://jslive.com).
 You can see the list of links, add and edit them after you signed in.
 
@@ -14,8 +17,8 @@ You can see the list of links, add and edit them after you signed in.
 
 > If you're looking for Angular 2 in Typescript check out [angular2-webpack-starter](https://github.com/AngularClass/angular2-webpack-starter)
 
-- Pure Javascript implementation.
-- Uses [Babel](https://babeljs.io/) to support class/parameter decorators.
+- Modern Javascript implementation with classes, decorators.
+- Uses [Babel](https://babeljs.io/) to support decorators.
 - Same language constructs can be used as in Typescript (types will be stripped).
 - Bundles files with [Webpack](https://webpack.github.io/).
 - Automates tasks with [Gulp](http://gulpjs.com/).
@@ -25,16 +28,6 @@ You can see the list of links, add and edit them after you signed in.
 - Includes deployment to [Heroku](https://heroku.com/).
 - Linting with [ESlint](http://eslint.org/) based on [Airbnb's styleguide](https://github.com/airbnb/javascript).
 - Layout and namings based on the [official Angular 2 style guide](https://angular.io/styleguide)
-
-### Motivation
-
-There are plenty of resources for starter packs and documentations on how to write your Angular 2 application in Typescript.
-The official documentation is only complete for Typescript and the parts which are also in Javascript are so few and in ES5 syntax which is little bit verbose compared to ES6.
-This is why i decided to make a starter pack to show that equivalent easy and viable solutions exist in Javascript.
-
-It does not want to be by any means an against Typescript repository,
-just a choice for people, who like the loosely typed nature of Javascript or just feel overwhelmed by having to learn both Angular 2 and Typescript when trying out the new framework.
-By adding Flow types and using decorators wherever you can, it will be really easy to switch to Typescript by adding type definitions to the project (if you want to).
 
 ### Concepts covered
 
@@ -94,7 +87,7 @@ gulp test-dev
 
 To get a good overview of testing possibilities within Angular 2 [read this article](https://medium.com/google-developer-experts/angular-2-unit-testing-with-jasmine-defe20421584).
 
-### ES6 workarounds
+### Workarounds
 
 **No more is needed, code can be written as in Typescript!**
 
