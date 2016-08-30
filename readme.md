@@ -1,6 +1,6 @@
 # Angular 2 Babel ESNext Starter
 [![Dependency Status](https://david-dm.org/blacksonic/angular2-babel-esnext-starter.svg)](https://david-dm.org/blacksonic/angular2-babel-esnext-starter)
-[![devDependency Status](https://david-dm.org/blacksonic/angular2-babel-esnext-starter/dev-status.svg)](https://david-dm.org/blacksonic/angular2-babel-esnext-starter#info=devDependencies)
+[![devDependency Status](https://david-dm.org/blacksonic/angular2-babel-esnext-starter/dev-status.svg)](https://david-dm.org/blacksonic/angular2-babel-esnext-starter?type=dev)
 [![Build Status](https://travis-ci.org/blacksonic/angular2-babel-esnext-starter.svg?branch=master)](https://travis-ci.org/blacksonic/angular2-babel-esnext-starter)
 
 This repository shows development and testing techniques with [Angular 2](https://angular.io/).
