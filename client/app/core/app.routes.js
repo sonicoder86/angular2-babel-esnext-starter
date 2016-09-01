@@ -7,7 +7,7 @@ import { LoggedInGuard } from './guards/logged-in.guard';
 import { LoggedOutGuard } from './guards/logged-out.guard';
 
 export const routes = [
-  { path: '', component: PostListComponent, terminal: true },
+  { path: '', component: PostListComponent, pathMatch: 'full' },
   { path: 'new', component: PostNewComponent, canActivate: [LoggedInGuard] },
   { path: 'edit/:id', component: PostEditComponent, canActivate: [LoggedInGuard] },
   { path: 'about', component: AboutComponent },

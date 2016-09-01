@@ -1,13 +1,12 @@
 import { Component, EventEmitter, Input, Output } from '@angular/core';
-import { REACTIVE_FORM_DIRECTIVES, FormBuilder, Validators } from '@angular/forms';
+import { FormBuilder, Validators } from '@angular/forms';
 
 import template from './post-form.template.html';
 import { validatorFactory } from '../../validator';
 
 @Component({
   selector: 'post-form',
-  template: template,
-  directives: [REACTIVE_FORM_DIRECTIVES]
+  template: template
 })
 export class PostFormComponent {
   @Input() post;

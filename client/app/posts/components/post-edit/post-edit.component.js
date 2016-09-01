@@ -2,12 +2,10 @@ import { Component } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import template from './post-edit.template.html';
 import { PostService } from '../../services/post/post.service';
-import { PostFormComponent } from '../post-form/post-form.component';
 
 @Component({
   selector: 'post-edit',
-  template: template,
-  directives: [PostFormComponent]
+  template: template
 })
 export class PostEditComponent {
   constructor(postService: PostService, route: ActivatedRoute, router: Router) {
