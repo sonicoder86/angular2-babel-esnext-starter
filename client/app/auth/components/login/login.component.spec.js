@@ -61,8 +61,8 @@ describe('LoginComponent', () => {
   });
 
   it('should send credentials from input fields', (done) => {
-    subject.loginForm.controls['email'].updateValue(credentials.email);
-    subject.loginForm.controls['password'].updateValue(credentials.password);
+    subject.loginForm.controls['email'].setValue(credentials.email);
+    subject.loginForm.controls['password'].setValue(credentials.password);
     subjectFixture.detectChanges();
 
     stubLoginMethod(true);

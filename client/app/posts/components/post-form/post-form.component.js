@@ -26,10 +26,10 @@ export class PostFormComponent {
 
   ngOnChanges(change) {
     if (change.post && change.post.currentValue) {
-      this.postForm.controls['_id'].updateValue(change.post.currentValue._id);
-      this.postForm.controls['name'].updateValue(change.post.currentValue.name);
-      this.postForm.controls['website'].updateValue(change.post.currentValue.website);
-      this.postForm.controls['description'].updateValue(change.post.currentValue.description);
+      this.postForm.controls['_id'].setValue(change.post.currentValue._id);
+      this.postForm.controls['name'].setValue(change.post.currentValue.name);
+      this.postForm.controls['website'].setValue(change.post.currentValue.website);
+      this.postForm.controls['description'].setValue(change.post.currentValue.description);
     }
   }
 

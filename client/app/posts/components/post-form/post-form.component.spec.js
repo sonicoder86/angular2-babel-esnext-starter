@@ -47,9 +47,9 @@ describe('FormComponent', () => {
       let component = fixture.componentInstance;
       let element = fixture.nativeElement;
 
-      component.postForm.controls['name'].updateValue('Sonic');
-      component.postForm.controls['website'].updateValue('http://www.sonic.com');
-      component.postForm.controls['description'].updateValue('Short bio');
+      component.postForm.controls['name'].setValue('Sonic');
+      component.postForm.controls['website'].setValue('http://www.sonic.com');
+      component.postForm.controls['description'].setValue('Short bio');
       fixture.detectChanges();
 
       assertInputFields(element);
