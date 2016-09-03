@@ -9,7 +9,7 @@ import { PostEditComponent } from './components/post-edit/post-edit.component';
 import { PostNewComponent } from './components/post-new/post-new.component';
 import { PostListItemComponent } from './components/post-list-item/post-list-item.component';
 import { PostListComponent } from './components/post-list/post-list.component';
-
+import { ArticleComponent } from './components/article/article.component';
 export {
   PostService
 };
@@ -22,5 +22,6 @@ export const POSTS_DECLARATIONS = [
   PostEditComponent,
   PostNewComponent,
   PostListItemComponent,
-  PostListComponent
+  PostListComponent,
+  ArticleComponent
 ];

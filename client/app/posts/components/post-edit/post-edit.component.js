@@ -19,7 +19,7 @@ export class PostEditComponent {
   ngOnInit() {
     this.post = this._route.params
       .map(params => params.id)
-      .flatMap((id) => {
+      .mergeMap((id) => {
         return this._postService.getPostById(id);
       });
   }
