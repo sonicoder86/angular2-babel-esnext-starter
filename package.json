@@ -25,7 +25,7 @@
   ],
   "description": "Angular 2 development and testing examples with Babel in Javascript (ES6/ES7).",
   "engines": {
-    "node": "4.4.2"
+    "node": "6.5.0"
   },
   "dependencies": {
     "jsonwebtoken": "7.1.9",
