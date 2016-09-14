@@ -54,7 +54,7 @@
     "bootstrap": "3.3.7",
     "codeclimate-test-reporter": "0.3.3",
     "del": "2.2.2",
-    "es6-promise": "3.3.0",
+    "es6-promise": "3.3.1",
     "es6-shim": "0.35.1",
     "gulp": "3.9.1",
     "gulp-cssnano": "2.1.2",
