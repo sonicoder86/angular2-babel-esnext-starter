@@ -74,7 +74,7 @@
     "karma-webpack": "1.8.0",
     "localStorage": "1.0.3",
     "mini-lr": "0.1.9",
-    "ng2-translate": "2.4.4",
+    "ng2-translate": "2.5.0",
     "phantomjs-polyfill": "0.0.2",
     "phantomjs-prebuilt": "2.1.12",
     "raw-loader": "0.5.1",
