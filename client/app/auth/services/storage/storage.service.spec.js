@@ -1,5 +1,4 @@
 import { TestBed, inject } from '@angular/core/testing';
-import localStorage from 'localStorage';
 
 import { StorageService } from './storage.service';
 

@@ -1,5 +1,3 @@
-import localStorage from 'localStorage';
-
 const STORAGE_KEY = 'auth_token';
 
 export class StorageService {
