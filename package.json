@@ -60,7 +60,7 @@
     "gulp-delete-lines": "0.0.7",
     "gulp-eslint": "3.0.1",
     "gulp-less": "3.1.0",
-    "gulp-nodemon": "2.1.0",
+    "gulp-nodemon": "2.2.0",
     "gulp-util": "3.0.7",
     "gulp-watch": "4.3.9",
     "jasmine-core": "2.5.2",
