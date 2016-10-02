@@ -1,5 +1,5 @@
 import { Component, Inject } from '@angular/core'; // eslint-disable-line no-unused-vars
-import { TranslateService } from 'ng2-translate/ng2-translate';
+import { TranslateService } from 'ng2-translate/bundles/ng2-translate';
 import { translation } from '../../../i18n/en';
 
 import template from './app.template.html';
