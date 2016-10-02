@@ -45,7 +45,7 @@
     "@angular/platform-browser": "2.0.1",
     "@angular/platform-browser-dynamic": "2.0.1",
     "@angular/router": "3.0.1",
-    "babel-core": "6.16.0",
+    "babel-core": "6.17.0",
     "babel-eslint": "7.0.0",
     "babel-loader": "6.2.5",
     "babel-plugin-__coverage__": "11.0.0",
