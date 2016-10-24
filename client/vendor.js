@@ -10,4 +10,4 @@ import '@angular/router';
 import '@angular/http';
 import '@angular/forms';
 
-import 'ng2-translate/bundles/ng2-translate';
+import 'ng2-translate';
