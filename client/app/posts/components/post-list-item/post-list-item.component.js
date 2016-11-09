@@ -1,5 +1,5 @@
 import { Component, ChangeDetectionStrategy, Input } from '@angular/core';
-import { ROUTER_DIRECTIVES } from '@angular/router-deprecated';
+import { ROUTER_DIRECTIVES } from '@angular/router'
 
 import template from './post-list-item.template.html';
 import { ShortDescriptionPipe } from '../../pipes/short-description.pipe';

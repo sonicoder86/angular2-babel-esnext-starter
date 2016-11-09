@@ -2,10 +2,12 @@ import './shim';
 import 'rxjs/add/operator/map';
 import { bootstrap } from '@angular/platform-browser-dynamic';
 import { enableProdMode, provide } from '@angular/core';
-import { AppComponent } from './app/core/components/app/app.component';
-import { ROUTER_PROVIDERS } from '@angular/router-deprecated';
 import { FORM_PROVIDERS, LocationStrategy, HashLocationStrategy } from '@angular/common';
 import { HTTP_PROVIDERS } from '@angular/http';
+
+import { AppComponent } from './app/core/components/app/app.component';
+import { APP_ROUTES_PROVIDER } from './app/core/app.routes';
+import { CORE_PROVIDERS } from './app/core';
 import { AUTH_PROVIDERS } from './app/auth';
 import { POSTS_PROVIDERS } from './app/posts';
 import { CATEGORIES_PROVIDERS } from './app/categories';
@@ -17,10 +19,13 @@ if (ENVIRONMENT === 'production') {
 bootstrap(AppComponent, [
   FORM_PROVIDERS,
   HTTP_PROVIDERS,
-  ROUTER_PROVIDERS,
+
+  APP_ROUTES_PROVIDER,
   AUTH_PROVIDERS,
   POSTS_PROVIDERS,
+  CORE_PROVIDERS,
   CATEGORIES_PROVIDERS,
+
   provide(LocationStrategy, { useClass: HashLocationStrategy }),
   provide('ENVIRONMENT', { useValue: ENVIRONMENT })
 ]);

@@ -1,5 +1,5 @@
 import { Component, ChangeDetectionStrategy } from '@angular/core';
-import { ROUTER_DIRECTIVES, Router } from '@angular/router-deprecated';
+import { ROUTER_DIRECTIVES, Router } from '@angular/router';
 
 import template from './menu.template.html';
 import { UserService } from '../../../auth';
@@ -22,7 +22,7 @@ export class MenuComponent {
 
   logout() {
     this.userService.logout();
-    this._router.navigate(['List']);
+    this._router.navigate(['']);
     return false;
   }
 }

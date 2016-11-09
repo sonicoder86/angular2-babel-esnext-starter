@@ -3,7 +3,7 @@
         <ol class="breadcrumb">
             <li><a href="#">Posts</a></li>            
             <li class="active">{{_currentCategory}}</li>
-            <a [routerLink]="['/New']" class="btn btn-primary pull-right" *ngIf="getLoggedIn() | async">New post</a>
+            <a [routerLink]="['new']" *ngIf="getLoggedIn() | async" class="btn btn-primary pull-right">New post</a>
         </ol>
          
 

@@ -10,11 +10,11 @@
                 </a>
                 <p class="list-group-item-text">{{ post.description | short_description }}</p>
                 <div>
-                    <a *ngFor="let tag of post.tags" [routerLink]="['/CategoryList', { category: tag }]">
+                    <a *ngFor="let tag of post.tags" [routerLink]="['categories', tag ]">
                         <span class="badge">{{tag}}</span>
                     </a>
                 </div>                           
-                <a [routerLink]="['/Edit', { id: post._id }]" *ngIf="getLoggedIn() | async" class="btn btn-default pull-right">Edit</a>
+                <a [routerLink]="['edit', post._id ]" *ngIf="getLoggedIn() | async" class="btn btn-default pull-right">Edit</a>
             </div>
     </div>
 </div>
