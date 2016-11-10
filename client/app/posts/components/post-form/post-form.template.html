@@ -9,20 +9,20 @@
     <div class="form-group">
 
         <label for="post-image">Image Url</label>
-        <input [formControlName]="'img'" class="form-control" id="post-image"/>
+        <input formControlName="img" class="form-control" id="post-image"/>
     </div>    
     <div class="form-group">
         <label for="post-tags">Tags</label>
-        <textarea [formControlName]="'tags'" class="form-control" id="post-tags" rows="1"></textarea>
+        <textarea formControlName="tags" class="form-control" id="post-tags" rows="1"></textarea>
 
     </div>
     <div class="form-group">
         <label for="post-description">Description</label>
-        <textarea [formControlName]="'description'" class="form-control" id="post-description" rows="1"></textarea>
-    </div>    
+        <textarea formControlName="description" class="form-control" id="post-description" rows="5"></textarea>
+    </div>   
     <div class="form-group">
         <label for="post-text">Text</label>
-        <textarea [formControlName]="'text'" class="form-control" id="post-text" rows="5"></textarea>
+        <textarea formControlName="text" class="form-control" id="post-text" rows="5"></textarea>
     </div>
 
     <button type="submit" [disabled]="!postForm.valid" class="btn btn-primary">Save</button>
