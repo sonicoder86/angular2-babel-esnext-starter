@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { FORM_DIRECTIVES, FormBuilder, Validators } from '@angular/common';
+import { REACTIVE_FORM_DIRECTIVES, FormBuilder, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 
 import template from './login.template.html';
@@ -9,8 +9,8 @@ import { validatorFactory } from '../../../posts/validator';
 @Component({
   selector: 'login',
   template: template,
-  directives: [FORM_DIRECTIVES],
-  styleUrls:['css/login.css']
+  styleUrls:['css/login.css'],
+  directives: [REACTIVE_FORM_DIRECTIVES]
 })
 export class LoginComponent {
 
@@ -19,7 +19,7 @@ export class LoginComponent {
     this._router = router;
 
     this.loginForm = builder.group({
-      email: ['', Validators.compose([Validators.required, validatorFactory('email')])],
+      email: ['', [Validators.required, validatorFactory('email')]],
       password: ['', Validators.required]
     });
   }

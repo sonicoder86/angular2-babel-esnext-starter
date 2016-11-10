@@ -1,26 +1,28 @@
-<form (ngSubmit)="onSubmit(postForm.value)" [ngFormModel]="postForm">
+<form (ngSubmit)="onSubmit(postForm.value)" [formGroup]="postForm">
     <div class="form-group">
         <label for="post-name">Name</label>
-        <input type="text" [ngFormControl]="postForm.controls['name']" #name="ngForm" class="form-control" id="post-name">
+        <input type="text" formControlName="name" class="form-control" id="post-name">
     </div>
-    <div *ngIf="name.control.hasError('required') && name.control.touched" class="alert alert-danger">
+    <div *ngIf="postForm.controls.name.hasError('required') && postForm.controls.name.touched" class="alert alert-danger">
         Name is required
     </div>
     <div class="form-group">
+
         <label for="post-image">Image Url</label>
-        <input [ngFormControl]="postForm.controls['img']" class="form-control" id="post-image"/>
+        <input [formControlName]="'img'" class="form-control" id="post-image"/>
     </div>    
     <div class="form-group">
         <label for="post-tags">Tags</label>
-        <textarea [ngFormControl]="postForm.controls['tags']" class="form-control" id="post-tags" rows="1"></textarea>
+        <textarea [formControlName]="'tags'" class="form-control" id="post-tags" rows="1"></textarea>
+
     </div>
     <div class="form-group">
         <label for="post-description">Description</label>
-        <textarea [ngFormControl]="postForm.controls['description']" class="form-control" id="post-description" rows="1"></textarea>
+        <textarea [formControlName]="'description'" class="form-control" id="post-description" rows="1"></textarea>
     </div>    
     <div class="form-group">
         <label for="post-text">Text</label>
-        <textarea [ngFormControl]="postForm.controls['text']" class="form-control" id="post-text" rows="5"></textarea>
+        <textarea [formControlName]="'text'" class="form-control" id="post-text" rows="5"></textarea>
     </div>
 
     <button type="submit" [disabled]="!postForm.valid" class="btn btn-primary">Save</button>

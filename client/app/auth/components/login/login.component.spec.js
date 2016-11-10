@@ -1,5 +1,5 @@
-import { TestComponentBuilder } from '@angular/compiler/testing';
-import { FormBuilder } from '@angular/common';
+import { TestComponentBuilder } from '@angular/core/testing';
+import { disableDeprecatedForms, provideForms } from '@angular/forms';
 import { HTTP_PROVIDERS } from '@angular/http';
 import { Observable } from 'rxjs/Observable';
 
@@ -18,13 +18,17 @@ describe('LoginComponent', () => {
   let subjectElement;
   let credentials = { email: 'test@gmail.com', password: 'secret' };
 
-  beforeEachProviders(() => [
-    TestComponentBuilder,
-    FormBuilder,
-    HTTP_PROVIDERS,
-    AUTH_TESTING_PROVIDERS,
-    CORE_TESTING_PROVIDERS
-  ]);
+
+  beforeEach(() => {
+    addProviders([
+      TestComponentBuilder,
+      disableDeprecatedForms(),
+      provideForms(),
+      HTTP_PROVIDERS,
+      AUTH_TESTING_PROVIDERS,
+      CORE_TESTING_PROVIDERS
+    ]);
+  });
 
   beforeEach(async(inject([TestComponentBuilder], (componentBuilder) => {
     return componentBuilder

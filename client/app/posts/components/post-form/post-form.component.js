@@ -1,12 +1,13 @@
 import { Component, EventEmitter, Input, Output } from '@angular/core';
-import { FormBuilder, Validators } from '@angular/common';
+import { REACTIVE_FORM_DIRECTIVES, FormBuilder, Validators } from '@angular/forms';
 
 import template from './post-form.template.html';
 import { validatorFactory } from '../../validator';
 
 @Component({
   selector: 'post-form',
-  template: template
+  template: template,
+  directives: [REACTIVE_FORM_DIRECTIVES]
 })
 export class PostFormComponent {
   @Input() post;
@@ -14,7 +15,9 @@ export class PostFormComponent {
   @Output() saved = new EventEmitter();
 
   constructor(builder: FormBuilder) {
-    this.postForm = builder.group({
+    this._builder = builder;
+
+    this.postForm = this._builder.group({
       _id: [''],
       name: ['', Validators.required],
       tags: ['', Validators.required],

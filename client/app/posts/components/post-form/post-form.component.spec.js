@@ -1,6 +1,7 @@
-import { FormBuilder } from '@angular/common';
 import { Injector, Component, EventEmitter } from '@angular/core';
-import { TestComponentBuilder } from '@angular/compiler/testing';
+
+import { TestComponentBuilder } from '@angular/core/testing';
+import { disableDeprecatedForms, provideForms } from '@angular/forms';
 
 import { PostFormComponent } from './post-form.component';
 
@@ -42,7 +43,13 @@ describe('FormComponent', () => {
     expect(element.querySelector('#post-description').value).toBe(examplePost.description);
   }
 
-  beforeEachProviders(() => [TestComponentBuilder, FormBuilder]);
+  beforeEach(() => {
+    addProviders([
+      TestComponentBuilder,
+      disableDeprecatedForms(),
+      provideForms()
+    ]);
+  });
 
   beforeEach(inject([Injector], (injector) => {
     builder = injector.get(TestComponentBuilder);
