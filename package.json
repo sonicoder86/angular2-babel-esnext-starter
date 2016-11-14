@@ -30,7 +30,7 @@
     "co-monk": "^1.0.0",
     "jsonwebtoken": "7.0.1",
     "koa": "1.2.4",
-    "koa-bodyparser": "2.2.0",
+    "koa-bodyparser": "2.3.0",
     "koa-jwt": "1.2.0",
     "koa-router": "5.4.0",
     "koa-static": "2.0.0",
