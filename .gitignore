@@ -5,3 +5,4 @@ deploy
 jsconfig.json
 coverage
 npm-debug.log
+.DS_Store
