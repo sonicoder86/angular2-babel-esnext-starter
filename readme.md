@@ -58,7 +58,7 @@ It bundles the application, copies the static files and starts the webserver wit
 The transpiled application will have two separate ES5 compatible files: ```vendor.js``` for vendor libraries, ```boot.js``` for application logic.
 Server side changes restart the server, client side changes rebundle the Angular 2 application and refresh the page with Livereload.
 
-Note: The application needs at least Node 4+ installed.
+Note: The application needs at least Node 5+ installed.
 
 Open it in your browser [http://localhost:9000](http://localhost:9000) and start coding your first Angular 2 application in Javascript!
 
