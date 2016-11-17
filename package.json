@@ -39,7 +39,7 @@
     "node-uuid": "1.4.7"
   },
   "devDependencies": {
-    "angular2-bundle": "2.2.0",
+    "angular2-bundle": "2.2.1",
     "babel-core": "6.18.2",
     "babel-eslint": "7.1.0",
     "babel-loader": "6.2.7",
