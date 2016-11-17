@@ -41,7 +41,7 @@
   "devDependencies": {
     "angular2-bundle": "2.2.1",
     "babel-core": "6.18.2",
-    "babel-eslint": "7.1.0",
+    "babel-eslint": "7.1.1",
     "babel-loader": "6.2.7",
     "babel-plugin-__coverage__": "11.0.0",
     "babel-preset-angular2": "0.0.2",
