@@ -14,14 +14,16 @@ import { UserService } from '../../../auth';
 export class PostListComponent {
   constructor(postService: PostService, userService: UserService, route: ActivatedRoute/*, params: RouteParams*/) {
     this._postService = postService;
-    this._userService = userService;    
-  //  this._currentCategory = this._params.get('category') || 'Angular2';
-    this._currentCategory = route.params.value.category || 'Angular2';
-    
+    this._userService = userService;
+    this._route = route;   
   }
 
   ngOnInit() {
-    this._postService.refreshPosts(this._currentCategory);
+    this._route.params.subscribe(params => {
+       this._currentCategory = params['category'] || 'Angular2';;
+       this._postService.refreshPosts(this._currentCategory);   
+    });
+    
   }
 
   getRemotePosts() {
