@@ -13,7 +13,7 @@ import { CORE_PROVIDERS, CORE_DECLARATIONS, AppComponent } from './app/core';
 import { AUTH_PROVIDERS, AUTH_DECLARATIONS } from './app/auth';
 import { POSTS_PROVIDERS, POSTS_DECLARATIONS } from './app/posts';
 import { CATEGORIES_PROVIDERS, CATEGORIES_DECLARATIONS } from './app/categories';
-
+import { MaterialModule } from '@angular/material';
 
 if (ENVIRONMENT === 'production') {
   enableProdMode();
@@ -25,7 +25,8 @@ if (ENVIRONMENT === 'production') {
     HttpModule, BrowserModule, FormsModule, ReactiveFormsModule,
     RouterModule.forRoot(routes, {
       useHash: true
-    })
+    }),
+    MaterialModule.forRoot()
   ],
   providers: [
     CORE_PROVIDERS, AUTH_PROVIDERS, POSTS_PROVIDERS, CATEGORIES_PROVIDERS,

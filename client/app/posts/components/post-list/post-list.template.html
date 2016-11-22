@@ -6,8 +6,10 @@
             <a [routerLink]="['new']" *ngIf="getLoggedIn() | async" class="btn btn-primary pull-right">New post</a>
         </ol>
          
-
-        <div class="list-group row">
+        <div class="text-center row" *ngIf="showSpinner"> 
+            <md-spinner color="accent" class="app-spinner" style="height:30px;width:30px;margin:auto"></md-spinner>
+        </div>
+        <div class="list-group row" *ngIf="!showSpinner">           
             <post-list-item *ngFor="let post of getRemotePosts() | async" [post]="post"></post-list-item>
         </div>
     </div>
