@@ -43,10 +43,19 @@ export class PostService {
   
   getPostById(id) {
     return this._http.get(`/article/${id}`)
-      .map(res => res.json());
+      .map(res => {
+       let r = res.json();
+       //treat the atgs
+       r.tags = r.tags.split(',')
+       return r
+      });
   }
   
   updatePost(post) {
+    //treat the tags
+    if( post.tags && post.tags.length) {
+       post.tags = post.tags.join(',');
+    }
     return this._http
       .post(`/post/${post._id}`, JSON.stringify(post), { headers: this._request.getAuthHeaders() })
       .map(res => res.json());

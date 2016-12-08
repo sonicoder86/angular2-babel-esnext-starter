@@ -1,29 +1,21 @@
-<form (ngSubmit)="onSubmit(postForm.value)" [formGroup]="postForm">
-    <div class="form-group">
-        <label for="post-name">Name</label>
-        <input type="text" formControlName="name" class="form-control" id="post-name">
-    </div>
-    <div *ngIf="postForm.controls.name.hasError('required') && postForm.controls.name.touched" class="alert alert-danger">
-        Name is required
-    </div>
-    <div class="form-group">
 
-        <label for="post-image">Image Url</label>
-        <input formControlName="img" class="form-control" id="post-image"/>
-    </div>    
-    <div class="form-group">
-        <label for="post-tags">Tags</label>
-        <textarea formControlName="tags" class="form-control" id="post-tags" rows="1"></textarea>
+<md-card-content>
+    <form (ngSubmit)="onSubmit(postForm.value)" [formGroup]="postForm">
+      
+        <md-input    formControlName="name" placeholder="Name"   id="post-name" style="width:100%"></md-input>
+        
+        <div *ngIf="postForm.controls.name.hasError('required') && postForm.controls.name.touched" class="alert alert-danger">
+            Name is required
+        </div>
 
-    </div>
-    <div class="form-group">
-        <label for="post-description">Description</label>
-        <textarea formControlName="description" class="form-control" id="post-description" rows="5"></textarea>
-    </div>   
-    <div class="form-group">
-        <label for="post-text">Text</label>
-        <textarea formControlName="text" class="form-control" id="post-text" rows="5"></textarea>
-    </div>
+        <md-input     formControlName="img"  placeholder="Img Url" id="post-image" style="width:100%"></md-input>
+               
+        <tags         formControlName="tags" placeholder="Tags" id="post-tags" style="width:100%" (tagsfocusedChange)="tagsFocused=$event"></tags>
+             
+        <md-textarea  formControlName="description" placeholder="Description" id="post-description"  style="width:100%"></md-textarea>
+         
+        <md-textarea  formControlName="text" md-autosize placeholder="Text" id="post-text" rows="5" style="width:100%"></md-textarea>
 
-    <button type="submit" [disabled]="!postForm.valid" class="btn btn-primary">Save</button>
-</form>
+        <button type="submit" [disabled]="!postForm.valid" class="btn btn-primary">Save</button>
+    </form>
+</md-card-content>

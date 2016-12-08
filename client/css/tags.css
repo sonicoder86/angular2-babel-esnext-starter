@@ -1,0 +1,40 @@
+.md-chip {
+    background-color: #e0e0e0;
+    color: rgba(0, 0, 0, 0.87);
+}
+.md-chip-list input {
+    border:none; 
+    outline:0;
+    background:transparent;
+}
+.md-chip-list .material-icons{
+    height: 15px;
+    width: 15px;
+    float: right;
+    position: relative;
+    font-size: 15px;
+    border-radius: 10px;
+    left: 5px;
+    cursor: pointer;
+}
+.md-chip-list .material-icons:hover{
+    background:gray;
+    color:black;
+}
+.md-chip-list {
+
+  padding-bottom:5px;
+  box-shadow: 0 1px rgba(0,0,0,0.12);  
+}
+.md-chip-list.md-focused{
+    box-shadow: 0 2px rgba(16, 108, 200,1); 
+}
+.md-chip {
+  display: inline-block;
+  padding: 8px 12px 8px 12px;
+    
+  border-radius: 16px;
+
+  font-size: 13px;
+  line-height: 16px;
+}

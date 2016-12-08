@@ -3,6 +3,7 @@ import { REACTIVE_FORM_DIRECTIVES, FormBuilder, Validators } from '@angular/form
 
 import template from './post-form.template.html';
 import { validatorFactory } from '../../validator';
+import {Tags} from '../tags/tags';
 
 @Component({
   selector: 'post-form',
@@ -13,7 +14,7 @@ export class PostFormComponent {
   @Input() post;
 
   @Output() saved = new EventEmitter();
-
+  tagsFocused =false;
   constructor(builder: FormBuilder) {
     this._builder = builder;
 
@@ -40,6 +41,7 @@ export class PostFormComponent {
   }
 
   onSubmit(post) {
+    if(this.tagsFocused) return;
     this.saved.emit(post);
   }
 }
