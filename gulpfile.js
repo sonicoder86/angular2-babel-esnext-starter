@@ -8,6 +8,7 @@ let clientTestTask = require('./tasks/client_test');
 let stylesheetTask = require('./tasks/stylesheet');
 let liveReloadTask = require('./tasks/livereload');
 let serverStartTasks = require('./tasks/server_start');
+let mockServerStartTask = require('./tasks/mock_server_start')
 let serverCopyTask = require('./tasks/server_copy');
 let generalCopyTask = require('./tasks/general_copy');
 let cleanTask = require('./tasks/clean');
@@ -15,6 +16,7 @@ let protractorTask = require('./tasks/protractor');
 let eslintTask = require('./tasks/eslint');
 
 gulp.task('server-start', serverStartTasks());
+gulp.task('mock-server-start', mockServerStartTask());
 gulp.task('server-copy-dist', serverCopyTask());
 
 gulp.task('general-copy-dist', generalCopyTask());
@@ -41,7 +43,14 @@ gulp.task('serve', function(done) {
     done
   )
 });
-
+gulp.task('serve-mock', function(done) {
+  runSequence(
+    'clean',
+    ['client-build', 'client-copy', 'client-stylesheet', 'livereload'],
+    'mock-server-start',
+    done
+  )
+});
 gulp.task('test', function(done) {
   runSequence(
     'client-test',

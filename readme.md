@@ -65,6 +65,16 @@ Note: The application needs at least Node 4+ installed.
 
 Open it in your browser [http://localhost:9000](http://localhost:9000) and start coding your first Angular 2 application in Javascript!
 
+### Run against mock server
+
+```bash
+
+gulp serve-mock
+
+```
+
+
+
 ### Testing
 
 ```bash
