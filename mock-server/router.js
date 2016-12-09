@@ -71,7 +71,7 @@ router.get('/posts/:tag', function*() {
 });
 
 router.get('/article/:id', function*() {
-  var res = yield articles.filter((a)=>a._id=== ObjectId(this.params.id))[0];
+  var res = yield articles.filter((a)=>a._id=== this.params.id)[0];
   res.tags = res.tags.join(',');
   this.body = res;
 });
