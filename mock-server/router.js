@@ -104,10 +104,11 @@ router.post('/post', jwtMiddleware, function*() {
 router.post('/login', function*() {
   let email = this.request.body.email;
   let password = this.request.body.password;
-
-  let res = yield users[0];
+  let result = {};
+  let res = yield users;
 
   if (res.length) {
+    console.log('LOGIN SUCCESS')
     result.success = true;
     result.auth_token = jwt.sign({ email: email }, config.jwt_secret);
   }
