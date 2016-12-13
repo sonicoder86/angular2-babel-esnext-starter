@@ -21,7 +21,7 @@ export class PostFormComponent {
     this.postForm = this._builder.group({
       _id: [''],
       name: ['', Validators.required],
-      tags: ['', Validators.required],
+      tags: [[], Validators.required],
       img: [''],
       description: ['', Validators.required],
     //  website: ['', Validators.compose([Validators.required, validatorFactory('url')])],
