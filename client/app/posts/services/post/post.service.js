@@ -13,6 +13,12 @@ export class PostService {
     this._request = request;
   }
 
+  treatTags(post) {
+    if( post.tags && post.tags.length) {
+       post.tags = post.tags.join(',');
+    }
+  }
+
   refreshPosts(category) {
     let url = !category ? '/posts' : '/posts/' + category;
     let postsResponse = this._http.get(url)
@@ -31,6 +37,7 @@ export class PostService {
   }
 
   addPost(post) {
+    this.treatTags(post);
     return this._http
       .post('/post', JSON.stringify(post), { headers: this._request.getAuthHeaders() })
       .map(res => res.json());
@@ -52,10 +59,7 @@ export class PostService {
   }
   
   updatePost(post) {
-    //treat the tags
-    if( post.tags && post.tags.length) {
-       post.tags = post.tags.join(',');
-    }
+    this.treatTags(post);
     return this._http
       .post(`/post/${post._id}`, JSON.stringify(post), { headers: this._request.getAuthHeaders() })
       .map(res => res.json());
