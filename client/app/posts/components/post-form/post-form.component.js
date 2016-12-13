@@ -3,7 +3,6 @@ import { REACTIVE_FORM_DIRECTIVES, FormBuilder, Validators } from '@angular/form
 
 import template from './post-form.template.html';
 import { validatorFactory } from '../../validator';
-import {Tags} from '../tags/tags';
 
 @Component({
   selector: 'post-form',
@@ -24,7 +23,6 @@ export class PostFormComponent {
       tags: [[], Validators.required],
       img: [''],
       description: ['', Validators.required],
-    //  website: ['', Validators.compose([Validators.required, validatorFactory('url')])],
       text: ['']
     });
   }

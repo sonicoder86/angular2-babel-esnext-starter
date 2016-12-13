@@ -8,9 +8,9 @@
             Name is required
         </div>
 
-        <md-input     formControlName="img"  placeholder="Img Url" id="post-image" style="width:100%"></md-input>
-               
-        <tags         formControlName="tags" placeholder="Tags" id="post-tags" style="width:100%" (tagsfocusedChange)="tagsFocused=$event"></tags>
+        <md-input     formControlName="img"  placeholder="Img Url" id="post-image" style="width:100%"></md-input>  
+                     
+        <material-chips formControlName="tags" placeholder="Tags" id="post-tags" style="width:100%" (tagsfocusedChange)="tagsFocused=$event"></material-chips>
              
         <md-textarea  formControlName="description" placeholder="Description" id="post-description"  style="width:100%"></md-textarea>
          

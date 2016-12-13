@@ -14,6 +14,7 @@ import { AUTH_PROVIDERS, AUTH_DECLARATIONS } from './app/auth';
 import { POSTS_PROVIDERS, POSTS_DECLARATIONS } from './app/posts';
 import { CATEGORIES_PROVIDERS, CATEGORIES_DECLARATIONS } from './app/categories';
 import { MaterialModule } from '@angular/material';
+import {MaterialChipsModule} from 'angular2-material-chips';
 
 if (ENVIRONMENT === 'production') {
   enableProdMode();
@@ -22,7 +23,7 @@ if (ENVIRONMENT === 'production') {
 @NgModule({
   declarations: [CORE_DECLARATIONS, AUTH_DECLARATIONS, POSTS_DECLARATIONS, CATEGORIES_DECLARATIONS],
   imports: [
-    HttpModule, BrowserModule, FormsModule, ReactiveFormsModule,
+    HttpModule, BrowserModule, FormsModule, ReactiveFormsModule, MaterialChipsModule,
     RouterModule.forRoot(routes, {
       useHash: true
     }),
