@@ -28,9 +28,11 @@ export class UserService {
         if (res.success) {
           this._storage.setAuthToken(res.auth_token);
           this._loggedIn.next(true);
+        } else { //ERROR
+          this._loggedIn.next(res);
         }
 
-        return res.success;
+        return res;
       });
   }
 

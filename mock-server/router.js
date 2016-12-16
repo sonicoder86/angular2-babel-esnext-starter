@@ -115,8 +115,7 @@ router.post('/login', function*() {
     result.success = true;
     result.auth_token = jwt.sign({ email: email }, config.jwt_secret);
   } else {
-    console.log('LOGIN FAILURE')
-    result.success = false;
+    result.message  = 'worng credentials'
   }
 
   this.body = result;

@@ -71,6 +71,8 @@ router.post('/login', function*() {
   if (res.length) {
     result.success = true;
     result.auth_token = jwt.sign({ email: email }, config.jwt_secret);
+  } else {
+    result.message  = 'worng credentials'
   }
 
   this.body = result;

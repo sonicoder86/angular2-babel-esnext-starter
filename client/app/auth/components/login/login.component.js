@@ -17,7 +17,7 @@ export class LoginComponent {
   constructor(userService: UserService, builder: FormBuilder, router: Router) {
     this._userService = userService;
     this._router = router;
-
+    this.serverError = null;
     this.loginForm = builder.group({
       email: ['', [Validators.required, validatorFactory('email')]],
       password: ['', Validators.required]
@@ -26,9 +26,16 @@ export class LoginComponent {
 
   onSubmit(credentials) {
     this._userService.login(credentials).subscribe((result) => {
-      if (result) {
+      if (result.success) {
         this._router.navigate(['']);
+      } else {
+        this.serverError = result;
+        console.log('RESULT:' , result)
       }
+    },error=>{
+      console.log('ERR RESULT:' , result)
+      this.serverError = error;
     });
+    
   }
 }

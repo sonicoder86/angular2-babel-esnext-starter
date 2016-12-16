@@ -2,6 +2,9 @@
     <div class="col-xl-4 col-md-4 col-xs-10 col-xl-offset-4 col-md-offset-4 col-xs-offset-1">
         <h3 class="widget-login-logo animated fadeInUp">Login</h3>
         <section class="widget widget-login animated fadeInUp">
+           <div *ngIf="serverError" class="alert alert-danger">
+            {{serverError.message}}
+           </div>           
             <form (ngSubmit)="onSubmit(loginForm.value)" [formGroup]="loginForm" class="login-form">
                 <div class="form-group">
                     <label for="login-email">Email</label>
