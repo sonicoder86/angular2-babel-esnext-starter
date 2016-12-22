@@ -23,7 +23,7 @@ if (ENVIRONMENT === 'production') {
 @NgModule({
   declarations: [CORE_DECLARATIONS, AUTH_DECLARATIONS, POSTS_DECLARATIONS, CATEGORIES_DECLARATIONS],
   imports: [
-    HttpModule, BrowserModule, FormsModule, ReactiveFormsModule, MaterialChipsModule,
+    HttpModule, BrowserModule, FormsModule, ReactiveFormsModule,/* MaterialChipsModule,*/
     RouterModule.forRoot(routes, {
       useHash: true
     }),
