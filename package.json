@@ -48,7 +48,7 @@
     "core-js": "2.4.1",
     "rxjs": "5.0.0-rc.4",
     "zone.js": "0.7.2",
-    "babel-core": "6.20.0",
+    "babel-core": "6.21.0",
     "babel-eslint": "7.1.1",
     "babel-loader": "6.2.10",
     "babel-plugin-__coverage__": "11.0.0",
