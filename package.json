@@ -63,7 +63,7 @@
     "gulp-eslint": "3.0.1",
     "gulp-less": "3.3.0",
     "gulp-nodemon": "2.2.1",
-    "gulp-util": "3.0.7",
+    "gulp-util": "3.0.8",
     "gulp-watch": "4.3.11",
     "jasmine-core": "2.5.2",
     "json-loader": "0.5.4",
