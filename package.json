@@ -46,7 +46,7 @@
     "@angular/platform-browser-dynamic": "2.4.1",
     "@angular/router": "3.4.1",
     "core-js": "2.4.1",
-    "rxjs": "5.0.2",
+    "rxjs": "5.0.3",
     "zone.js": "0.7.4",
     "babel-core": "6.21.0",
     "babel-eslint": "7.1.1",
