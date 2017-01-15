@@ -3,7 +3,7 @@ let router = require('koa-router')();
 let jwt = require('jsonwebtoken');
 let config = require('./config');
 let jwtMiddleware = require('koa-jwt')({ secret: config.jwt_secret });
-let uuid = require('node-uuid');
+let uuid = require('uuid');
 console.log('HELLO MOCK SERVER!!!')
 let categories = [{
     "_id" : uuid.v4(),
