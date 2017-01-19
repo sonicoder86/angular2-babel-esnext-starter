@@ -14,7 +14,6 @@ import { AUTH_PROVIDERS, AUTH_DECLARATIONS } from './app/auth';
 import { POSTS_PROVIDERS, POSTS_DECLARATIONS } from './app/posts';
 import { CATEGORIES_PROVIDERS, CATEGORIES_DECLARATIONS } from './app/categories';
 import { MaterialModule } from '@angular/material';
-import {MaterialChipsModule} from 'angular2-material-chips';
 
 if (ENVIRONMENT === 'production') {
   enableProdMode();
