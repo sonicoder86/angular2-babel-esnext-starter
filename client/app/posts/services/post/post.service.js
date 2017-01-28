@@ -18,7 +18,13 @@ export class PostService {
        post.tags = post.tags.join(',');
     }
   }
+  prettify(nm) {//replaces '-'->* and spaces ''->_ and brackets ()->^
+    return nm.replace(/\-/g,'*').replace(/\s+/g,'_').replace(/[{()}]/g, '^');
+  }
 
+  treatPrettyName(post) {
+      post.prettyName = this.prettify(post.name);
+  }
   refreshPosts(category) {
     let url = !category ? '/posts' : '/posts/' + category;
     let postsResponse = this._http.get(url)
@@ -37,6 +43,7 @@ export class PostService {
   }
 
   addPost(post) {
+    this.treatPrettyName(post);
     this.treatTags(post);
     return this._http
       .post('/post', JSON.stringify(post), { headers: this._request.getAuthHeaders() })
@@ -59,6 +66,7 @@ export class PostService {
   }
   
   updatePost(post) {
+    this.treatPrettyName(post);
     this.treatTags(post);
     return this._http
       .post(`/post/${post._id}`, JSON.stringify(post), { headers: this._request.getAuthHeaders() })

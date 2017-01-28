@@ -26,6 +26,7 @@ let articles = [
 {
     "_id" :  uuid.v4(),
     "name" : "angular2 - first step",
+    "prettyName":"angular2_*_first_step",
     "tags" : [ 
         "Angular2", 
         "beginners", 
@@ -38,6 +39,7 @@ let articles = [
 {
     "_id" :  uuid.v4(),
     "name" : "Creating chart component - angular2",
+    "prettyName":"Creating_chart_component_*_angular2",
     "tags" : [ 
         "Angular2"
     ],
@@ -77,11 +79,12 @@ router.get('/article/:id', function*() {
 });
 
 router.get('/post/:name', function*() {
-  var res = yield articles.filter((a)=>a.name=== this.params.name.replace(/\-/g,' ').replace(/\*/g,'-'))[0];
+  var res = yield articles.filter((a)=>a.prettyName=== this.params.name)[0];
   this.body = res;
 });
 
 router.post('/post/:id', jwtMiddleware, function*() {
+  console.log('HA: '+this.request.body.prettyName);
   this.request.body.tags = this.request.body.tags.split(','); 
   this.body = this.request.body;
 });

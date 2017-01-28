@@ -37,7 +37,7 @@ router.get('/article/:id', function*() {
 });
 
 router.get('/post/:name', function*() {
-  var res = yield articles.findOne({name: this.params.name.replace(/\-/g,' ').replace(/\*/g,'-')});
+  var res = yield articles.findOne({prettyName: this.params.name});
   this.body = res;
 });
 

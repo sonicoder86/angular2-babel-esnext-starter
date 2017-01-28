@@ -24,7 +24,7 @@
   ],
   "description": "Angular 2 development in Javascript with ES6/ES7 syntax powered by Babel.",
   "engines": {
-    "node": "4.4.2"
+    "node": "7.1.0"
   },
   "dependencies": {
     "co-monk": "^1.0.0",
