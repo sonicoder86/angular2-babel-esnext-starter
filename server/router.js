@@ -51,6 +51,7 @@ router.post('/post/:id', jwtMiddleware, function*() {
 router.post('/post', jwtMiddleware, function*() {
   let newDoc = {
     name:this.request.body.name,
+    prettyName:this.request.body.prettyName,
     tags:this.request.body.tags.split(','),
     text:this.request.body.text,
     img:this.request.body.img,
