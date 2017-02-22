@@ -2,21 +2,26 @@
 <md-card-content>
     <form (ngSubmit)="onSubmit(postForm.value)" [formGroup]="postForm">
       
-        <md-input    formControlName="name" placeholder="Name"   id="post-name" style="width:100%"></md-input>
-        
+        <md-input-container  style="width:100%">
+            <input mdInput formControlName="name" placeholder="Name"   id="post-name" />
+        </md-input-container>
         <div *ngIf="postForm.controls.name.hasError('required') && postForm.controls.name.touched" class="alert alert-danger">
             Name is required
-        </div>
-
-        <md-input     formControlName="img"  placeholder="Img Url" id="post-image" style="width:100%"></md-input>  
-                     
-        <!--tags-->
-         <tags        formControlName="tags" placeholder="Tags" id="post-tags" style="width:100%" (tagsfocusedChange)="tagsFocused=$event"></tags>
-
-        <md-textarea  formControlName="description" placeholder="Description" id="post-description"  style="width:100%"></md-textarea>
+       </div>
+ 
+        <md-input-container  style="width:100%">
+            <input mdInput  formControlName="img"  placeholder="Img Url" id="post-image"/>  
+        </md-input-container> 
          
-        <md-textarea  formControlName="text" md-autosize placeholder="Text" id="post-text" rows="5" style="width:100%"></md-textarea>
+        <!--tags-->
+         <tags    formControlName="tags" placeholder="Tags" id="post-tags" style="width:100%" (tagsfocusedChange)="tagsFocused=$event"></tags>
 
+        <md-input-container style="width:100%">
+           <textarea  mdInput formControlName="description" placeholder="Description" id="post-description"  ></textarea>
+        </md-input-container>
+        <md-input-container style="width:100%">
+           <textarea  mdInput formControlName="text" md-autosize placeholder="Text" id="post-text" rows="5" ></textarea>
+        </md-input-container>
         <button type="submit" [disabled]="!postForm.valid" class="btn btn-primary">Save</button>
     </form>
 </md-card-content>

@@ -13,5 +13,7 @@
       </span>
     </div>
     <div *ngIf="!values || !values.length">
-      <md-input placeholder="Tags" #tbox  style="width:100%" (keyup.enter)="addValue(tbox.value, $event);$event.preventDefault()"></md-input>
+      <md-input-container style="width:100%">
+        <input mdInput placeholder="Tags" #tbox  (keyup.enter)="addValue(tbox.value, $event);$event.preventDefault()"/>
+      </md-input-container>
     </div>
