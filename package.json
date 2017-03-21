@@ -79,6 +79,6 @@
     "raw-loader": "0.5.1",
     "run-sequence": "1.2.2",
     "validate.js": "0.11.1",
-    "webpack": "1.14.0"
+    "webpack": "2.3.0"
   }
 }
