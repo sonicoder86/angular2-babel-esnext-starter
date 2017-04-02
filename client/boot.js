@@ -7,7 +7,7 @@ import { enableProdMode, NgModule } from '@angular/core';
 import { HttpModule } from '@angular/http';
 import { RouterModule } from '@angular/router';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
-import { TranslateModule } from 'ng2-translate';
+import { TranslateModule } from '@ngx-translate/core';
 
 import { routes } from './app/core/app.routes';
 import { CORE_PROVIDERS, CORE_DECLARATIONS, AppComponent } from './app/core';

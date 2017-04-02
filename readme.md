@@ -1,19 +1,19 @@
-# Angular 2 Babel ESNext Starter
+# Angular Babel ESNext Starter
 [![Dependency Status](https://david-dm.org/blacksonic/angular2-babel-esnext-starter.svg)](https://david-dm.org/blacksonic/angular2-babel-esnext-starter)
 [![devDependency Status](https://david-dm.org/blacksonic/angular2-babel-esnext-starter/dev-status.svg)](https://david-dm.org/blacksonic/angular2-babel-esnext-starter?type=dev)
 [![Build Status](https://travis-ci.org/blacksonic/angular2-babel-esnext-starter.svg?branch=master)](https://travis-ci.org/blacksonic/angular2-babel-esnext-starter)
 
-This repository shows development and testing techniques with [Angular 2](https://angular.io/).
+This repository shows development and testing techniques with [Angular](https://angular.io/).
 The application is written in modern Javascript without Typescript.
-It can be ideal for those who are new to Angular 2 and want to learn how things work 
+It can be ideal for those who are new to Angular and want to learn how things work 
 and fiddle with Typescript later.
 
 It is a basic CRUD application with authentication, similar to the news site [jslive.com](https://jslive.com).
 You can see the list of links, add and edit them after you signed in.
 
-> If you're looking for Angular 2 in Javascript without Gulp tasks and server side check out [angular2-esnext-todomvc](https://github.com/blacksonic/angular2-esnext-todomvc)
+> If you're looking for Angular in Javascript without Gulp tasks and server side check out [angular2-esnext-todomvc](https://github.com/blacksonic/angular2-esnext-todomvc)
 
-> If you're looking for Angular 2 in Typescript check out [angular2-webpack-starter](https://github.com/AngularClass/angular2-webpack-starter)
+> If you're looking for Angular in Typescript check out [angular2-webpack-starter](https://github.com/AngularClass/angular2-webpack-starter)
 
 - Modern Javascript implementation with classes, decorators.
 - Uses [Babel](https://babeljs.io/) to support decorators.
@@ -40,7 +40,7 @@ You can see the list of links, add and edit them after you signed in.
 - Authentication and restricting access to routes
 - Form handling
 - Using custom validators in forms
-- Internationalization with [ng2-translate](https://github.com/ocombe/ng2-translate)
+- Internationalization with [ngx-translate](https://github.com/ngx-translate/core)
 
 ### Quick Start
 
@@ -56,11 +56,11 @@ gulp serve
 
 It bundles the application, copies the static files and starts the webserver with Nodemon.
 The transpiled application will have two separate ES5 compatible files: ```vendor.js``` for vendor libraries, ```boot.js``` for application logic.
-Server side changes restart the server, client side changes rebundle the Angular 2 application and refresh the page with Livereload.
+Server side changes restart the server, client side changes rebundle the Angular application and refresh the page with Livereload.
 
-Note: The application needs at least Node 5+ installed.
+Note: The application needs at least Node 6+ installed.
 
-Open it in your browser [http://localhost:9000](http://localhost:9000) and start coding your first Angular 2 application in Javascript!
+Open it in your browser [http://localhost:9000](http://localhost:9000) and start coding your first Angular application in Javascript!
 
 ### Testing
 
@@ -83,7 +83,7 @@ gulp test-dev
 
 ```
 
-To get a good overview of testing possibilities within Angular 2 [read this article](https://medium.com/google-developer-experts/angular-2-unit-testing-with-jasmine-defe20421584).
+To get a good overview of testing possibilities within Angular [read this article](https://medium.com/google-developer-experts/angular-2-unit-testing-with-jasmine-defe20421584).
 
 ### Workarounds
 
