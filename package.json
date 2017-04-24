@@ -28,7 +28,7 @@
     "node": "6.5.0"
   },
   "dependencies": {
-    "jsonwebtoken": "~7.3.0",
+    "jsonwebtoken": "~7.4.0",
     "koa": "1.2.5",
     "koa-bodyparser": "2.3.0",
     "koa-jwt": "1.3.1",
